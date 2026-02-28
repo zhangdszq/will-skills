@@ -92,7 +92,7 @@ api_get "/international/api/product/list/?start=0&limit=10&productName=精确名
 api_get "/international/api/product/detail?productId=<ID>"
 ```
 
-**新建商品包**（必填：`name` + `productTypeId=3` + `multiCurrencyPricingData` 至少一条）
+**新建商品包**（必填：`name` + `productTypeId=3` + `localeCurrencyRealPrice` + `multiCurrencyPricingData` 至少一条）
 ```bash
 api_post "/international/order-service/api/product/new" '{
   "name": "AIKID-36class-Test", "productTypeId": 3, "saleType": 1,

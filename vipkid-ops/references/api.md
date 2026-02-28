@@ -91,7 +91,7 @@ POST /international/order-service/api/product/new
 | signatureType | byte | | 0=无归属, 1=新签/补差/续费 |
 | summary / thumbnail | string | | 摘要 / 封面图 URL |
 | detail | array | | `[{subProductId*, productCount*}]` |
-| multiCurrencyPricingData | array | ⚠️ 实际必填 | 见下方，传空数组会触发 DB NOT NULL 报错 |
+| multiCurrencyPricingData | array | ✅ 必填 | 见下方，**不传或传 `[]` 均会导致 code 500**，至少包含一条 `isEnabled: 1` 的记录 |
 | content | array | | CMS 内容，传 `[]` |
 
 **multiCurrencyPricingData 结构：**
