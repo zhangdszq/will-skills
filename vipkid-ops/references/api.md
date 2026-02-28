@@ -58,7 +58,7 @@ GET /international/api/product/detail?productId=<id>
 | stockLimit | boolean | 是否限制库存 |
 | signatureType | byte | 见枚举表 |
 | detail | array | 子商品 `[{subProductId, productCount}]` |
-| multiCurrencyPricingList | array | 多币种定价 |
+| multiCurrencyPricingList | array | 多币种定价（⚠️ 仅出参，创建/修改请求用 `multiCurrencyPricingData`） |
 | content | array | CMS 内容 |
 
 ---
@@ -91,7 +91,7 @@ POST /international/order-service/api/product/new
 | signatureType | byte | | 0=无归属, 1=新签/补差/续费 |
 | summary / thumbnail | string | | 摘要 / 封面图 URL |
 | detail | array | | `[{subProductId*, productCount*}]` |
-| multiCurrencyPricingData | array | ✅ 必填 | 见下方，**不传或传 `[]` 均会导致 code 500**，至少包含一条 `isEnabled: 1` 的记录 |
+| multiCurrencyPricingData | array | ✅ 必填 | 见下方，**不传或传 `[]` 均会导致 code 500**，至少包含一条 `isEnabled: 1` 的记录。⚠️ **字段名是 `Data` 不是 `List`**——`multiCurrencyPricingList` 是详情接口的出参字段名，两者不同，不可混用 |
 | content | array | | CMS 内容，传 `[]` |
 
 **multiCurrencyPricingData 结构：**
