@@ -79,6 +79,7 @@ POST /international/order-service/api/product/new
 | saleType | int | | 1=课时, 2=有效期, 3=考试, 4=实物, 5=休学 |
 | originPrice | decimal | | 原价 |
 | realPrice | decimal | | 售卖价 |
+| localeCurrencyRealPrice | decimal | ⚠️ 实际必填 | 本地币种售价，**值与 `realPrice` 相同即可**。字段已废弃但 DB NOT NULL，不传导致 `product_locale_currency_real_price_sum cannot be null` (code 500) |
 | localeDiscount | int | | 1-100（80=八折） |
 | discountType | byte | | 0=无折扣, 1=正常, 2=折上折 |
 | visibility | byte | | 默认 0 |
@@ -112,7 +113,7 @@ POST /international/order-service/api/product/new
 **错误：**
 - `MAINPRODUCT_HAVE_BEEN_RELATED`（子商品已关联）
 - `PRODUCT_DUPLICATE_TAG`（标签重复）
-- `code:500, Column 'product_locale_currency_real_price_sum' cannot be null` → `multiCurrencyPricingData` 为空或未传
+- `code:500, Column 'product_locale_currency_real_price_sum' cannot be null` → 顶层字段 `localeCurrencyRealPrice` 未传（与 `multiCurrencyPricingData` 无关，此为后端已废弃字段但 DB NOT NULL 约束仍在）
 
 ---
 

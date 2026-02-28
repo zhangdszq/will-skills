@@ -30,7 +30,7 @@ python3 ~/.claude/skills/vipkid-ops/scripts/ops_helper.py auth
 
 **获取 token**：Chrome 打开后台 → F12 → Application → Cookies → `intlAuthToken` → 复制 Value。
 
-**`cr_code` 地区码**：`sa`=沙特 · `ae`=阿联酋 · `k2`=海湾 · `hk`=香港 · `tw`=台湾 · `kr`=韩国 · `vn`=越南 · `jp`=日本 · `ts`=测试
+**`cr_code` 地区码**：`sa`=沙特 · `ae`=阿联酋 · `k2`=海湾 · `hk`=香港 · `tw`=台湾 · `kr`=韩国 · `vn`=越南 · `jp`=日本 · `ts`=Tiger
 
 **token 过期**：重新复制后运行：
 ```bash
@@ -96,7 +96,7 @@ api_get "/international/api/product/detail?productId=<ID>"
 ```bash
 api_post "/international/order-service/api/product/new" '{
   "name": "AIKID-36class-Test", "productTypeId": 3, "saleType": 1,
-  "originPrice": "11880.00", "realPrice": "7247.00", "localeDiscount": 61,
+  "originPrice": "11880.00", "realPrice": "7247.00", "localeCurrencyRealPrice": "7247.00", "localeDiscount": 61,
   "discountType": 1, "visibility": 0, "adminVisibility": 1,
   "giftable": 0, "expireTime": 180, "stockLimit": false, "signatureType": 1,
   "detail": [{"subProductId": 100, "productCount": 36}],
