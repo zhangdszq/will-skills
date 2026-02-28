@@ -90,7 +90,7 @@ POST /international/order-service/api/product/new
 | signatureType | byte | | 0=无归属, 1=新签/补差/续费 |
 | summary / thumbnail | string | | 摘要 / 封面图 URL |
 | detail | array | | `[{subProductId*, productCount*}]` |
-| multiCurrencyPricingData | array | | 见下方 |
+| multiCurrencyPricingData | array | ⚠️ 实际必填 | 见下方，传空数组会触发 DB NOT NULL 报错 |
 | content | array | | CMS 内容，传 `[]` |
 
 **multiCurrencyPricingData 结构：**
@@ -104,10 +104,15 @@ POST /international/order-service/api/product/new
 }]
 ```
 > `discountPercent` 传 0-100 整数，后端自动转为小数。`isEnabled`: 0=未启用, 1=启用。
+>
+> ⚠️ **必须至少包含一条启用（`isEnabled: 1`）的记录**，否则后端计算 `product_locale_currency_real_price_sum` 为 null，DB 报 `Column 'product_locale_currency_real_price_sum' cannot be null` 错误（code 500）。Java 层没有 `@NotNull` 校验，此约束来自数据库。
 
 **成功响应：** `{"code": 200, "data": <新ID>}`
 
-**错误：** `MAINPRODUCT_HAVE_BEEN_RELATED`（子商品已关联）、`PRODUCT_DUPLICATE_TAG`（标签重复）
+**错误：**
+- `MAINPRODUCT_HAVE_BEEN_RELATED`（子商品已关联）
+- `PRODUCT_DUPLICATE_TAG`（标签重复）
+- `code:500, Column 'product_locale_currency_real_price_sum' cannot be null` → `multiCurrencyPricingData` 为空或未传
 
 ---
 
