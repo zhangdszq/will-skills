@@ -42,7 +42,7 @@ def play(path):
         os.startfile(path)
 
 
-def tts(text, output_path=None, voice_id=None, speed=1.0, vol=1.0, pitch=0,
+def tts(text, output_path=None, voice_id=None, speed=1.1, vol=1.0, pitch=0,
         emotion=None, model="speech-2.8-hd", no_play=False):
     env = load_env()
 
@@ -117,7 +117,7 @@ def main():
     parser.add_argument("text", help="Text to speak")
     parser.add_argument("output", nargs="?", default=None, help="Save path (omit to play and discard)")
     parser.add_argument("--voice", help="Voice ID")
-    parser.add_argument("--speed", type=float, default=1.0)
+    parser.add_argument("--speed", type=float, default=1.1)
     parser.add_argument("--vol", type=float, default=1.0)
     parser.add_argument("--pitch", type=int, default=0)
     parser.add_argument("--emotion", help="happy/sad/angry/fearful/disgusted/surprised/neutral")
