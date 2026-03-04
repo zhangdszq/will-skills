@@ -1,11 +1,11 @@
 ---
 name: smb-file-browser
 description: >
-  连接 VIPKID 教研 SMB 文件服务器（HT-FILE2），浏览和下载课件文件。
+  连接企业 SMB 文件服务器，浏览和下载共享文件。
   自动处理 Clash Verge fake-ip DNS 劫持、跨平台（macOS/Windows）挂载、
   大文件低带宽下载。首次扫描建立本地索引后搜索秒出。
-  当用户提到"教研服务器"、"SMB"、"HT-FILE2"、"DMFile"、"双师智学"、
-  "课件文件"、"文件服务器"、"共享文件夹"、"课件搜索"时触发。
+  当用户提到"教研服务器"、"SMB"、"文件服务器"、"共享文件夹"、
+  "课件文件"、"课件搜索"、"smb server"时触发。
 ---
 
 # 教研 SMB Server 文件检索
