@@ -1,41 +1,24 @@
 # 教研 SMB Server 信息
 
-## 服务器
+## 配置
 
-| 项目 | 值 |
-|------|-----|
-| 主机名 | HT-FILE2 |
-| FQDN | HT-FILE2.vipkid.work |
-| 真实 IP | 172.23.250.32 |
-| 端口 | 445 (SMB) |
-| 域 | vipkid.work |
+首次运行 `smb_connect.py` 时会交互式询问以下信息并保存到 `~/.config/smb-file-browser/config.json`：
 
-## 认证
+| 字段 | 说明 | 示例 |
+|------|------|------|
+| server | 服务器主机名 | HT-FILE2 |
+| domain | 企业域名（用于 DNS 解析） | vipkid.work |
+| default_share | 默认共享名 | DMFile |
+| user | 用户名（不含邮箱域名） | panxiaoying |
+| password | 密码 | — |
 
-| 项目 | 值 |
-|------|-----|
-| 邮箱 | panxiaoying@vipkid.com.cn |
-| SMB 用户名 | panxiaoying (不含邮箱域名) |
-| 密码 | Password@2025 |
+配置文件权限设为 600（仅本人可读）。重新配置：`python3 smb_connect.py --reconfigure`
 
-注意：`mount_smbfs` 和 `smbutil` 需要对密码中的 `@` 进行 URL 编码为 `%40`。
+注意：SMB 认证用户名通常不含邮箱域名部分（如用 `panxiaoying` 而非 `panxiaoying@vipkid.com.cn`）。
 
-## 主要共享
+## 典型目录结构
 
-用户主要使用的路径：`\\HT-FILE2\DMFile\双师智学2026`
-
-`DMFile` 和 `双师智学2026` 都是独立共享，`双师智学2026` 也作为 `DMFile` 的子目录存在。
-
-## 公司网络
-
-| 项目 | 值 |
-|------|-----|
-| 子网 | 172.24.73.0/24 |
-| 网关 | 172.24.73.1 |
-| DHCP DNS | 172.24.101.3, 172.24.101.2 |
-| DHCP Server | 172.24.101.4 |
-
-## 双师智学2026 目录结构概览
+以「双师智学2026」共享为例：
 
 ```
 双师智学2026/

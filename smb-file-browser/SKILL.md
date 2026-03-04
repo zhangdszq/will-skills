@@ -13,13 +13,19 @@ description: >
 ## 快速连接
 
 ```bash
-python3 scripts/smb_connect.py --server HT-FILE2 --share DMFile
+python3 scripts/smb_connect.py
 ```
 
-自动执行：检测 Clash TUN → 获取企业 DNS → 修补 fake-ip → 解析真实 IP → 挂载。
-默认挂载点：`/tmp/smb_mounts/DMFile`
+首次运行会交互式询问：服务器主机名、企业域名、默认共享、用户名、密码，
+保存到 `~/.config/smb-file-browser/config.json`（权限 600）。后续直接连接。
 
-查看可用共享：`python3 scripts/smb_connect.py --list-shares`
+自动执行：加载配置 → 检测 Clash TUN → 获取企业 DNS → 修补 fake-ip → 解析真实 IP → 挂载。
+
+```bash
+python3 scripts/smb_connect.py --share 双师智学2026   # 连不同共享
+python3 scripts/smb_connect.py --list-shares           # 列出所有共享
+python3 scripts/smb_connect.py --reconfigure           # 重新输入凭据
+```
 
 ## 文件搜索（带本地缓存）
 

@@ -30,9 +30,9 @@ ipconfig getpacket en0             # 获取 DHCP 分配的企业 DNS
 
 **症状**: `smbutil: server rejected the authentication`
 
-**原因**: 用户名格式错误。SMB 认证使用 `panxiaoying`，不是 `panxiaoying@vipkid.com.cn`。
+**原因**: 用户名格式错误。SMB 认证使用不含邮箱域名的用户名。
 
-**解决**: 使用不含邮箱域名的用户名。密码中的 `@` 需要 URL 编码为 `%40`。
+**解决**: 运行 `python3 smb_connect.py --reconfigure` 重新输入凭据。密码中的 `@` 由脚本自动处理。
 
 ## 3. mount_smbfs 静默失败 (exit 1, 无输出)
 
@@ -42,10 +42,9 @@ ipconfig getpacket en0             # 获取 DHCP 分配的企业 DNS
 
 **解决**:
 ```bash
-umount /tmp/smb_mounts/DMFile 2>/dev/null
-rmdir /tmp/smb_mounts/DMFile
-mkdir -p /tmp/smb_mounts/DMFile
-mount_smbfs -o nobrowse '//user:pass@ip/share' /tmp/smb_mounts/DMFile
+umount /tmp/smb_mounts/<share> 2>/dev/null
+rmdir /tmp/smb_mounts/<share>
+python3 smb_connect.py
 ```
 
 ## 4. 大文件下载中断
@@ -61,8 +60,7 @@ python3 smb_download.py /path/to/source ./local/ --bw-limit 5M
 ## 5. Windows 系统连接
 
 ```cmd
-net use Z: \\172.23.250.32\DMFile /user:panxiaoying "Password@2025" /persistent:no
-dir "Z:\双师智学2026"
+python3 smb_connect.py
 ```
 
-如果主机名无法解析，直接使用 IP 地址 `172.23.250.32`。
+脚本会自动使用 `net use` 映射驱动器。如果主机名无法解析，可用 `--server <IP>` 直接指定 IP。
