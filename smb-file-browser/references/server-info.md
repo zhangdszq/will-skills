@@ -2,7 +2,7 @@
 
 ## 配置
 
-首次运行 `smb_connect.py` 时会交互式询问以下信息并保存到 `~/.config/smb-file-browser/config.json`：
+首次运行 `smb_connect.py` 时会交互式询问以下信息并保存到 `~/.vk-cowork/smb-config.json`：
 
 | 字段 | 说明 | 示例 |
 |------|------|------|

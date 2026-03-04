@@ -25,8 +25,8 @@ import time
 from pathlib import Path
 
 
-CONFIG_DIR = Path.home() / ".config" / "smb-file-browser"
-CONFIG_FILE = CONFIG_DIR / "config.json"
+CONFIG_DIR = Path.home() / ".vk-cowork"
+CONFIG_FILE = CONFIG_DIR / "smb-config.json"
 MOUNT_BASE_MAC = "/tmp/smb_mounts"
 MOUNT_BASE_WIN = "Z:"
 

@@ -17,7 +17,7 @@ python3 scripts/smb_connect.py
 ```
 
 首次运行会交互式询问：服务器主机名、企业域名、默认共享、用户名、密码，
-保存到 `~/.config/smb-file-browser/config.json`（权限 600）。后续直接连接。
+保存到 `~/.vk-cowork/smb-config.json`（权限 600）。后续直接连接。
 
 自动执行：加载配置 → 检测 Clash TUN → 获取企业 DNS → 修补 fake-ip → 解析真实 IP → 挂载。
 
