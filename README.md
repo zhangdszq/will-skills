@@ -10,7 +10,8 @@ Agent Skills 技能库。
 | [dingtalk-task-stats](dingtalk-task-stats/) | 钉钉 AI 表格任务统计与需求看板分析，全量拉取记录后按字段过滤、聚合统计 |
 | [curriculum-outline-editor](curriculum-outline-editor/) | 4-6 岁儿童英语课程大纲审校工具，修复中式英语、优化词汇复现结构，输出修订版 Excel 及中文变更摘要 |
 | [minimax-tts](minimax-tts/) | 使用 MiniMax API 将文本转成语音并自动播放，支持情绪与语速参数 |
-| [smb-file-browser](smb-file-browser/) | 企业 SMB 文件服务器检索工具，支持共享浏览、快速搜索与文件下载 |
+| [smb-file-browser](smb-file-browser/) | 企业 SMB 文件服务器检索工具，供**教研团队**使用，支持共享浏览、快速搜索与文件下载 |
+| [aliyun-sms-bulk](aliyun-sms-bulk/) | 阿里云短信群发工具，供**市场部**使用，支持单发与批量群发（单次最多 100 个号码），适用于营销通知、活动推送等场景 |
 
 ## 安装
 
