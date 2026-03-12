@@ -118,6 +118,7 @@ Agent Skills 技能库。
 | [web-artifacts-builder](web-artifacts-builder/) | React/Tailwind/shadcn 组件套件 |
 | [remotion-best-practices](remotion-best-practices/) | Remotion 最佳实践指南 |
 | [debugging](debugging/) | 万能调试引擎，防止 AI 放弃/推诿/磨洋工 |
+| [operate-coding-tools](operate-coding-tools/) | 在真实编码任务中协调 Claude 规划与 Cursor 执行，并直接检查本机 Cursor 模型、项目和状态 |
 
 ## 安装
 

@@ -1,0 +1,49 @@
+{
+  "skill_name": "操控编程工具",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "在当前项目里给设置页新增一个“导出配置”按钮，Electron 主进程也要打通保存逻辑。尽量少改文件，但如果需要 UI、store、IPC、主进程一起改也可以。完成后请跑一遍最相关的编译验证，并告诉我改了哪些文件。",
+      "expected_output": "助手应判断这是适合委派给 Cursor 的真实编码任务，先做简短分析，再给出结构清晰的 delegation brief，明确范围、约束、验证与返回内容。",
+      "files": [],
+      "expectations": [
+        "The response clearly decides to delegate instead of only giving high-level advice",
+        "The delegation brief includes coding scope, constraints, and validation",
+        "The response keeps Claude in a reviewer/orchestrator role rather than fully disappearing"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "帮我修一下 current repo 里 continue 模式偶发丢 session 的问题。先按最小改动调查和修复，不要顺手大重构。修完之后告诉我风险点，如果方便的话也跑一下相关测试或编译。",
+      "expected_output": "助手应识别为非平凡 bugfix，适合用 delegate_to_cursor，并把最小改动、风险汇报和验证动作写进 delegation brief。",
+      "files": [],
+      "expectations": [
+        "The response delegates for repo investigation and bug fixing",
+        "The brief emphasizes minimal safe changes and risk reporting",
+        "The brief asks for a verification step such as tests or compilation"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "解释一下 `runClaude()` 的主要流程，尤其是 prompt、session、permission 和 MCP server 是怎么串起来的。我暂时不要你改代码。",
+      "expected_output": "助手应判断这是解释型任务，不应委派给 Cursor，而应直接解释或说明不会委派。",
+      "files": [],
+      "expectations": [
+        "The response does not delegate the task",
+        "The response recognizes that the user asked for explanation rather than code changes",
+        "The response remains helpful without forcing the tool"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "看下 cursor 都有哪些项目和模型",
+      "expected_output": "助手应把它识别为本地 Cursor 状态查询，优先使用 Cursor CLI 或本地状态文件获取事实，返回项目和模型列表，而不是说自己无法查看。",
+      "files": [],
+      "expectations": [
+        "The response checks local Cursor facts instead of claiming inability immediately",
+        "The response returns actual Cursor model list information from CLI if available, along with local project information",
+        "The response does not delegate the task because this is a direct local inspection request"
+      ]
+    }
+  ]
+}
