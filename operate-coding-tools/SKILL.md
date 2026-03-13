@@ -1,92 +1,89 @@
 ---
 name: 操控编程工具
-description: Use this skill whenever the user wants Claude to operate local coding tools, especially Cursor-backed workflows. This includes two common modes: (1) real coding work through `delegate_to_cursor` or an equivalent "Claude plans, Cursor edits" path, and (2) direct inspection of local Cursor state such as available models, known projects, login status, or CLI capabilities. Be proactive: if the request is about actually changing code, or about checking what Cursor can do on this machine, use this skill instead of giving a generic chat answer.
+description: Use this skill whenever the user wants work to be carried out through Cursor-backed workflows and expects Cursor to do the actual analysis. This includes real repo work and Cursor-local inspection tasks. Critical rule: once this skill is invoked, the current operator model should not do the substantive analysis itself. It should route the task to Cursor, pass scope and constraints, and then review and summarize Cursor's result. If the task should be answered directly without Cursor, do not use this skill.
 ---
 
 # 操控编程工具
 
-This skill helps Claude operate coding tools well.
+This skill helps Claude use Cursor correctly.
 
-The point is not to blindly offload work. The point is to choose the right operating mode:
+The key rule is simple:
 
-- Claude plans and Cursor executes when the job is real repo work
-- Claude directly inspects local Cursor tooling when the user wants facts about Cursor itself
+- If this skill triggers, Cursor must do the substantive analysis
+- The current operator model may decide whether to use the skill, set constraints, and summarize results
+- The current operator model must not trigger the skill and then do the real work itself
 
-## Two operating modes
+## When to use this skill
 
-### Mode A: delegate real coding work
-
-Delegate when most of the value comes from actual code execution inside the repo:
+Use this skill when most of the value should come from Cursor working inside the user's local environment, for example:
 
 - Multi-file edits
 - Refactors with follow-up verification
 - Feature implementation
 - Bug fixes that require reading or changing multiple files
 - Tasks that benefit from IDE context, file graph awareness, or running commands in the workspace
+- Requests to inspect Cursor-local facts such as available models, known projects, login status, or CLI capabilities, when the user wants Cursor to check them on-machine
 
-Usually do **not** delegate when the user mainly wants:
+## When not to use this skill
+
+If the task should be answered directly, do not invoke this skill at all. Usually skip it when the user mainly wants:
 
 - An explanation of code
 - A design discussion without implementation
 - A tiny one-line answer
 - Pure planning with no code changes yet
 
-### Mode B: inspect Cursor locally
-
-Use direct local inspection when the user asks about Cursor itself, for example:
-
-- Which models are available in Cursor
-- Which local projects Cursor knows about
-- Whether Cursor Agent is logged in
-- What Cursor CLI commands or capabilities exist on this machine
-
-In these cases, do **not** default to `delegate_to_cursor`. First inspect local facts through available tooling such as:
-
-- `cursor-agent models`
-- `cursor-agent status` or related CLI commands
-- `~/.local/bin/cursor-agent` if `cursor-agent` is not on PATH
-- local Cursor config/state files such as `~/.cursor/ide_state.json`
-- local Cursor project directories such as `~/.cursor/projects`
-
-Do not say "I can't access your local Cursor" until you have actually checked.
-
 ## Operating model
 
 Always think in this split:
 
-- Claude: understand intent, define scope, set constraints, review outcomes
-- Cursor: perform concrete coding steps, inspect files, edit code, run build/test commands
+- Operator model: decide whether this skill is appropriate, define scope, set constraints, review outcomes
+- Cursor: analyze the repo or local Cursor state, inspect files, edit code, run build/test commands, gather facts
 
-If delegation is appropriate, do not just say "I'll use Cursor." Give Cursor a crisp, executable brief.
+If this skill is invoked, do not just say "I'll use Cursor." Give Cursor a crisp, executable brief and let Cursor do the actual investigation.
 
-If the request is about Cursor's local state, Claude should gather the facts directly and answer plainly.
+If the request should be answered without Cursor, skip this skill and help directly.
+
+## Hard boundary
+
+Once this skill is invoked, the operator model must **not**:
+
+- inspect the repo itself and then merely ask Cursor to implement
+- inspect local Cursor state itself and then merely rephrase the answer
+- solve the task from generic reasoning while pretending Cursor was involved
+
+Once this skill is invoked, the operator model may:
+
+- identify the user goal
+- write a bounded brief
+- specify repo, directory, scope, and constraints
+- ask for validation
+- summarize Cursor's returned results for the user
 
 ## Workflow
 
-### 1. Choose the right mode
+### 1. Decide whether the skill should trigger
 
 Ask yourself:
 
-- Is this about changing code in a repo?
-- Or is it about checking Cursor's local state or capabilities?
-- Would delegation help, or would direct local inspection be faster and more accurate?
+- Should Cursor perform the real analysis here?
+- Is the user asking for on-machine repo work or Cursor-local inspection?
+- If I answer directly, would that violate the user's expectation that Cursor should do the work?
 
-If it is a Cursor-state question, inspect locally and answer directly.
+If the answer is yes, invoke this skill and route the task to Cursor.
 
-If it is a real coding task, continue into delegation planning.
+If the answer is no, do not use this skill. Help directly instead.
 
-If the answer is mostly no, do the task normally and do not force delegation.
+### 2. Do only routing analysis
 
-### 2. Analyze first
-
-Before calling `delegate_to_cursor`, briefly reason about:
+Before calling `delegate_to_cursor` or the equivalent Cursor path, the operator model should do only enough thinking to route well:
 
 - The user goal
 - The likely files or subsystems involved
 - The desired constraints
 - What success looks like
 
-Do not dump a long essay to the user. This analysis exists so the delegated task is sharp rather than vague.
+Do not do the substantive repo investigation yourself. This routing analysis exists only so the delegated task is sharp rather than vague.
 
 ### 3. Write a strong delegation brief
 
@@ -128,7 +125,21 @@ Only split into multiple delegations when there are clearly separable phases, su
 - first investigate, then implement
 - first refactor backend, then adjust frontend wiring
 
-### 5. Review the result instead of parroting it
+### 5. For Cursor-local inspection, still delegate
+
+When the user asks about Cursor models, projects, login state, or similar local facts, Cursor should perform the inspection.
+
+Ask Cursor to check the most direct local source first, such as:
+
+- `cursor-agent models`
+- `cursor-agent status` or related CLI commands
+- `~/.local/bin/cursor-agent` if `cursor-agent` is not on PATH
+- local Cursor config/state files such as `~/.cursor/ide_state.json`
+- local Cursor project directories such as `~/.cursor/projects`
+
+The operator model should not gather these facts itself once the skill has triggered.
+
+### 6. Review the result instead of parroting it
 
 When Cursor returns:
 
@@ -136,26 +147,7 @@ When Cursor returns:
 - Surface changed areas, validation, and risks
 - Mention if the result appears incomplete or if a follow-up delegation is needed
 
-Claude should remain accountable for the final answer.
-
-## Local inspection workflow
-
-When the user asks about Cursor models, projects, login state, or similar local facts:
-
-1. Identify the exact fact being asked for
-2. Check the most direct local source first
-3. Prefer command output over fallback config files whenever available
-4. Summarize only the useful facts back to the user
-
-Examples:
-
-- Models: use `cursor-agent models`; if that binary is not on PATH, try common local install locations such as `~/.local/bin/cursor-agent`
-- Local projects: inspect `~/.cursor/projects` and filter out obvious temporary directories when appropriate
-- Recent files or current repo context: inspect `~/.cursor/ide_state.json` if relevant
-
-If one command hangs or fails, try a nearby alternative before giving up.
-
-For model queries, returning only the current default model from a config file is a fallback, not the preferred answer. If a CLI model-listing command is available, use it and return the actual list.
+The operator model remains accountable for the final answer, but Cursor owns the analysis path.
 
 ## Default delegation template
 
@@ -188,20 +180,13 @@ If the environment supports passing `cwd`, provide it when the target directory 
 When delegation is appropriate:
 
 - Be decisive
-- Delegate with a concrete brief
+- Delegate with a concrete brief and let Cursor perform the analysis
 - After the result returns, summarize the outcome rather than exposing raw internal chatter
 
 When delegation is not appropriate:
 
 - Say so implicitly by just helping directly
 - Do not mention the skill or `delegate_to_cursor` unless it adds value
-
-When direct local inspection is appropriate:
-
-- Be factual
-- Say what you checked
-- Return the actual models, projects, or status you found
-- Avoid generic UI instructions unless the user explicitly asked for navigation help
 
 ## Examples
 
@@ -218,6 +203,7 @@ Desired behavior:
 - Recognize that this is a real multi-file implementation task
 - Use `delegate_to_cursor`
 - Provide a bounded brief mentioning UI + Electron wiring + compile verification
+- Let Cursor do both investigation and implementation rather than pre-analyzing it locally
 
 **Example 2: should delegate**
 
@@ -231,6 +217,7 @@ Desired behavior:
 
 - Recognize bug-fix plus repo investigation
 - Delegate with constraints about minimal change and risk reporting
+- Let Cursor perform the bug investigation itself
 
 **Example 3: should not delegate**
 
@@ -243,9 +230,9 @@ User:
 Desired behavior:
 
 - Answer directly
-- Do not delegate because the user wants explanation, not execution
+- Do not use this skill because the user wants explanation, not execution
 
-**Example 4: should inspect locally, not delegate**
+**Example 4: should delegate Cursor-local inspection**
 
 User:
 
@@ -256,6 +243,6 @@ User:
 Desired behavior:
 
 - Recognize this is a local Cursor inspection request
-- Check Cursor CLI and local Cursor state
+- Use Cursor to check Cursor CLI and local Cursor state
 - Return the actual project/model information found on the machine
-- Do not claim inability before checking
+- Do not let the operator model do the inspection itself

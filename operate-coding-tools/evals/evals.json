@@ -4,21 +4,21 @@
     {
       "id": 1,
       "prompt": "在当前项目里给设置页新增一个“导出配置”按钮，Electron 主进程也要打通保存逻辑。尽量少改文件，但如果需要 UI、store、IPC、主进程一起改也可以。完成后请跑一遍最相关的编译验证，并告诉我改了哪些文件。",
-      "expected_output": "助手应判断这是适合委派给 Cursor 的真实编码任务，先做简短分析，再给出结构清晰的 delegation brief，明确范围、约束、验证与返回内容。",
+      "expected_output": "助手应判断这是适合交给 Cursor 分析和执行的真实编码任务。操作者模型可以做路由判断，但不应自己下场分析代码；应尽快给出结构清晰的 delegation brief，明确范围、约束、验证与返回内容。",
       "files": [],
       "expectations": [
-        "The response clearly decides to delegate instead of only giving high-level advice",
+        "The response clearly decides to delegate analysis and execution to Cursor instead of only giving high-level advice",
         "The delegation brief includes coding scope, constraints, and validation",
-        "The response keeps Claude in a reviewer/orchestrator role rather than fully disappearing"
+        "The response keeps the operator model in a reviewer/orchestrator role rather than doing the substantive analysis itself"
       ]
     },
     {
       "id": 2,
       "prompt": "帮我修一下 current repo 里 continue 模式偶发丢 session 的问题。先按最小改动调查和修复，不要顺手大重构。修完之后告诉我风险点，如果方便的话也跑一下相关测试或编译。",
-      "expected_output": "助手应识别为非平凡 bugfix，适合用 delegate_to_cursor，并把最小改动、风险汇报和验证动作写进 delegation brief。",
+      "expected_output": "助手应识别为非平凡 bugfix，适合让 Cursor 负责调查和修复。操作者模型不应自己先分析代码再把执行外包，而应把最小改动、风险汇报和验证动作写进 delegation brief。",
       "files": [],
       "expectations": [
-        "The response delegates for repo investigation and bug fixing",
+        "The response delegates repo investigation and bug fixing to Cursor",
         "The brief emphasizes minimal safe changes and risk reporting",
         "The brief asks for a verification step such as tests or compilation"
       ]
@@ -37,12 +37,12 @@
     {
       "id": 4,
       "prompt": "看下 cursor 都有哪些项目和模型",
-      "expected_output": "助手应把它识别为本地 Cursor 状态查询，优先使用 Cursor CLI 或本地状态文件获取事实，返回项目和模型列表，而不是说自己无法查看。",
+      "expected_output": "助手应把它识别为适合该 skill 的 Cursor 本地状态查询，并让 Cursor 自己检查 CLI 或本地状态文件后返回项目和模型列表。操作者模型不应自己做这次本地检查。",
       "files": [],
       "expectations": [
-        "The response checks local Cursor facts instead of claiming inability immediately",
-        "The response returns actual Cursor model list information from CLI if available, along with local project information",
-        "The response does not delegate the task because this is a direct local inspection request"
+        "The response delegates the local Cursor inspection task instead of claiming inability immediately",
+        "The response asks Cursor to return actual Cursor model list information from CLI if available, along with local project information",
+        "The response does not let the operator model perform the local inspection itself"
       ]
     }
   ]

@@ -19,20 +19,35 @@ mkdir -p ~/.vipkid-ops
 cat > ~/.vipkid-ops/config.json << 'EOF'
 {
   "base_url": "https://sa-manager.lionabc.com",
-  "token": "<intlAuthToken from Chrome Cookies>",
+  "token": "",
   "cr_code": "sa"
 }
 EOF
 
-# 2. 验证
+# 2. 自动获取 token（推荐）
+open -a "Google Chrome" --args --remote-debugging-port=9222
+python3 ~/.claude/skills/vipkid-ops/scripts/ops_helper.py refresh-token --port 9222
+
+# 3. 验证
 python3 ~/.claude/skills/vipkid-ops/scripts/ops_helper.py auth
 ```
 
-**获取 token**：Chrome 打开后台 → F12 → Application → Cookies → `intlAuthToken` → 复制 Value。
+**自动获取 token（推荐）**：
+- 用带 `--remote-debugging-port=9222` 的 Chrome 打开或附着现有浏览器
+- 确保你已经在 Chrome 中登录 `sa-manager.lionabc.com`
+- 运行 `python3 ~/.claude/skills/vipkid-ops/scripts/ops_helper.py refresh-token --port 9222`
+
+**手动获取 token（兜底）**：Chrome 打开后台 → F12 → Application → Cookies → `intlAuthToken` → 复制 Value。
 
 **`cr_code` 地区码**：`sa`=沙特 · `ae`=阿联酋 · `k2`=海湾 · `hk`=香港 · `tw`=台湾 · `kr`=韩国 · `vn`=越南 · `jp`=日本 · `ts`=Tiger
 
-**token 过期**：重新复制后运行：
+**token 过期**：优先自动刷新：
+```bash
+python3 ~/.claude/skills/vipkid-ops/scripts/ops_helper.py refresh-token --port 9222
+python3 ~/.claude/skills/vipkid-ops/scripts/ops_helper.py auth
+```
+
+手动更新时也可运行：
 ```bash
 python3 -c "
 import json; from pathlib import Path
@@ -74,6 +89,7 @@ HELPER="python3 ~/.claude/skills/vipkid-ops/scripts/ops_helper.py"
 $HELPER list [名称]              # 列表
 $HELPER detail <id>              # 详情
 $HELPER inventory <id>           # 库存
+$HELPER refresh-token --port 9222 # 通过 Chrome CDP 自动刷新 token
 $HELPER update-stock <id> add 100        # 追加库存
 $HELPER update-stock <id> subtract 10   # 扣减库存
 $HELPER update-stock <id> infinity       # 不限制库存
@@ -92,7 +108,7 @@ api_get "/international/api/product/list/?start=0&limit=10&productName=精确名
 api_get "/international/api/product/detail?productId=<ID>"
 ```
 
-**新建商品包**（必填：`name` + `productTypeId=3` + `localeCurrencyRealPrice` + `multiCurrencyPricingData` 至少一条）
+**新建商品包**（必填：`name` + `productTypeId=3` + `multiCurrencyPricingData` 至少一条）
 ```bash
 api_post "/international/order-service/api/product/new" '{
   "name": "AIKID-36class-Test", "productTypeId": 3, "saleType": 1,
@@ -135,7 +151,9 @@ api_post "/international/order-service/api/product/edit" '{"id": 3537, "realPric
 
 | 情况 | 处理 |
 |------|------|
-| HTTP 401 | Token 过期，运行上方 token 更新命令 |
+| HTTP 401 | Token 过期，先运行 `refresh-token --port 9222`，失败再手动复制 Cookie |
+| 无法连接 `http://127.0.0.1:9222/json/version` | Chrome 未开启远程调试端口，先用 `open -a "Google Chrome" --args --remote-debugging-port=9222` 启动 |
+| 未检测到 `intlAuthToken` | 先确认已在 Chrome 中登录 `sa-manager.lionabc.com`，再重试自动刷新 |
 | code=400 含 "country or region" | `cr_code` 错误，检查 config.json |
 | `MAINPRODUCT_HAVE_BEEN_RELATED` | 子商品已被其他商品包关联 |
 | `PRODUCT_DUPLICATE_TAG` | 标签重复 |
