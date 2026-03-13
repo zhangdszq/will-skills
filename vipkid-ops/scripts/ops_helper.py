@@ -3,18 +3,20 @@
 ops_helper.py - VIPKID 运营后台商品包操作辅助工具
 
 用法：
-  python3 ops_helper.py auth                                  # 验证 token 是否有效
-  python3 ops_helper.py refresh-token [--port 9222]           # 通过 Chrome CDP 自动刷新 token
-  python3 ops_helper.py list [名称关键词]                      # 列出商品包
-  python3 ops_helper.py detail <packageId>                    # 查看详情
-  python3 ops_helper.py coupon-limit <packageId>              # 查看优惠券限制
-  python3 ops_helper.py inventory <packageId>                 # 查看库存
-  python3 ops_helper.py update-stock <packageId> add <n>      # 追加库存 n
-  python3 ops_helper.py update-stock <packageId> subtract <n> # 扣减库存 n
-  python3 ops_helper.py update-stock <packageId> infinity     # 设为不限制库存
-  python3 ops_helper.py from-excel <file.xlsx>                # 解析 Excel 批量数据
-  python3 ops_helper.py batch-create <file.json>              # 批量新建（需二次确认）
+  python3 ops_helper.py auth                                                   # 验证 token 是否有效
+  python3 ops_helper.py refresh-token [--timeout 300] [--headless]             # 通过 Playwright 独立登录并自动刷新 token
+  python3 ops_helper.py refresh-token --mode cdp --port 9222                   # 可选：通过已开启 CDP 的 Chrome 读取 token
+  python3 ops_helper.py list [名称关键词]                                       # 列出商品包
+  python3 ops_helper.py detail <packageId>                                     # 查看详情
+  python3 ops_helper.py coupon-limit <packageId>                               # 查看优惠券限制
+  python3 ops_helper.py inventory <packageId>                                  # 查看库存
+  python3 ops_helper.py update-stock <packageId> add <n>                       # 追加库存 n
+  python3 ops_helper.py update-stock <packageId> subtract <n>                  # 扣减库存 n
+  python3 ops_helper.py update-stock <packageId> infinity                      # 设为不限制库存
+  python3 ops_helper.py from-excel <file.xlsx>                                 # 解析 Excel 批量数据
+  python3 ops_helper.py batch-create <file.json>                               # 批量新建（需二次确认）
 """
+import argparse
 import json
 import os
 import subprocess
@@ -27,6 +29,9 @@ CONFIG_PATH = Path.home() / ".vipkid-ops" / "config.json"
 DEFAULT_BASE_URL = "https://sa-manager.lionabc.com"
 DEFAULT_CR_CODE = "sa"
 DEFAULT_CDP_PORT = 9222
+DEFAULT_REFRESH_MODE = "playwright"
+DEFAULT_LOGIN_TIMEOUT_SECONDS = 300
+DEFAULT_PLAYWRIGHT_PROFILE_DIR = CONFIG_PATH.parent / "playwright-profile"
 
 
 def load_config(required=False):
@@ -61,8 +66,8 @@ def require_auth_config():
 
     print(f"[ERROR] 配置文件缺少 token：{CONFIG_PATH}")
     print("可先运行以下命令自动获取：")
-    print("  python3 ~/.claude/skills/vipkid-ops/scripts/ops_helper.py refresh-token --port 9222")
-    print("若未开启 Chrome 调试端口，也可手动复制 Cookie 中的 intlAuthToken。")
+    print("  python3 ~/.claude/skills/vipkid-ops/scripts/ops_helper.py refresh-token")
+    print("首次运行会打开一个独立 Chrome 窗口，你登录后脚本会自动读取 intlAuthToken。")
     sys.exit(1)
 
 
@@ -124,69 +129,119 @@ def api_post(path, data):
         return {"network_error": str(error.reason)}
 
 
-def parse_port_args(args):
-    port = int(os.environ.get("VIPKID_CHROME_CDP_PORT", DEFAULT_CDP_PORT))
-    if not args:
-        return port
-
-    index = 0
-    while index < len(args):
-        arg = args[index]
-        if arg == "--port":
-            index += 1
-            if index >= len(args):
-                print("用法: python3 ops_helper.py refresh-token [--port 9222]")
-                sys.exit(1)
-            arg = args[index]
-        elif arg.startswith("--port="):
-            arg = arg.split("=", 1)[1]
-        else:
-            print(f"[ERROR] 未知参数：{args[index]}")
-            print("用法: python3 ops_helper.py refresh-token [--port 9222]")
-            sys.exit(1)
-
-        try:
-            port = int(arg)
-        except ValueError:
-            print(f"[ERROR] 非法端口：{arg}")
-            sys.exit(1)
-        index += 1
-
-    return port
-
-
-def refresh_token(port=DEFAULT_CDP_PORT):
-    script_path = Path(__file__).with_name("get_token_via_cdp.js")
-    if not script_path.exists():
-        print(f"[ERROR] 未找到 CDP 脚本：{script_path}")
-        return False
-
-    config = load_config(required=False)
-    base_url = config.get("base_url", DEFAULT_BASE_URL)
-    command = [
-        "node",
-        str(script_path),
+def parse_refresh_args(args):
+    parser = argparse.ArgumentParser(
+        prog="python3 ops_helper.py refresh-token",
+        description="Refresh intlAuthToken via Playwright or CDP.",
+    )
+    parser.add_argument(
+        "--mode",
+        choices=("playwright", "cdp"),
+        default=os.environ.get("VIPKID_TOKEN_REFRESH_MODE", DEFAULT_REFRESH_MODE),
+        help="Refresh strategy. Defaults to Playwright.",
+    )
+    parser.add_argument(
         "--port",
-        str(port),
-        "--url",
-        base_url,
-        "--cookie",
-        "intlAuthToken",
-    ]
+        type=int,
+        default=int(os.environ.get("VIPKID_CHROME_CDP_PORT", DEFAULT_CDP_PORT)),
+        help="CDP port for --mode cdp.",
+    )
+    parser.add_argument(
+        "--timeout",
+        type=int,
+        default=int(os.environ.get("VIPKID_TOKEN_WAIT_TIMEOUT", DEFAULT_LOGIN_TIMEOUT_SECONDS)),
+        help="Seconds to wait for Playwright login.",
+    )
+    parser.add_argument(
+        "--profile-dir",
+        default=str(DEFAULT_PLAYWRIGHT_PROFILE_DIR),
+        help="Dedicated Playwright profile directory.",
+    )
+    parser.add_argument(
+        "--headless",
+        action="store_true",
+        help="Run Playwright in headless mode. Mainly useful for automated verification.",
+    )
+    return parser.parse_args(args)
 
+
+def run_refresh_command(command, timeout_seconds):
     try:
-        result = subprocess.run(
+        return subprocess.run(
             command,
             capture_output=True,
             text=True,
-            timeout=30,
+            timeout=timeout_seconds,
             check=False,
         )
-    except FileNotFoundError:
-        print("[ERROR] 未检测到 node 命令，请先安装 Node.js。")
-        return False
+    except FileNotFoundError as error:
+        print(f"[ERROR] 未检测到命令：{error.filename}")
+        return None
     except subprocess.TimeoutExpired:
-        print("❌ 自动获取 Token 超时，请确认 Chrome 已开启远程调试端口并完成登录。")
+        print("❌ 自动获取 Token 超时。")
+        return None
+
+
+def refresh_token(mode=DEFAULT_REFRESH_MODE, port=DEFAULT_CDP_PORT, timeout_seconds=DEFAULT_LOGIN_TIMEOUT_SECONDS, profile_dir=DEFAULT_PLAYWRIGHT_PROFILE_DIR, headless=False):
+    config = load_config(required=False)
+    base_url = config.get("base_url", DEFAULT_BASE_URL)
+    profile_dir = Path(profile_dir).expanduser()
+
+    if mode == "playwright":
+        script_path = Path(__file__).with_name("get_token_via_playwright.py")
+        if not script_path.exists():
+            print(f"[ERROR] 未找到 Playwright 脚本：{script_path}")
+            return False
+
+        command = [
+            sys.executable,
+            str(script_path),
+            "--url",
+            base_url,
+            "--cookie",
+            "intlAuthToken",
+            "--timeout",
+            str(timeout_seconds),
+            "--profile-dir",
+            str(profile_dir),
+        ]
+        if headless:
+            command.append("--headless")
+
+        print(f"正在打开独立 Chrome 窗口，使用专用登录目录：{profile_dir}")
+        print("请在弹出的浏览器里完成登录，脚本会在检测到 intlAuthToken 后自动关闭窗口。")
+        result = run_refresh_command(command, timeout_seconds + 90)
+        failure_hints = [
+            "  1. 是否已在弹出的独立 Chrome 窗口中完成登录",
+            "  2. 登录成功后 Cookie 中是否存在 intlAuthToken",
+            f"  3. 如需重置专用登录态，可删除目录：{profile_dir}",
+        ]
+        success_message = f"✅ 已通过 Playwright 读取 intlAuthToken，并写入 {CONFIG_PATH}"
+    else:
+        script_path = Path(__file__).with_name("get_token_via_cdp.js")
+        if not script_path.exists():
+            print(f"[ERROR] 未找到 CDP 脚本：{script_path}")
+            return False
+
+        command = [
+            "node",
+            str(script_path),
+            "--port",
+            str(port),
+            "--url",
+            base_url,
+            "--cookie",
+            "intlAuthToken",
+        ]
+        result = run_refresh_command(command, 30)
+        failure_hints = [
+            f"  1. Chrome 是否已使用 --remote-debugging-port={port} 启动",
+            "  2. 是否已在 Chrome 中登录 sa-manager.lionabc.com",
+            "  3. Cookie 中是否存在 intlAuthToken",
+        ]
+        success_message = f"✅ 已通过 Chrome CDP 读取 intlAuthToken，并写入 {CONFIG_PATH}"
+
+    if result is None:
         return False
 
     token = result.stdout.strip()
@@ -196,16 +251,15 @@ def refresh_token(port=DEFAULT_CDP_PORT):
         if error_output:
             print(error_output)
         print("可检查：")
-        print(f"  1. Chrome 是否已使用 --remote-debugging-port={port} 启动")
-        print("  2. 是否已在 Chrome 中登录 sa-manager.lionabc.com")
-        print("  3. Cookie 中是否存在 intlAuthToken")
+        for hint in failure_hints:
+            print(hint)
         return False
 
     config["base_url"] = base_url
     config["cr_code"] = config.get("cr_code", DEFAULT_CR_CODE)
     config["token"] = token
     save_config(config)
-    print(f"✅ 已从 Chrome Cookie 自动刷新 intlAuthToken，并写入 {CONFIG_PATH}")
+    print(success_message)
     return True
 
 
@@ -224,7 +278,8 @@ def check_auth():
     elif resp.get("msg"):
         print(f"   服务端返回：{resp['msg']}")
     print("   可先尝试自动刷新：")
-    print("   python3 ~/.claude/skills/vipkid-ops/scripts/ops_helper.py refresh-token --port 9222")
+    print("   python3 ~/.claude/skills/vipkid-ops/scripts/ops_helper.py refresh-token")
+    print("   该命令会打开一个独立 Chrome 窗口，你登录后脚本会自动读取 intlAuthToken。")
     print("   若仍失败，再手动从 Chrome → F12 → Application → Cookies → sa-manager.lionabc.com → intlAuthToken 复制 Value")
     return False
 
@@ -392,8 +447,14 @@ if __name__ == "__main__":
     if cmd == "auth":
         check_auth()
     elif cmd == "refresh-token":
-        port = parse_port_args(sys.argv[2:])
-        refresh_token(port)
+        refresh_args = parse_refresh_args(sys.argv[2:])
+        refresh_token(
+            mode=refresh_args.mode,
+            port=refresh_args.port,
+            timeout_seconds=refresh_args.timeout,
+            profile_dir=refresh_args.profile_dir,
+            headless=refresh_args.headless,
+        )
     elif cmd == "list":
         name = sys.argv[2] if len(sys.argv) > 2 else None
         list_packages(name)

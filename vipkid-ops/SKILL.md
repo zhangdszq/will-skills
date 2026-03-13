@@ -25,17 +25,22 @@ cat > ~/.vipkid-ops/config.json << 'EOF'
 EOF
 
 # 2. 自动获取 token（推荐）
-open -a "Google Chrome" --args --remote-debugging-port=9222
-python3 ~/.claude/skills/vipkid-ops/scripts/ops_helper.py refresh-token --port 9222
+python3 ~/.claude/skills/vipkid-ops/scripts/ops_helper.py refresh-token
 
 # 3. 验证
 python3 ~/.claude/skills/vipkid-ops/scripts/ops_helper.py auth
 ```
 
 **自动获取 token（推荐）**：
-- 用带 `--remote-debugging-port=9222` 的 Chrome 打开或附着现有浏览器
-- 确保你已经在 Chrome 中登录 `sa-manager.lionabc.com`
-- 运行 `python3 ~/.claude/skills/vipkid-ops/scripts/ops_helper.py refresh-token --port 9222`
+- `refresh-token` 会打开一个独立的 Chrome 窗口，不影响你当前正在使用的浏览器
+- 第一次运行时，在这个独立窗口中手动登录 `sa-manager.lionabc.com`
+- 登录成功后脚本会自动读取 `intlAuthToken` 并写入 `~/.vipkid-ops/config.json`
+- 独立窗口使用专用登录目录：`~/.vipkid-ops/playwright-profile`
+
+**可选高级模式**：如果你本来就有一个带 `--remote-debugging-port` 的 Chrome，也可以运行：
+```bash
+python3 ~/.claude/skills/vipkid-ops/scripts/ops_helper.py refresh-token --mode cdp --port 9222
+```
 
 **手动获取 token（兜底）**：Chrome 打开后台 → F12 → Application → Cookies → `intlAuthToken` → 复制 Value。
 
@@ -43,7 +48,7 @@ python3 ~/.claude/skills/vipkid-ops/scripts/ops_helper.py auth
 
 **token 过期**：优先自动刷新：
 ```bash
-python3 ~/.claude/skills/vipkid-ops/scripts/ops_helper.py refresh-token --port 9222
+python3 ~/.claude/skills/vipkid-ops/scripts/ops_helper.py refresh-token
 python3 ~/.claude/skills/vipkid-ops/scripts/ops_helper.py auth
 ```
 
@@ -89,7 +94,8 @@ HELPER="python3 ~/.claude/skills/vipkid-ops/scripts/ops_helper.py"
 $HELPER list [名称]              # 列表
 $HELPER detail <id>              # 详情
 $HELPER inventory <id>           # 库存
-$HELPER refresh-token --port 9222 # 通过 Chrome CDP 自动刷新 token
+$HELPER refresh-token            # 打开独立 Chrome 窗口登录并自动刷新 token
+$HELPER refresh-token --mode cdp --port 9222 # 可选：从已开启 CDP 的 Chrome 读取 token
 $HELPER update-stock <id> add 100        # 追加库存
 $HELPER update-stock <id> subtract 10   # 扣减库存
 $HELPER update-stock <id> infinity       # 不限制库存
@@ -151,9 +157,9 @@ api_post "/international/order-service/api/product/edit" '{"id": 3537, "realPric
 
 | 情况 | 处理 |
 |------|------|
-| HTTP 401 | Token 过期，先运行 `refresh-token --port 9222`，失败再手动复制 Cookie |
-| 无法连接 `http://127.0.0.1:9222/json/version` | Chrome 未开启远程调试端口，先用 `open -a "Google Chrome" --args --remote-debugging-port=9222` 启动 |
-| 未检测到 `intlAuthToken` | 先确认已在 Chrome 中登录 `sa-manager.lionabc.com`，再重试自动刷新 |
+| HTTP 401 | Token 过期，先运行 `refresh-token` 打开独立 Chrome 登录，失败再手动复制 Cookie |
+| Playwright 打开的独立窗口里未检测到 `intlAuthToken` | 先确认已在独立窗口中完成登录，再重试自动刷新 |
+| 想复用一个已开启远程调试端口的 Chrome | 改用 `refresh-token --mode cdp --port 9222` |
 | code=400 含 "country or region" | `cr_code` 错误，检查 config.json |
 | `MAINPRODUCT_HAVE_BEEN_RELATED` | 子商品已被其他商品包关联 |
 | `PRODUCT_DUPLICATE_TAG` | 标签重复 |
