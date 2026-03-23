@@ -1,5 +1,6 @@
 import {AbsoluteFill, interpolate, useCurrentFrame} from 'remotion';
 import {FC} from 'react';
+import {IconLabel, SceneIcon} from './SceneIcons';
 
 interface DialogueSlideProps {
 	question: string;
@@ -56,16 +57,17 @@ export const DialogueSlide: FC<DialogueSlideProps> = ({
 						opacity: questionOpacity,
 					}}
 				>
-					<div
+					<IconLabel
+						icon="person"
+						label="家长提问"
+						iconSize={26}
 						style={{
 							fontSize: 24,
 							color: '#999',
 							marginBottom: 15,
 							fontWeight: 'bold',
 						}}
-					>
-						👤 家长提问
-					</div>
+					/>
 					<div
 						style={{
 							fontSize: 36,
@@ -87,16 +89,17 @@ export const DialogueSlide: FC<DialogueSlideProps> = ({
 						opacity: answerOpacity,
 					}}
 				>
-					<div
+					<IconLabel
+						icon="briefcase"
+						label={`${role}回应`}
+						iconSize={26}
 						style={{
 							fontSize: 24,
 							color: '#999',
 							marginBottom: 15,
 							fontWeight: 'bold',
 						}}
-					>
-						💼 {role}回应
-					</div>
+					/>
 					<div
 						style={{
 							fontSize: 36,
@@ -124,9 +127,14 @@ export const DialogueSlide: FC<DialogueSlideProps> = ({
 								fontSize: 28,
 								color: '#e91e63',
 								fontWeight: 'bold',
+								display: 'flex',
+								alignItems: 'center',
+								gap: 10,
+								flexWrap: 'wrap',
 							}}
 						>
-							⭐ 技巧要点：{tip}
+							<SceneIcon name="star" size={32} color="#e91e63" />
+							<span>技巧要点：{tip}</span>
 						</div>
 					</div>
 				)}

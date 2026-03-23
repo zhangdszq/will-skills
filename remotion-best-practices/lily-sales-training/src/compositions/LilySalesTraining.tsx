@@ -29,7 +29,7 @@ const SCENES = [
 			chapterNumber: '开篇',
 			title: '为什么是Lily？',
 			description: '连续18个月销冠 · 101条成交记录 · 转化率高达40%',
-			icon: '🏆',
+			icon: 'trophy',
 		},
 	},
 	// 第一章标题 - 120帧 (4秒)
@@ -40,7 +40,7 @@ const SCENES = [
 			chapterNumber: '第一章',
 			title: '邀约篇',
 			description: '如何通过电话快速建立信任并赢得面谈机会',
-			icon: '📞',
+			icon: 'phone',
 		},
 	},
 	// 电话前准备 - 180帧 (6秒)
@@ -83,7 +83,7 @@ const SCENES = [
 			chapterNumber: '第二章',
 			title: '诊脉篇',
 			description: '挖掘家长的真实需求，而非表面需求',
-			icon: '🩺',
+			icon: 'stethoscope',
 		},
 	},
 	// 三诊三问 - 210帧 (7秒)
@@ -110,7 +110,7 @@ const SCENES = [
 			chapterNumber: '第三章',
 			title: '理念渗透篇',
 			description: '让产品成为解决问题的最佳方案',
-			icon: '💎',
+			icon: 'diamond',
 		},
 	},
 	// FAB法则 - 180帧 (6秒)
@@ -122,8 +122,9 @@ const SCENES = [
 			meaning:
 				'Feature（特征）→ Advantage（优势）→ Benefit（利益）',
 			example:
-				'✗ 我们是1对2教学（F）→ 能增加开口机会（A）→ 让孩子自信说英语（B）',
-			icon: '🎯',
+				'我们是1对2教学（F）→ 能增加开口机会（A）→ 让孩子自信说英语（B）',
+			examplePrefix: 'cross',
+			icon: 'target',
 			color: '#667eea',
 		},
 	},
@@ -136,7 +137,7 @@ const SCENES = [
 			meaning: '认可问题 → 转换视角 → 提供方案',
 			example:
 				'认同价格顾虑（上层面包）+ 强调价值差异（中间肉饼）+ 呈现投资回报（下层面包）',
-			icon: '🍔',
+			icon: 'burger',
 			color: '#f093fb',
 		},
 	},
@@ -148,7 +149,7 @@ const SCENES = [
 			chapterNumber: '第四章',
 			title: '异议处理篇',
 			description: '将拒绝转化为成交机会',
-			icon: '🛡️',
+			icon: 'shield',
 		},
 	},
 	// 价格异议处理 - 210帧 (7秒)
@@ -192,7 +193,7 @@ const SCENES = [
 			chapterNumber: '第五章',
 			title: '逼单篇',
 			description: '临门一脚，促成成交',
-			icon: '⚽',
+			icon: 'soccer',
 		},
 	},
 	// 逼单技巧 - 210帧 (7秒)

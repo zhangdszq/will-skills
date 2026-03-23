@@ -2,6 +2,12 @@
 
 Agent Skills 技能库。
 
+## 站点专题
+
+| 目录 | 说明 |
+|------|------|
+| [dinoclaw-skillhub](dinoclaw-skillhub/) | 从 DinoClaw 迁入的静态站点，包含 SkillHub、钉钉登录页、使用案例页与回调页 |
+
 ## 核心技能（P0）
 
 业务运营、教研、数据分析等核心场景专用技能。

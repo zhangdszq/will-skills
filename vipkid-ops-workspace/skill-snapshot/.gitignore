@@ -1,0 +1,13 @@
+# 个人配置（含 token，不提交）
+~/.vipkid-ops/
+config.json
+.env
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+
+# macOS
+.DS_Store

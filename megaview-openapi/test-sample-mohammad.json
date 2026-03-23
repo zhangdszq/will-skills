@@ -1,0 +1,808 @@
+{
+  "ok": true,
+  "request": {
+    "employee_name": "Mohammad Qasem",
+    "staff_id": "600000391|45830",
+    "begin_time": "2026-02-15 00:00:00",
+    "end_time": "2026-03-16 00:00:00",
+    "score_scan_limit": 120,
+    "asr_preview_lines": 12,
+    "employees_file": "/Users/zhang/git-repos/vk-skills/megaview-openapi/data/employees.json",
+    "megaview_credentials_file": "/Users/zhang/.vk-cowork/megaview_credentials.json",
+    "starrocks_config_file": "/Users/zhang/git-repos/vk-skills/megaview-openapi/data/starrocks_config.json"
+  },
+  "employee": {
+    "staffName": "Mohammad Qasem",
+    "staffId": "600000391|45830",
+    "origin_user_id": "600000391|45830",
+    "open_user_id": "czZaUzylkOWyJqid1Htaiv",
+    "database_employee": {
+      "status": "active",
+      "active_first_applied": true,
+      "matched_row_count": 1,
+      "active_row_count": 1,
+      "preferred_record": {
+        "database_staff_id": "600000391",
+        "database_staff_name": "Mohammad Qasem",
+        "business_line": "sa",
+        "staff_role": "JOCC",
+        "hire_date": "2025-11-16",
+        "termination_date": null
+      }
+    }
+  },
+  "starrocks": {
+    "database": "intl_analysis",
+    "database_employee_table": "vk_gl_leads_staff_team_assignment_relation",
+    "database_employee_driver": "pymysql",
+    "database_employee_sql": "SELECT CAST(staff_id AS STRING) AS database_staff_id, staff_name AS database_staff_name, business_line, staff_role, CAST(hire_date AS STRING) AS hire_date, CAST(termination_date AS STRING) AS termination_date FROM vk_gl_leads_staff_team_assignment_relation WHERE (staff_name IN ('Mohammad Qasem')) OR (CAST(staff_id AS STRING) IN ('600000391')) ORDER BY staff_name, termination_date",
+    "config_file": "/Users/zhang/git-repos/vk-skills/megaview-openapi/data/starrocks_config.json"
+  },
+  "selection": {
+    "conversation_count": 530,
+    "score_candidate_count": 120,
+    "scored_candidate_count": 120
+  },
+  "samples": [
+    {
+      "bucket": "low",
+      "conversation_id": 396941133,
+      "origin_conversation_id": "0ef7d8ed-1910-4e42-8966-aa467f58f6fd",
+      "deal_id": 55432924,
+      "begin_time": "2026-02-15T20:44:42",
+      "salesman_percent": "31.51%",
+      "score": {
+        "average_score": 0,
+        "score_results": [
+          {
+            "name": "首次通话（用户付费后）",
+            "score": 0,
+            "total_score": 100,
+            "qualified": 0
+          },
+          {
+            "name": "首次触达评分",
+            "score": 0,
+            "total_score": 100,
+            "qualified": 0
+          },
+          {
+            "name": "试听课回访评分",
+            "score": 0,
+            "total_score": 100,
+            "qualified": 0
+          }
+        ]
+      },
+      "score_error": null,
+      "summary": {
+        "summary_status": 2,
+        "highlights": [
+          {
+            "name": "销售SOP",
+            "question_name": "销售是否询问了客户对教师类型的偏好",
+            "content": "否",
+            "contexts": [
+              {
+                "speaker_type": "customer",
+                "speaker_name": "联系人1",
+                "content": "تسعة"
+              },
+              {
+                "speaker_type": "user",
+                "speaker_name": "Mohammad Qasem",
+                "content": "هي رسالتك بعد الصافرة عندما تنتهي، يرجى انهاء المكالمة او الضغط على اي زر استعراض خيارات اضافية."
+              },
+              {
+                "speaker_type": "customer",
+                "speaker_name": "联系人1",
+                "content": "طيبألوتمام"
+              }
+            ]
+          },
+          {
+            "name": "销售SOP",
+            "question_name": "销售是否进行了自我介绍",
+            "content": "否",
+            "contexts": [
+              {
+                "speaker_type": "customer",
+                "speaker_name": "联系人1",
+                "content": "تسعة"
+              },
+              {
+                "speaker_type": "user",
+                "speaker_name": "Mohammad Qasem",
+                "content": "هي رسالتك بعد الصافرة عندما تنتهي، يرجى انهاء المكالمة او الضغط على اي زر استعراض خيارات اضافية."
+              },
+              {
+                "speaker_type": "customer",
+                "speaker_name": "联系人1",
+                "content": "طيبألوتمام"
+              }
+            ]
+          },
+          {
+            "name": "销售SOP",
+            "question_name": "销售是否给客户强制预约试听课",
+            "content": "否",
+            "contexts": [
+              {
+                "speaker_type": "customer",
+                "speaker_name": "联系人1",
+                "content": "تسعة"
+              },
+              {
+                "speaker_type": "user",
+                "speaker_name": "Mohammad Qasem",
+                "content": "هي رسالتك بعد الصافرة عندما تنتهي، يرجى انهاء المكالمة او الضغط على اي زر استعراض خيارات اضافية."
+              },
+              {
+                "speaker_type": "customer",
+                "speaker_name": "联系人1",
+                "content": "طيبألوتمام"
+              }
+            ]
+          },
+          {
+            "name": "销售SOP",
+            "question_name": "销售是否了解到课程报名的最终决策者",
+            "content": "否",
+            "contexts": [
+              {
+                "speaker_type": "customer",
+                "speaker_name": "联系人1",
+                "content": "تسعة"
+              },
+              {
+                "speaker_type": "user",
+                "speaker_name": "Mohammad Qasem",
+                "content": "هي رسالتك بعد الصافرة عندما تنتهي، يرجى انهاء المكالمة او الضغط على اي زر استعراض خيارات اضافية."
+              },
+              {
+                "speaker_type": "customer",
+                "speaker_name": "联系人1",
+                "content": "طيبألوتمام"
+              }
+            ]
+          },
+          {
+            "name": "销售SOP",
+            "question_name": "销售是否向反馈了学员的课堂表现",
+            "content": "否",
+            "contexts": [
+              {
+                "speaker_type": "customer",
+                "speaker_name": "联系人1",
+                "content": "تسعة"
+              },
+              {
+                "speaker_type": "user",
+                "speaker_name": "Mohammad Qasem",
+                "content": "هي رسالتك بعد الصافرة عندما تنتهي، يرجى انهاء المكالمة او الضغط على اي زر استعراض خيارات اضافية."
+              },
+              {
+                "speaker_type": "customer",
+                "speaker_name": "联系人1",
+                "content": "طيبألوتمام"
+              }
+            ]
+          },
+          {
+            "name": "销售SOP",
+            "question_name": "销售是否向客户介绍了课程的预约和取消规则",
+            "content": "否",
+            "contexts": [
+              {
+                "speaker_type": "customer",
+                "speaker_name": "联系人1",
+                "content": "تسعة"
+              },
+              {
+                "speaker_type": "user",
+                "speaker_name": "Mohammad Qasem",
+                "content": "هي رسالتك بعد الصافرة عندما تنتهي، يرجى انهاء المكالمة او الضغط على اي زر استعراض خيارات اضافية."
+              },
+              {
+                "speaker_type": "customer",
+                "speaker_name": "联系人1",
+                "content": "طيبألوتمام"
+              }
+            ]
+          },
+          {
+            "name": "销售SOP",
+            "question_name": "销售是否对客户进行了学习效果或课程预期管理",
+            "content": "否",
+            "contexts": [
+              {
+                "speaker_type": "customer",
+                "speaker_name": "联系人1",
+                "content": "تسعة"
+              },
+              {
+                "speaker_type": "user",
+                "speaker_name": "Mohammad Qasem",
+                "content": "هي رسالتك بعد الصافرة عندما تنتهي، يرجى انهاء المكالمة او الضغط على اي زر استعراض خيارات اضافية."
+              },
+              {
+                "speaker_type": "customer",
+                "speaker_name": "联系人1",
+                "content": "طيبألوتمام"
+              }
+            ]
+          },
+          {
+            "name": "销售SOP",
+            "question_name": "会话沟通主题是首次触达、试听课后回访还是其他",
+            "content": "其他",
+            "contexts": [
+              {
+                "speaker_type": "customer",
+                "speaker_name": "联系人1",
+                "content": "تسعة"
+              },
+              {
+                "speaker_type": "user",
+                "speaker_name": "Mohammad Qasem",
+                "content": "هي رسالتك بعد الصافرة عندما تنتهي، يرجى انهاء المكالمة او الضغط على اي زر استعراض خيارات اضافية."
+              },
+              {
+                "speaker_type": "customer",
+                "speaker_name": "联系人1",
+                "content": "طيبألوتمام"
+              }
+            ]
+          }
+        ]
+      },
+      "summary_error": null,
+      "asr": {
+        "conversation_type": "audio",
+        "preview": [
+          {
+            "begin_time": 0,
+            "speaker_type": "customer_contact",
+            "speaker_name": "联系人1",
+            "content": "تسعة",
+            "content_en": null
+          },
+          {
+            "begin_time": 0.07,
+            "speaker_type": "host_salesman",
+            "speaker_name": "Mohammad Qasem",
+            "content": "هي رسالتك بعد الصافرة عندما تنتهي، يرجى انهاء المكالمة او الضغط على اي زر استعراض خيارات اضافية.",
+            "content_en": null
+          },
+          {
+            "begin_time": 23.52,
+            "speaker_type": "customer_contact",
+            "speaker_name": "联系人1",
+            "content": "طيبألوتمام",
+            "content_en": null
+          },
+          {
+            "begin_time": 56.52,
+            "speaker_type": "host_salesman",
+            "speaker_name": "Mohammad Qasem",
+            "content": "الاستماع إلى رسالتك إختر الرقم واحد لإعادة تسجيل رسالتك إختر الرقم إثنان لإلغاء رسالتك إختر الرقم",
+            "content_en": null
+          },
+          {
+            "begin_time": 57.76,
+            "speaker_type": "customer_contact",
+            "speaker_name": "联系人1",
+            "content": "أ",
+            "content_en": null
+          }
+        ]
+      },
+      "asr_error": null
+    },
+    {
+      "bucket": "median",
+      "conversation_id": 396934254,
+      "origin_conversation_id": "c962e47d-e987-486b-8767-e43d9177ad8a",
+      "deal_id": 55366547,
+      "begin_time": "2026-02-15T19:16:14",
+      "salesman_percent": "71.54%",
+      "score": {
+        "average_score": 3.3333,
+        "score_results": [
+          {
+            "name": "首次通话（用户付费后）",
+            "score": 0,
+            "total_score": 100,
+            "qualified": 0
+          },
+          {
+            "name": "首次触达评分",
+            "score": 10,
+            "total_score": 100,
+            "qualified": 0
+          },
+          {
+            "name": "试听课回访评分",
+            "score": 0,
+            "total_score": 100,
+            "qualified": 0
+          }
+        ]
+      },
+      "score_error": null,
+      "summary": {
+        "summary_status": 2,
+        "highlights": [
+          {
+            "name": "客户档案",
+            "question_name": "客户档案",
+            "content": "**基础信息**\n客户姓名：米拉妈妈\n学员姓名：米拉\n决策人：米拉妈妈\n\n**补习经历**\n过往补习经历：米拉目前在另一家平台上《古兰经》和阿拉伯语课程\n\n**客户诉求**\n希望课程安排在明天，且认为线下上课效果更好\n\n**下一步行动**\n明天下午五点准时上课，销售再次跟客户确认课程安排，客户在课程期间多关注学生学习情况",
+            "contexts": []
+          },
+          {
+            "name": "客户标签",
+            "question_name": "客户是否明确同意参加试听课",
+            "content": "是",
+            "contexts": [
+              {
+                "speaker_type": "user",
+                "speaker_name": "Mohammad Qasem",
+                "content": "بكرا عالساعة خمسة؟"
+              },
+              {
+                "speaker_type": "user",
+                "speaker_name": "Mohammad Qasem",
+                "content": "طيب تمام اميرة. بس بدي منك عالاكيد تأكد عليكي على موعد الحصة. ضروري جدا. بكرا نحضرها تمام؟"
+              },
+              {
+                "speaker_type": "customer",
+                "speaker_name": "联系人1",
+                "content": "Sure."
+              }
+            ]
+          },
+          {
+            "name": "客户标签",
+            "question_name": "客户咨询的是成人还是少儿课程",
+            "content": "咨询少儿课程",
+            "contexts": [
+              {
+                "speaker_type": "user",
+                "speaker_name": "Mohammad Qasem",
+                "content": "أمي را حصتنا تبعت يوم الخميس ما حضرناها؟ شو السب؟"
+              },
+              {
+                "speaker_type": "user",
+                "speaker_name": "Mohammad Qasem",
+                "content": "لها يا اميرة، مشتركة مع تطبيق ثاني غيرنا."
+              },
+              {
+                "speaker_type": "customer",
+                "speaker_name": "联系人1",
+                "content": "اه ايوا عندها حسب قرآن عندها حص لغة عربية"
+              }
+            ]
+          },
+          {
+            "name": "客户标签",
+            "question_name": "客户预约课程时间偏好是什么",
+            "content": "下午",
+            "contexts": [
+              {
+                "speaker_type": "user",
+                "speaker_name": "Mohammad Qasem",
+                "content": "طيب تمام اليوم عالساعة خمسة مش مناسب لإلك"
+              },
+              {
+                "speaker_type": "user",
+                "speaker_name": "Mohammad Qasem",
+                "content": "طيب تمام، متى مناسب إلك يا أم ميرا؟"
+              },
+              {
+                "speaker_type": "customer",
+                "speaker_name": "联系人1",
+                "content": "إن شاء اله بكرا."
+              }
+            ]
+          },
+          {
+            "name": "销售SOP",
+            "question_name": "销售是否给客户强制预约试听课",
+            "content": "否",
+            "contexts": [
+              {
+                "speaker_type": "user",
+                "speaker_name": "Mohammad Qasem",
+                "content": "طيب تمام اليوم عالساعة خمسة مش مناسب لإلك"
+              },
+              {
+                "speaker_type": "user",
+                "speaker_name": "Mohammad Qasem",
+                "content": "طيب تمام، متى مناسب إلك يا أم ميرا؟"
+              },
+              {
+                "speaker_type": "customer",
+                "speaker_name": "联系人1",
+                "content": "إن شاء اله بكرا."
+              }
+            ]
+          },
+          {
+            "name": "销售SOP",
+            "question_name": "销售是否邀请客户介绍亲友咨询报名课程",
+            "content": "否",
+            "contexts": []
+          },
+          {
+            "name": "销售SOP",
+            "question_name": "销售是否主动询问家长的疑虑并针对性解答",
+            "content": "否",
+            "contexts": []
+          },
+          {
+            "name": "销售SOP",
+            "question_name": "销售是否进行了自我介绍",
+            "content": "否",
+            "contexts": [
+              {
+                "speaker_type": "user",
+                "speaker_name": "Mohammad Qasem",
+                "content": "لا احنا لا القرآن ولا الغة العربية، احنا منصة معاكي محمد الي كنت اتواصل معاكي بخصوص الطالبة ميرا.الي حجزنالها حصة وانا لغيتها بالغلط. لما ذكرتك انو انا لغيت حصة الطالبة بالغلط بدنا نأجلها لثاني يوم. كانت الاربعاء اجلناها لخميس.ولكن ما حضرناها يوم الخميس، ف"
+              }
+            ]
+          }
+        ]
+      },
+      "summary_error": null,
+      "asr": {
+        "conversation_type": "audio",
+        "preview": [
+          {
+            "begin_time": 0.87,
+            "speaker_type": "customer_contact",
+            "speaker_name": "联系人1",
+            "content": "Hello؟",
+            "content_en": null
+          },
+          {
+            "begin_time": 2.75,
+            "speaker_type": "host_salesman",
+            "speaker_name": "Mohammad Qasem",
+            "content": "السلام عليكم. ام ميرا؟",
+            "content_en": null
+          },
+          {
+            "begin_time": 4.95,
+            "speaker_type": "customer_contact",
+            "speaker_name": "联系人1",
+            "content": "اهلا و عليكم السلام.",
+            "content_en": null
+          },
+          {
+            "begin_time": 6.89,
+            "speaker_type": "host_salesman",
+            "speaker_name": "Mohammad Qasem",
+            "content": "يعطيك العافية، كيفك؟ شو الأخبار؟",
+            "content_en": null
+          },
+          {
+            "begin_time": 9.55,
+            "speaker_type": "customer_contact",
+            "speaker_name": "联系人1",
+            "content": "الحمدله.are you sure",
+            "content_en": null
+          },
+          {
+            "begin_time": 11.8,
+            "speaker_type": "host_salesman",
+            "speaker_name": "Mohammad Qasem",
+            "content": "أمي را حصتنا تبعت يوم الخميس ما حضرناها؟ شو السب؟",
+            "content_en": null
+          },
+          {
+            "begin_time": 19.87,
+            "speaker_type": "host_salesman",
+            "speaker_name": "Mohammad Qasem",
+            "content": "نعم؟",
+            "content_en": null
+          },
+          {
+            "begin_time": 21.27,
+            "speaker_type": "customer_contact",
+            "speaker_name": "联系人1",
+            "content": "ايه",
+            "content_en": null
+          },
+          {
+            "begin_time": 21.76,
+            "speaker_type": "host_salesman",
+            "speaker_name": "Mohammad Qasem",
+            "content": "ن",
+            "content_en": null
+          },
+          {
+            "begin_time": 23.74,
+            "speaker_type": "host_salesman",
+            "speaker_name": "Mohammad Qasem",
+            "content": "لها يا اميرة، مشتركة مع تطبيق ثاني غيرنا.",
+            "content_en": null
+          },
+          {
+            "begin_time": 29.76,
+            "speaker_type": "customer_contact",
+            "speaker_name": "联系人1",
+            "content": "اه ايوا عندها حسب قرآن عندها حص لغة عربية",
+            "content_en": null
+          },
+          {
+            "begin_time": 34.93,
+            "speaker_type": "host_salesman",
+            "speaker_name": "Mohammad Qasem",
+            "content": "لا احنا لا القرآن ولا الغة العربية، احنا منصة معاكي محمد الي كنت اتواصل معاكي بخصوص الطالبة ميرا.الي حجزنالها حصة وانا لغيتها بالغلط. لما ذكرتك انو انا لغيت حصة الطالبة بالغلط بدنا نأجلها لثاني يوم. كانت الاربعاء اجلناها لخميس.ولكن ما حضرناها يوم الخميس، ف",
+            "content_en": null
+          }
+        ]
+      },
+      "asr_error": null
+    },
+    {
+      "bucket": "high",
+      "conversation_id": 406236706,
+      "origin_conversation_id": "2e13e759-dead-421c-8f01-35f99b231b4c",
+      "deal_id": 55923462,
+      "begin_time": "2026-03-08T02:51:09",
+      "salesman_percent": "56.01%",
+      "score": {
+        "average_score": 40,
+        "score_results": [
+          {
+            "name": "首次通话（用户付费后）",
+            "score": 0,
+            "total_score": 100,
+            "qualified": 0
+          },
+          {
+            "name": "首次触达评分",
+            "score": 55,
+            "total_score": 100,
+            "qualified": 0
+          },
+          {
+            "name": "试听课回访评分",
+            "score": 65,
+            "total_score": 100,
+            "qualified": 0
+          }
+        ]
+      },
+      "score_error": null,
+      "summary": {
+        "summary_status": 2,
+        "highlights": [
+          {
+            "name": "客户档案",
+            "question_name": "客户档案",
+            "content": "**基础信息**\n姓名：苏莱曼妈妈\n职业：老师、班主任\n学员姓名：萨利姆、女儿、妹妹、儿子\n年级：儿子刚上小学低年级\n决策人：苏莱曼妈妈\n预算：未提及具体预算，但关注课程价格及付费方式\n\n**学习情况**\n学科基础：萨利姆基础水平比较薄弱，儿子英语基础待打牢\n学习习惯：未提及\n\n**学习薄弱项**\n未提及\n\n**补习经历**\n过往补习经历：请过一位老师教女儿九个月；女儿在Nova平台注册上课；儿子参与过‘菲顿2’项目但未坚持下来\n过往辅导班名称：未提及\n过往补习反馈：之前请的老师只是单方面灌输，女儿后来中断学习，内容荒废；女儿在Nova平台一开始有‘畏难情绪’\n\n**客户诉求**\n为孩子打好英语基础，让孩子能开口说英语，从零开始扎实学起；希望平台操作简便，能查价格、排课表，可预约试听课；关注课程安排模式（如每月是否必须完成12节课）、预约时段灵活性；希望有自主选择权联系老师；希望享受兄弟姐妹优惠\n\n**客户异议**\n之前请的老师教学方式不佳，导致孩子荒废学习；‘菲顿2’项目未找到核心优势点；担心课程没上满会自动作废；担心被强制排课，学生不参与互动\n\n**下一步行动**\n客户回家后按程序办理加入服务手续，联系财务科伊斯拉姆老师或教务跟踪科；一个月后等妹妹上完十节课再沟通，可先免费试学一个月或两个月，合适再决定是否继续",
+            "contexts": []
+          },
+          {
+            "name": "客户标签",
+            "question_name": "学员学习英语的目的是什么",
+            "content": "英语启蒙",
+            "contexts": [
+              {
+                "speaker_type": "customer",
+                "speaker_name": "联系人1",
+                "content": "ستة الفئة الي رزق اوكي، بص، انا بس اسالك هو اكيد صراحة، حتى انا شهادة ما شهادة، ما تحملني، ما تهمني حاليا، ابغاه يتأس بالانجليزي،"
+              },
+              {
+                "speaker_type": "user",
+                "speaker_name": "Mohammad Qasem",
+                "content": "يهمك إنه يصير يتكلم"
+              },
+              {
+                "speaker_type": "customer",
+                "speaker_name": "联系人1",
+                "content": "ايوه يصير عندو من تأسيس انا عارفة انو فجأة كدا يقصد يتكلم لازم مرحلة يعني ابغاه يتأس يتأسف صح يفهم صح يكون عنده اساس كويس في الانجليزي لان هو الانسان لما يتأسف صح حتى بعدين يقدر تلفس صدي لكن يكون ما عندو اساس ما يقدر في دحين مصادر كثير لمجاني فري انت عارف "
+              }
+            ]
+          },
+          {
+            "name": "客户标签",
+            "question_name": "学员的性格怎么样",
+            "content": "内向",
+            "contexts": [
+              {
+                "speaker_type": "customer",
+                "speaker_name": "联系人1",
+                "content": "مثلا يكون لينك وأفضل كمان يكون في خيار. بمعنى ايش؟ في بعض الأيام يكون سليمان تعرف هو سليمان ترى خجول غير متعاون مثلا خلص."
+              },
+              {
+                "speaker_type": "user",
+                "speaker_name": "Mohammad Qasem",
+                "content": "huh"
+              },
+              {
+                "speaker_type": "customer",
+                "speaker_name": "联系人1",
+                "content": "بالقوة يعني ف صارت يعني بقوة غصبته على الحصة مو حيرضى مثلا يسوي ديتكف مع المعلمة مثلا يكون؟"
+              }
+            ]
+          },
+          {
+            "name": "客户标签",
+            "question_name": "客户咨询的是成人还是少儿课程",
+            "content": "咨询少儿课程",
+            "contexts": [
+              {
+                "speaker_type": "user",
+                "speaker_name": "Mohammad Qasem",
+                "content": "يستاهل الحمد أختي معاكي الأستاذ محمد، من منصة vip جدا التعليمية لتعليم الغة الإنجليزية، معك الأستاذ محمد الي كنت أكلمك على الواتساب."
+              },
+              {
+                "speaker_type": "customer",
+                "speaker_name": "联系人1",
+                "content": "كويس الحمد له بس انا قلتلك هو مستواه مرة مقتدئ"
+              },
+              {
+                "speaker_type": "user",
+                "speaker_name": "Mohammad Qasem",
+                "content": "اله يسعدك اختي. طمنيني كيف كانت حصة البطل سليمان؟"
+              }
+            ]
+          },
+          {
+            "name": "客户标签",
+            "question_name": "客户希望提升的英语板块是什么",
+            "content": "口语表达",
+            "contexts": [
+              {
+                "speaker_type": "customer",
+                "speaker_name": "联系人1",
+                "content": "ستة الفئة الي رزق اوكي، بص، انا بس اسالك هو اكيد صراحة، حتى انا شهادة ما شهادة، ما تحملني، ما تهمني حاليا، ابغاه يتأس بالانجليزي،"
+              },
+              {
+                "speaker_type": "user",
+                "speaker_name": "Mohammad Qasem",
+                "content": "يهمك إنه يصير يتكلم"
+              },
+              {
+                "speaker_type": "customer",
+                "speaker_name": "联系人1",
+                "content": "ايوه يصير عندو من تأسيس انا عارفة انو فجأة كدا يقصد يتكلم لازم مرحلة يعني ابغاه يتأس يتأسف صح يفهم صح يكون عنده اساس كويس في الانجليزي لان هو الانسان لما يتأسف صح حتى بعدين يقدر تلفس صدي لكن يكون ما عندو اساس ما يقدر في دحين مصادر كثير لمجاني فري انت عارف "
+              }
+            ]
+          },
+          {
+            "name": "客户标签",
+            "question_name": "学员学习英语的痛点是什么",
+            "content": "孩子没有兴趣学英语",
+            "contexts": [
+              {
+                "speaker_type": "customer",
+                "speaker_name": "联系人1",
+                "content": "مثلا يكون لينك وأفضل كمان يكون في خيار. بمعنى ايش؟ في بعض الأيام يكون سليمان تعرف هو سليمان ترى خجول غير متعاون مثلا خلص."
+              },
+              {
+                "speaker_type": "user",
+                "speaker_name": "Mohammad Qasem",
+                "content": "huh"
+              },
+              {
+                "speaker_type": "customer",
+                "speaker_name": "联系人1",
+                "content": "بالقوة يعني ف صارت يعني بقوة غصبته على الحصة مو حيرضى مثلا يسوي ديتكف مع المعلمة مثلا يكون؟"
+              }
+            ]
+          },
+          {
+            "name": "客户标签",
+            "question_name": "客户是否明确同意参加试听课",
+            "content": "否",
+            "contexts": []
+          },
+          {
+            "name": "销售SOP",
+            "question_name": "销售是否询问了客户对教师类型的偏好",
+            "content": "否",
+            "contexts": []
+          }
+        ]
+      },
+      "summary_error": null,
+      "asr": {
+        "conversation_type": "audio",
+        "preview": [
+          {
+            "begin_time": 0.91,
+            "speaker_type": "customer_contact",
+            "speaker_name": "联系人1",
+            "content": "Do you.Know.",
+            "content_en": null
+          },
+          {
+            "begin_time": 2.21,
+            "speaker_type": "host_salesman",
+            "speaker_name": "Mohammad Qasem",
+            "content": "السلام عليكم.y",
+            "content_en": null
+          },
+          {
+            "begin_time": 4.4,
+            "speaker_type": "customer_contact",
+            "speaker_name": "联系人1",
+            "content": "وعليكم السلام ورحمة اله وبركاته.",
+            "content_en": null
+          },
+          {
+            "begin_time": 7.79,
+            "speaker_type": "host_salesman",
+            "speaker_name": "Mohammad Qasem",
+            "content": "ألف عافية في كيف الحال؟",
+            "content_en": null
+          },
+          {
+            "begin_time": 10.33,
+            "speaker_type": "customer_contact",
+            "speaker_name": "联系人1",
+            "content": "و اله الحمد اله رب",
+            "content_en": null
+          },
+          {
+            "begin_time": 13.05,
+            "speaker_type": "host_salesman",
+            "speaker_name": "Mohammad Qasem",
+            "content": "يستاهل الحمد أختي معاكي الأستاذ محمد، من منصة vip جدا التعليمية لتعليم الغة الإنجليزية، معك الأستاذ محمد الي كنت أكلمك على الواتساب.",
+            "content_en": null
+          },
+          {
+            "begin_time": 24.47,
+            "speaker_type": "customer_contact",
+            "speaker_name": "联系人1",
+            "content": "كويس الحمد له بس انا قلتلك هو مستواه مرة مقتدئ",
+            "content_en": null
+          },
+          {
+            "begin_time": 26.02,
+            "speaker_type": "host_salesman",
+            "speaker_name": "Mohammad Qasem",
+            "content": "اله يسعدك اختي. طمنيني كيف كانت حصة البطل سليمان؟",
+            "content_en": null
+          },
+          {
+            "begin_time": 36.32,
+            "speaker_type": "customer_contact",
+            "speaker_name": "联系人1",
+            "content": "no",
+            "content_en": null
+          },
+          {
+            "begin_time": 36.45,
+            "speaker_type": "host_salesman",
+            "speaker_name": "Mohammad Qasem",
+            "content": "عادي عادي عادي ما في اي مشكلة بالنسبة لمستوى خليلي اياها انا شوي بخبرك بالنسبة لمستوى ولكن الي انا بدي اعرفه منك اختي كيف كيف شفتي تفاعل الطالب بالحصة اداء الطالب بالحصة هل كان الطالب متفاعل ولا انه خجول",
+            "content_en": null
+          },
+          {
+            "begin_time": 50.32,
+            "speaker_type": "customer_contact",
+            "speaker_name": "联系人1",
+            "content": "ايوه كويس.",
+            "content_en": null
+          },
+          {
+            "begin_time": 53.91,
+            "speaker_type": "customer_contact",
+            "speaker_name": "联系人1",
+            "content": "الحمدله. ايه كان متفائل؟السلام عليكم",
+            "content_en": null
+          }
+        ]
+      },
+      "asr_error": null
+    }
+  ],
+  "notes": [
+    "Database employee status: active."
+  ]
+}

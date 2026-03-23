@@ -1,18 +1,19 @@
 import {AbsoluteFill, interpolate, useCurrentFrame} from 'remotion';
 import {FC} from 'react';
+import {SceneIcon, type SceneIconName} from './SceneIcons';
 
 interface ChapterTitleProps {
 	chapterNumber: string;
 	title: string;
 	description?: string;
-	icon?: string;
+	icon?: SceneIconName;
 }
 
 export const ChapterTitle: FC<ChapterTitleProps> = ({
 	chapterNumber,
 	title,
 	description,
-	icon = '📚',
+	icon = 'book',
 }) => {
 	const frame = useCurrentFrame();
 
@@ -49,11 +50,11 @@ export const ChapterTitle: FC<ChapterTitleProps> = ({
 			>
 				<div
 					style={{
-						fontSize: 100,
 						marginBottom: 20,
+						color: 'white',
 					}}
 				>
-					{icon}
+					<SceneIcon name={icon} size={100} color="white" />
 				</div>
 				<div
 					style={{

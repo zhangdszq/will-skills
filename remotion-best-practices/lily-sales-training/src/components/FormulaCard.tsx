@@ -1,11 +1,14 @@
 import {AbsoluteFill, interpolate, useCurrentFrame} from 'remotion';
 import {FC} from 'react';
+import {SceneIcon, type SceneIconName} from './SceneIcons';
 
 interface FormulaCardProps {
 	keyword: string;
 	meaning: string;
 	example?: string;
-	icon?: string;
+	/** Optional small mark before example text (e.g. wrong-example cross). */
+	examplePrefix?: SceneIconName;
+	icon?: SceneIconName;
 	color?: string;
 }
 
@@ -13,7 +16,8 @@ export const FormulaCard: FC<FormulaCardProps> = ({
 	keyword,
 	meaning,
 	example,
-	icon = '💡',
+	examplePrefix,
+	icon = 'lightbulb',
 	color = '#4facfe',
 }) => {
 	const frame = useCurrentFrame();
@@ -58,11 +62,12 @@ export const FormulaCard: FC<FormulaCardProps> = ({
 				<div style={{textAlign: 'center'}}>
 					<div
 						style={{
-							fontSize: 80,
 							marginBottom: 20,
+							display: 'flex',
+							justifyContent: 'center',
 						}}
 					>
-						{icon}
+						<SceneIcon name={icon} size={80} color={color} />
 					</div>
 					<h1
 						style={{
@@ -95,9 +100,30 @@ export const FormulaCard: FC<FormulaCardProps> = ({
 										borderRadius: 15,
 										fontSize: 28,
 										color: '#444',
+										display: 'flex',
+										alignItems: 'flex-start',
+										gap: 12,
 									}}
 								>
-									<strong>💬 示例：</strong> {example}
+									<SceneIcon name="chat" size={36} color="#666" />
+									<div style={{flex: 1}}>
+										<strong>示例：</strong>
+										<div
+											style={{
+												marginTop: 8,
+												display: 'flex',
+												alignItems: 'flex-start',
+												gap: 10,
+											}}
+										>
+											{examplePrefix ? (
+												<span style={{flexShrink: 0, marginTop: 4}}>
+													<SceneIcon name={examplePrefix} size={28} color="#c62828" />
+												</span>
+											) : null}
+											<span>{example}</span>
+										</div>
+									</div>
 								</div>
 							</div>
 						)}

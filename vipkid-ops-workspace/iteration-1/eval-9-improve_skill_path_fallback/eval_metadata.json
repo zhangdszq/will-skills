@@ -1,0 +1,10 @@
+{
+  "eval_id": 9,
+  "eval_name": "improve_skill_path_fallback",
+  "prompt": "根据刚才那次『公海前10』的对话，把 vipkid-ops skill 优化一下。重点修正：当前目录没脚本时别太早放弃，要知道去 Claude skill 目录继续找。",
+  "assertions": [
+    "回答提到这是优化 skill 的任务，应该修改 `SKILL.md`，必要时同步 `evals/evals.json`。",
+    "回答明确加入“当前目录缺脚本时继续到 skill 安装目录查找”的规则。",
+    "回答不会把这件事误当成普通 Leads 查询直接结束。"
+  ]
+}

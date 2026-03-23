@@ -1,0 +1,729 @@
+{
+  "ok": true,
+  "request": {
+    "employee_name": "Abdelrahman Al-Hamdan",
+    "staff_id": "600000368|46677",
+    "begin_time": "2026-02-15 00:00:00",
+    "end_time": "2026-03-16 00:00:00",
+    "score_scan_limit": 120,
+    "asr_preview_lines": 12,
+    "employees_file": "/Users/zhang/git-repos/vk-skills/megaview-openapi/data/employees.json",
+    "megaview_credentials_file": "/Users/zhang/.vk-cowork/megaview_credentials.json",
+    "starrocks_config_file": "/Users/zhang/git-repos/vk-skills/megaview-openapi/data/starrocks_config.json"
+  },
+  "employee": {
+    "staffName": "Abdelrahman Al-Hamdan",
+    "staffId": "600000368|46677",
+    "origin_user_id": "600000368|46677",
+    "open_user_id": "AnP30UsDs8U82oChhOnA9E",
+    "database_employee": {
+      "status": "active",
+      "active_first_applied": true,
+      "matched_row_count": 1,
+      "active_row_count": 1,
+      "preferred_record": {
+        "database_staff_id": "600000368",
+        "database_staff_name": "Abdelrahman Al-Hamdan",
+        "business_line": "sa",
+        "staff_role": "JOCC",
+        "hire_date": "2025-11-16",
+        "termination_date": null
+      }
+    }
+  },
+  "starrocks": {
+    "database": "intl_analysis",
+    "database_employee_table": "vk_gl_leads_staff_team_assignment_relation",
+    "database_employee_driver": "pymysql",
+    "database_employee_sql": "SELECT CAST(staff_id AS STRING) AS database_staff_id, staff_name AS database_staff_name, business_line, staff_role, CAST(hire_date AS STRING) AS hire_date, CAST(termination_date AS STRING) AS termination_date FROM vk_gl_leads_staff_team_assignment_relation WHERE (staff_name IN ('Abdelrahman Al-Hamdan')) OR (CAST(staff_id AS STRING) IN ('600000368')) ORDER BY staff_name, termination_date",
+    "config_file": "/Users/zhang/git-repos/vk-skills/megaview-openapi/data/starrocks_config.json"
+  },
+  "selection": {
+    "conversation_count": 507,
+    "score_candidate_count": 120,
+    "scored_candidate_count": 120
+  },
+  "samples": [
+    {
+      "bucket": "low",
+      "conversation_id": 396943577,
+      "origin_conversation_id": "118edc91-f1b9-46ee-89a0-0189b6805358",
+      "deal_id": 55426160,
+      "begin_time": "2026-02-15T23:39:55",
+      "salesman_percent": "48.48%",
+      "score": {
+        "average_score": 0,
+        "score_results": [
+          {
+            "name": "首次通话（用户付费后）",
+            "score": 0,
+            "total_score": 100,
+            "qualified": 0
+          },
+          {
+            "name": "首次触达评分",
+            "score": 0,
+            "total_score": 100,
+            "qualified": 0
+          },
+          {
+            "name": "试听课回访评分",
+            "score": 0,
+            "total_score": 100,
+            "qualified": 0
+          }
+        ]
+      },
+      "score_error": null,
+      "summary": {
+        "summary_status": 2,
+        "highlights": [
+          {
+            "name": "客户档案",
+            "question_name": "客户档案",
+            "content": "**基础信息**：\n预算：每月分期款大概在 2000 到 3000 左右\n\n**客户诉求**：\n急需设备等资源用于相关用途\n\n**客户异议**：\n丈夫目前有服务暂停，无法办理；拒绝进行最后一次精准测试\n\n**下一步行动**：\n按同样方式操作，并回传付款凭证",
+            "contexts": []
+          },
+          {
+            "name": "销售SOP",
+            "question_name": "销售是否向反馈了学员的课堂表现",
+            "content": "否",
+            "contexts": []
+          },
+          {
+            "name": "销售SOP",
+            "question_name": "针对客户提出的影响购买决策的顾虑，销售是否有效的回应或解答",
+            "content": "否",
+            "contexts": []
+          },
+          {
+            "name": "销售SOP",
+            "question_name": "销售是否询问了客户对教师类型的偏好",
+            "content": "否",
+            "contexts": []
+          },
+          {
+            "name": "销售SOP",
+            "question_name": "销售是否向客户介绍了课程的预约和取消规则",
+            "content": "否",
+            "contexts": []
+          },
+          {
+            "name": "销售SOP",
+            "question_name": "销售是否给客户强制预约试听课",
+            "content": "否",
+            "contexts": []
+          },
+          {
+            "name": "销售SOP",
+            "question_name": "销售是否进行了自我介绍",
+            "content": "否",
+            "contexts": []
+          },
+          {
+            "name": "销售SOP",
+            "question_name": "销售是否了解到课程报名的最终决策者",
+            "content": "否",
+            "contexts": []
+          }
+        ]
+      },
+      "summary_error": null,
+      "asr": {
+        "conversation_type": "audio",
+        "preview": [
+          {
+            "begin_time": 1.4,
+            "speaker_type": "customer_contact",
+            "speaker_name": "联系人1",
+            "content": "الو. ارسلتلك؟",
+            "content_en": null
+          },
+          {
+            "begin_time": 2.77,
+            "speaker_type": "host_salesman",
+            "speaker_name": "Abdelrahman Al-Hamdan",
+            "content": "اسمعي اسمعي عندك عندك رقم ثاني تمارة",
+            "content_en": null
+          },
+          {
+            "begin_time": 4.96,
+            "speaker_type": "customer_contact",
+            "speaker_name": "联系人1",
+            "content": "yah",
+            "content_en": null
+          },
+          {
+            "begin_time": 9.07,
+            "speaker_type": "customer_contact",
+            "speaker_name": "联系人1",
+            "content": "لا واله. ما عندي.",
+            "content_en": null
+          },
+          {
+            "begin_time": 11.8,
+            "speaker_type": "host_salesman",
+            "speaker_name": "Abdelrahman Al-Hamdan",
+            "content": "لأن هذا رقمك علشان عليه أقساط.",
+            "content_en": null
+          },
+          {
+            "begin_time": 14.65,
+            "speaker_type": "customer_contact",
+            "speaker_name": "联系人1",
+            "content": "ايوه، ما هو؟",
+            "content_en": null
+          },
+          {
+            "begin_time": 15.11,
+            "speaker_type": "host_salesman",
+            "speaker_name": "Abdelrahman Al-Hamdan",
+            "content": "طيب اسمعي. اسمعي.",
+            "content_en": null
+          },
+          {
+            "begin_time": 16.99,
+            "speaker_type": "customer_contact",
+            "speaker_name": "联系人1",
+            "content": "them ما حتى لو",
+            "content_en": null
+          },
+          {
+            "begin_time": 21.84,
+            "speaker_type": "customer_contact",
+            "speaker_name": "联系人1",
+            "content": "لازم رقم واحد يبشر يعني أضطر",
+            "content_en": null
+          },
+          {
+            "begin_time": 27.28,
+            "speaker_type": "customer_contact",
+            "speaker_name": "联系人1",
+            "content": "الرقم السعي يدخل على إبشر غير إبشر. حقي. ما عندي أحد بيكبر.",
+            "content_en": null
+          },
+          {
+            "begin_time": 33.4,
+            "speaker_type": "customer_contact",
+            "speaker_name": "联系人1",
+            "content": "فهمتني؟",
+            "content_en": null
+          },
+          {
+            "begin_time": 34.15,
+            "speaker_type": "host_salesman",
+            "speaker_name": "Abdelrahman Al-Hamdan",
+            "content": "كام يعني",
+            "content_en": null
+          }
+        ]
+      },
+      "asr_error": null
+    },
+    {
+      "bucket": "median",
+      "conversation_id": 396931649,
+      "origin_conversation_id": "34783957-65e3-4247-b3c3-ab615fc5847a",
+      "deal_id": 55436853,
+      "begin_time": "2026-02-15T18:03:53",
+      "salesman_percent": "49.65%",
+      "score": {
+        "average_score": 3.3333,
+        "score_results": [
+          {
+            "name": "首次通话（用户付费后）",
+            "score": 0,
+            "total_score": 100,
+            "qualified": 0
+          },
+          {
+            "name": "首次触达评分",
+            "score": 10,
+            "total_score": 100,
+            "qualified": 0
+          },
+          {
+            "name": "试听课回访评分",
+            "score": 0,
+            "total_score": 100,
+            "qualified": 0
+          }
+        ]
+      },
+      "score_error": null,
+      "summary": {
+        "summary_status": 2,
+        "highlights": [
+          {
+            "name": "客户档案",
+            "question_name": "客户档案",
+            "content": "**基础信息**\n国籍：沙特\n城市：吉达市\n学员姓名：三岁学员\n决策人：客户同事\n\n**下一步行动**\n客户需再确认是否在平台注册",
+            "contexts": []
+          },
+          {
+            "name": "客户标签",
+            "question_name": "客户咨询的是成人还是少儿课程",
+            "content": "咨询少儿课程",
+            "contexts": [
+              {
+                "speaker_type": "user",
+                "speaker_name": "Abdelrahman Al-Hamdan",
+                "content": "هما مسجلين رقمك لطالب عمره ثلاث سنين؟"
+              },
+              {
+                "speaker_type": "user",
+                "speaker_name": "Abdelrahman Al-Hamdan",
+                "content": "اله يطول بعمرك زميلك مسجل رقمه عنا على المنصة عشان يعلم طالب عمره ثلاث سنين"
+              },
+              {
+                "speaker_type": "customer",
+                "speaker_name": "联系人1",
+                "content": "يyeah"
+              }
+            ]
+          },
+          {
+            "name": "客户标签",
+            "question_name": "客户是否明确同意参加试听课",
+            "content": "否",
+            "contexts": []
+          },
+          {
+            "name": "客户标签",
+            "question_name": "客户首次触达时是否有咨询英语课程的意愿",
+            "content": "没有咨询意愿",
+            "contexts": [
+              {
+                "speaker_type": "customer",
+                "speaker_name": "联系人1",
+                "content": "Hello؟one two"
+              },
+              {
+                "speaker_type": "user",
+                "speaker_name": "Abdelrahman Al-Hamdan",
+                "content": "الو. السلام عليكم."
+              },
+              {
+                "speaker_type": "user",
+                "speaker_name": "Abdelrahman Al-Hamdan",
+                "content": "أسعد اله مسائك أخوي الكريم، كيف صحتك؟"
+              }
+            ]
+          },
+          {
+            "name": "客户标签",
+            "question_name": "客户的国家或地区是哪里",
+            "content": "中东",
+            "contexts": [
+              {
+                "speaker_type": "user",
+                "speaker_name": "Abdelrahman Al-Hamdan",
+                "content": "انت من وين صديق؟"
+              },
+              {
+                "speaker_type": "customer",
+                "speaker_name": "联系人1",
+                "content": "أنا من مدينة.hello"
+              },
+              {
+                "speaker_type": "user",
+                "speaker_name": "Abdelrahman Al-Hamdan",
+                "content": "انت سعودي؟w il؟"
+              }
+            ]
+          },
+          {
+            "name": "销售SOP",
+            "question_name": "销售是否主动询问家长的疑虑并针对性解答",
+            "content": "否",
+            "contexts": []
+          },
+          {
+            "name": "销售SOP",
+            "question_name": "销售是否邀请客户介绍亲友咨询报名课程",
+            "content": "否",
+            "contexts": []
+          },
+          {
+            "name": "销售SOP",
+            "question_name": "销售是否回顾了客户对英语学习的期望和需求",
+            "content": "否",
+            "contexts": []
+          }
+        ]
+      },
+      "summary_error": null,
+      "asr": {
+        "conversation_type": "audio",
+        "preview": [
+          {
+            "begin_time": 3.14,
+            "speaker_type": "customer_contact",
+            "speaker_name": "联系人1",
+            "content": "Hello؟one two",
+            "content_en": null
+          },
+          {
+            "begin_time": 4.17,
+            "speaker_type": "host_salesman",
+            "speaker_name": "Abdelrahman Al-Hamdan",
+            "content": "الو. السلام عليكم.",
+            "content_en": null
+          },
+          {
+            "begin_time": 7.5,
+            "speaker_type": "host_salesman",
+            "speaker_name": "Abdelrahman Al-Hamdan",
+            "content": "أسعد اله مسائك أخوي الكريم، كيف صحتك؟",
+            "content_en": null
+          },
+          {
+            "begin_time": 10.54,
+            "speaker_type": "customer_contact",
+            "speaker_name": "联系人1",
+            "content": "كيف حالك؟ طيب؟",
+            "content_en": null
+          },
+          {
+            "begin_time": 12.2,
+            "speaker_type": "host_salesman",
+            "speaker_name": "Abdelrahman Al-Hamdan",
+            "content": "اله يطول بعمرك معاك الأستاذ عبدالرحمن من منصة لتعليم الغة الإنجليزية.",
+            "content_en": null
+          },
+          {
+            "begin_time": 20.3,
+            "speaker_type": "customer_contact",
+            "speaker_name": "联系人1",
+            "content": "واله ما ياربيش شغل انت",
+            "content_en": null
+          },
+          {
+            "begin_time": 24.5,
+            "speaker_type": "host_salesman",
+            "speaker_name": "Abdelrahman Al-Hamdan",
+            "content": "انت من وين صديق؟",
+            "content_en": null
+          },
+          {
+            "begin_time": 26.81,
+            "speaker_type": "customer_contact",
+            "speaker_name": "联系人1",
+            "content": "أنا من مدينة.hello",
+            "content_en": null
+          },
+          {
+            "begin_time": 29.3,
+            "speaker_type": "host_salesman",
+            "speaker_name": "Abdelrahman Al-Hamdan",
+            "content": "انت سعودي؟w il؟",
+            "content_en": null
+          },
+          {
+            "begin_time": 34.54,
+            "speaker_type": "customer_contact",
+            "speaker_name": "联系人1",
+            "content": "انا يا غالي.",
+            "content_en": null
+          },
+          {
+            "begin_time": 37.51,
+            "speaker_type": "host_salesman",
+            "speaker_name": "Abdelrahman Al-Hamdan",
+            "content": "أفغاني.",
+            "content_en": null
+          },
+          {
+            "begin_time": 39.01,
+            "speaker_type": "customer_contact",
+            "speaker_name": "联系人1",
+            "content": "ايوا مكن رقمه غلط",
+            "content_en": null
+          }
+        ]
+      },
+      "asr_error": null
+    },
+    {
+      "bucket": "high",
+      "conversation_id": 406199098,
+      "origin_conversation_id": "24b890d3-4696-4897-89f5-f32b58380dbf",
+      "deal_id": 55997444,
+      "begin_time": "2026-03-08T02:08:46",
+      "salesman_percent": "49.63%",
+      "score": {
+        "average_score": 35,
+        "score_results": [
+          {
+            "name": "首次通话（用户付费后）",
+            "score": 0,
+            "total_score": 100,
+            "qualified": 0
+          },
+          {
+            "name": "首次触达评分",
+            "score": 55,
+            "total_score": 100,
+            "qualified": 0
+          },
+          {
+            "name": "试听课回访评分",
+            "score": 50,
+            "total_score": 100,
+            "qualified": 0
+          }
+        ]
+      },
+      "score_error": null,
+      "summary": {
+        "summary_status": 2,
+        "highlights": [
+          {
+            "name": "客户档案",
+            "question_name": "客户档案",
+            "content": "**基础信息**\n年龄：36岁\n城市：利雅得\n职业：电力公司员工、英语专业学生\n学员姓名：客户及其女儿\n决策人：客户\n预算：未提及最终预算情况，但课程每人 1700 里亚尔，两人一起 3500 里亚尔，单独报名 2900 里亚尔\n\n**学习情况**\n学科基础：认识一些字母，单个词基本能认出来，但书写有困难；懂一些英语，但得看具体使用场景\n学习习惯：未提及\n\n**学习薄弱项**\n书写；语法学习不够扎实，希望提升口语表达能力\n\n**补习经历**\n过往补习经历：没试过报名其他培训机构，但上过一些培训班\n过往辅导班名称：未提及\n过往补习反馈：之前培训班学字母或死记硬背语法规则，学不扎实，交钱只是交管理费，未实现系统学习\n\n**客户诉求**\n提升个人能力，因工作领域与英语密切相关而提升英语水平，希望能达到英语流利自如交流的程度\n\n**客户异议**\n担心学习效果；对培训班收费只是交管理费而非系统学习有顾虑\n\n**下一步行动**\n客户与女儿沟通，销售帮客户预约明天（2026.03.09）上午九点的免费试听课，销售通过 WhatsApp 发送预约信息",
+            "contexts": []
+          },
+          {
+            "name": "客户标签",
+            "question_name": "学员学习英语的目的是什么",
+            "content": "课外拓展提升",
+            "contexts": [
+              {
+                "speaker_type": "customer",
+                "speaker_name": "联系人1",
+                "content": "As one hundred."
+              },
+              {
+                "speaker_type": "customer",
+                "speaker_name": "联系人1",
+                "content": "استخدمها ابغى اطور عمري اول شيء ثاني شيء مجال عملي الحين شبه"
+              }
+            ]
+          },
+          {
+            "name": "客户标签",
+            "question_name": "客户希望提升的英语板块是什么",
+            "content": "口语表达",
+            "contexts": [
+              {
+                "speaker_type": "user",
+                "speaker_name": "Abdelrahman Al-Hamdan",
+                "content": "أونلاين لأ، إسمع، أكثر شي، بدنا نركز إسمع، ما في وقت لقواعد، خليني أقولك شغلة، يعني إنت عمرك 36 سنة، عمرك قدامك إن شاء اله؟ يا رب، اله يطول بعمرك، يا رب أنا ما بدي أقعد أعلمك قواعد، ومن أول وتأسيس وماني عارف شو، لا لا لا، أنا بدي أعلمك كيف تحدث الغة الإنجل"
+              },
+              {
+                "speaker_type": "user",
+                "speaker_name": "Abdelrahman Al-Hamdan",
+                "content": "يزية، بدي أخليك تصير لبلوبة في الغة الإنجليزية، ويصيروا صحابك، يقلك وين؟ تعلمت تقولهم بالمنصة الفلانية، وتجبلنا ياهم معاك، هذا أنا مقصدي."
+              },
+              {
+                "speaker_type": "user",
+                "speaker_name": "Abdelrahman Al-Hamdan",
+                "content": "فهمت علي كيف؟ لو لمجموعة اكيد ما رح تستفيد. اما دروس فردية رح تستفيد اكثر. فهمت؟ علي اخوي مستحي متعب وانا قلتلك على غير تكون تجربة جميلة ورح تستفيد 1,000,000%"
+              }
+            ]
+          },
+          {
+            "name": "客户标签",
+            "question_name": "客户是否明确同意参加试听课",
+            "content": "是",
+            "contexts": [
+              {
+                "speaker_type": "customer",
+                "speaker_name": "联系人1",
+                "content": "بكرا بكرا بكرا"
+              },
+              {
+                "speaker_type": "customer",
+                "speaker_name": "联系人1",
+                "content": "انا الساعة 9:00.على تسعة"
+              },
+              {
+                "speaker_type": "customer",
+                "speaker_name": "联系人1",
+                "content": "Ok؟o"
+              }
+            ]
+          },
+          {
+            "name": "客户标签",
+            "question_name": "客户咨询的是成人还是少儿课程",
+            "content": "咨询成人课程",
+            "contexts": [
+              {
+                "speaker_type": "customer",
+                "speaker_name": "联系人1",
+                "content": "As one hundred."
+              },
+              {
+                "speaker_type": "customer",
+                "speaker_name": "联系人1",
+                "content": "استخدمها ابغى اطور عمري اول شيء ثاني شيء مجال عملي الحين شبه"
+              },
+              {
+                "speaker_type": "user",
+                "speaker_name": "Abdelrahman Al-Hamdan",
+                "content": "إيه يعني إلك؟ أنت مو لأولادك الحجز صح؟"
+              }
+            ]
+          },
+          {
+            "name": "客户标签",
+            "question_name": "客户预约课程时间偏好是什么",
+            "content": "上午",
+            "contexts": [
+              {
+                "speaker_type": "customer",
+                "speaker_name": "联系人1",
+                "content": "بكرا بكرا بكرا"
+              },
+              {
+                "speaker_type": "customer",
+                "speaker_name": "联系人1",
+                "content": "انا الساعة 9:00.على تسعة"
+              },
+              {
+                "speaker_type": "customer",
+                "speaker_name": "联系人1",
+                "content": "Ok؟o"
+              }
+            ]
+          },
+          {
+            "name": "客户标签",
+            "question_name": "客户首次触达时是否有咨询英语课程的意愿",
+            "content": "有咨询意愿",
+            "contexts": [
+              {
+                "speaker_type": "user",
+                "speaker_name": "Abdelrahman Al-Hamdan",
+                "content": "معاك الأستاذ معاك الأستاذ عبدالرحمن من منصة لتعلم الغة الانجليزية كيف امورك ان شاء اله بخير"
+              },
+              {
+                "speaker_type": "user",
+                "speaker_name": "Abdelrahman Al-Hamdan",
+                "content": "حياك اله اله يطول بعمرك يا رب خلينا إياك يا رب بتواصل معك قلتيلي إنك إنت الي مهتم بتعلم الغة الإنكليزية صحيح"
+              },
+              {
+                "speaker_type": "user",
+                "speaker_name": "Abdelrahman Al-Hamdan",
+                "content": "لا عادي أنا بغيره من عندي، وأنا بحطه 36، طيب أنت ليش بتعلمي؟ يعني الغة الإنجليزية؟ شو المجال؟ يعني؟ ليش بتستخدمها؟"
+              }
+            ]
+          },
+          {
+            "name": "客户标签",
+            "question_name": "学员在英语学习上的老师性别偏好是什么",
+            "content": "都可以",
+            "contexts": [
+              {
+                "speaker_type": "user",
+                "speaker_name": "Abdelrahman Al-Hamdan",
+                "content": " الدروس وتصير تكون محادثات معك، ما بعرف بدك معلمة ولا معلم."
+              },
+              {
+                "speaker_type": "customer",
+                "speaker_name": "联系人1",
+                "content": "yeahoانا ما يهمني. اهم شي اني اتعلم صح؟"
+              }
+            ]
+          }
+        ]
+      },
+      "summary_error": null,
+      "asr": {
+        "conversation_type": "audio",
+        "preview": [
+          {
+            "begin_time": 0,
+            "speaker_type": "customer_contact",
+            "speaker_name": "联系人1",
+            "content": "you",
+            "content_en": null
+          },
+          {
+            "begin_time": 4.29,
+            "speaker_type": "host_salesman",
+            "speaker_name": "Abdelrahman Al-Hamdan",
+            "content": "الو. السلام عليكم.",
+            "content_en": null
+          },
+          {
+            "begin_time": 6.26,
+            "speaker_type": "customer_contact",
+            "speaker_name": "联系人1",
+            "content": "وعليكم السلام.",
+            "content_en": null
+          },
+          {
+            "begin_time": 7.52,
+            "speaker_type": "host_salesman",
+            "speaker_name": "Abdelrahman Al-Hamdan",
+            "content": "يعطيك العافية اخوي الكريم، كيف صحتك؟",
+            "content_en": null
+          },
+          {
+            "begin_time": 10.17,
+            "speaker_type": "customer_contact",
+            "speaker_name": "联系人1",
+            "content": "تمام. الحمد له. باي.",
+            "content_en": null
+          },
+          {
+            "begin_time": 11.57,
+            "speaker_type": "host_salesman",
+            "speaker_name": "Abdelrahman Al-Hamdan",
+            "content": "معاك الأستاذ معاك الأستاذ عبدالرحمن من منصة لتعلم الغة الانجليزية كيف امورك ان شاء اله بخير",
+            "content_en": null
+          },
+          {
+            "begin_time": 17.68,
+            "speaker_type": "customer_contact",
+            "speaker_name": "联系人1",
+            "content": "Hel en a شطار كبير.",
+            "content_en": null
+          },
+          {
+            "begin_time": 20.48,
+            "speaker_type": "host_salesman",
+            "speaker_name": "Abdelrahman Al-Hamdan",
+            "content": "حياك اله اله يطول بعمرك يا رب خلينا إياك يا رب بتواصل معك قلتيلي إنك إنت الي مهتم بتعلم الغة الإنكليزية صحيح",
+            "content_en": null
+          },
+          {
+            "begin_time": 23.63,
+            "speaker_type": "customer_contact",
+            "speaker_name": "联系人1",
+            "content": "Hello؟AFL.",
+            "content_en": null
+          },
+          {
+            "begin_time": 28.41,
+            "speaker_type": "customer_contact",
+            "speaker_name": "联系人1",
+            "content": "This is، واله أنا أرسله لرابط وياي أطول من نفسي. شوي كده.",
+            "content_en": null
+          },
+          {
+            "begin_time": 30,
+            "speaker_type": "host_salesman",
+            "speaker_name": "Abdelrahman Al-Hamdan",
+            "content": "h m",
+            "content_en": null
+          },
+          {
+            "begin_time": 36.11,
+            "speaker_type": "customer_contact",
+            "speaker_name": "联系人1",
+            "content": "سجلت عليهم ما ادري انتو حطيت العمر صغير بالطلبون",
+            "content_en": null
+          }
+        ]
+      },
+      "asr_error": null
+    }
+  ],
+  "notes": [
+    "Database employee status: active."
+  ]
+}

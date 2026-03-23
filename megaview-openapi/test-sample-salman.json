@@ -1,0 +1,677 @@
+{
+  "ok": true,
+  "request": {
+    "employee_name": "Salman Awaysheh",
+    "staff_id": "600000387|78711",
+    "begin_time": "2026-02-15 00:00:00",
+    "end_time": "2026-03-16 00:00:00",
+    "score_scan_limit": 120,
+    "asr_preview_lines": 12,
+    "employees_file": "/Users/zhang/git-repos/vk-skills/megaview-openapi/data/employees.json",
+    "megaview_credentials_file": "/Users/zhang/.vk-cowork/megaview_credentials.json",
+    "starrocks_config_file": "/Users/zhang/git-repos/vk-skills/megaview-openapi/data/starrocks_config.json"
+  },
+  "employee": {
+    "staffName": "Salman Awaysheh",
+    "staffId": "600000387|78711",
+    "origin_user_id": "600000387|78711",
+    "open_user_id": "cTInNo9KfM3rHiRInEtG04",
+    "database_employee": {
+      "status": "active",
+      "active_first_applied": true,
+      "matched_row_count": 1,
+      "active_row_count": 1,
+      "preferred_record": {
+        "database_staff_id": "600000387",
+        "database_staff_name": "Salman Awaysheh",
+        "business_line": "sa",
+        "staff_role": "JOCC",
+        "hire_date": "2025-11-16",
+        "termination_date": null
+      }
+    }
+  },
+  "starrocks": {
+    "database": "intl_analysis",
+    "database_employee_table": "vk_gl_leads_staff_team_assignment_relation",
+    "database_employee_driver": "pymysql",
+    "database_employee_sql": "SELECT CAST(staff_id AS STRING) AS database_staff_id, staff_name AS database_staff_name, business_line, staff_role, CAST(hire_date AS STRING) AS hire_date, CAST(termination_date AS STRING) AS termination_date FROM vk_gl_leads_staff_team_assignment_relation WHERE (staff_name IN ('Salman Awaysheh')) OR (CAST(staff_id AS STRING) IN ('600000387')) ORDER BY staff_name, termination_date",
+    "config_file": "/Users/zhang/git-repos/vk-skills/megaview-openapi/data/starrocks_config.json"
+  },
+  "selection": {
+    "conversation_count": 429,
+    "score_candidate_count": 120,
+    "scored_candidate_count": 120
+  },
+  "samples": [
+    {
+      "bucket": "low",
+      "conversation_id": 396931394,
+      "origin_conversation_id": "1c1dd5e9-68ee-4004-b4e3-70a9db62ffcf",
+      "deal_id": 55425918,
+      "begin_time": "2026-02-15T17:45:51",
+      "salesman_percent": "45.16%",
+      "score": {
+        "average_score": 0,
+        "score_results": [
+          {
+            "name": "首次通话（用户付费后）",
+            "score": 0,
+            "total_score": 100,
+            "qualified": 0
+          },
+          {
+            "name": "首次触达评分",
+            "score": 0,
+            "total_score": 100,
+            "qualified": 0
+          },
+          {
+            "name": "试听课回访评分",
+            "score": 0,
+            "total_score": 100,
+            "qualified": 0
+          }
+        ]
+      },
+      "score_error": null,
+      "summary": {
+        "summary_status": 2,
+        "highlights": [
+          {
+            "name": "客户档案",
+            "question_name": "客户档案",
+            "content": "**基础信息**\n姓名：阿梅尔·塔吉\n手机号：557236207\n\n**客户诉求**\n获取该平台最终版App\n\n**下一步行动**\n销售给客户发送该平台最终版App",
+            "contexts": []
+          },
+          {
+            "name": "客户标签",
+            "question_name": "客户是否明确同意参加试听课",
+            "content": "否",
+            "contexts": []
+          },
+          {
+            "name": "客户标签",
+            "question_name": "客户首次触达时是否有咨询英语课程的意愿",
+            "content": "没有咨询意愿",
+            "contexts": [
+              {
+                "speaker_type": "user",
+                "speaker_name": "Salman Awaysheh",
+                "content": "الو. السلام عليكم."
+              },
+              {
+                "speaker_type": "customer",
+                "speaker_name": "联系人1",
+                "content": "عليكم السلام."
+              },
+              {
+                "speaker_type": "user",
+                "speaker_name": "Salman Awaysheh",
+                "content": "اله يسلمك اختي امري تاج لا انتو مو عاملة تسجيل. دخولك انك برقمك لنهايته 6207. هذا تبع الواتس اب صح؟ مو نفس الرقم."
+              }
+            ]
+          },
+          {
+            "name": "销售SOP",
+            "question_name": "销售是否进行了自我介绍",
+            "content": "否",
+            "contexts": []
+          },
+          {
+            "name": "销售SOP",
+            "question_name": "销售是否给客户强制预约试听课",
+            "content": "否",
+            "contexts": []
+          },
+          {
+            "name": "销售SOP",
+            "question_name": "销售是否回顾了客户对英语学习的期望和需求",
+            "content": "否",
+            "contexts": []
+          },
+          {
+            "name": "销售SOP",
+            "question_name": "销售是否对客户进行了学习效果或课程预期管理",
+            "content": "否",
+            "contexts": []
+          },
+          {
+            "name": "销售SOP",
+            "question_name": "销售是否向客户介绍了课程的预约和取消规则",
+            "content": "否",
+            "contexts": []
+          }
+        ]
+      },
+      "summary_error": null,
+      "asr": {
+        "conversation_type": "audio",
+        "preview": [
+          {
+            "begin_time": 1.48,
+            "speaker_type": "host_salesman",
+            "speaker_name": "Salman Awaysheh",
+            "content": "الو. السلام عليكم.",
+            "content_en": null
+          },
+          {
+            "begin_time": 3.17,
+            "speaker_type": "customer_contact",
+            "speaker_name": "联系人1",
+            "content": "عليكم السلام.",
+            "content_en": null
+          },
+          {
+            "begin_time": 4.52,
+            "speaker_type": "host_salesman",
+            "speaker_name": "Salman Awaysheh",
+            "content": "يعطيك العافية اختي امري تاج،",
+            "content_en": null
+          },
+          {
+            "begin_time": 8.87,
+            "speaker_type": "host_salesman",
+            "speaker_name": "Salman Awaysheh",
+            "content": "الو.",
+            "content_en": null
+          },
+          {
+            "begin_time": 10.89,
+            "speaker_type": "customer_contact",
+            "speaker_name": "联系人1",
+            "content": "Hello؟",
+            "content_en": null
+          },
+          {
+            "begin_time": 11.79,
+            "speaker_type": "host_salesman",
+            "speaker_name": "Salman Awaysheh",
+            "content": "أهلا أختي أمريتاج يعطيك العافية كيف حالك",
+            "content_en": null
+          },
+          {
+            "begin_time": 11.84,
+            "speaker_type": "customer_contact",
+            "speaker_name": "联系人1",
+            "content": "helloاهلين اهلين اله",
+            "content_en": null
+          },
+          {
+            "begin_time": 15.95,
+            "speaker_type": "host_salesman",
+            "speaker_name": "Salman Awaysheh",
+            "content": "اله يسلمك اختي امري تاج لا انتو مو عاملة تسجيل. دخولك انك برقمك لنهايته 6207. هذا تبع الواتس اب صح؟ مو نفس الرقم.",
+            "content_en": null
+          },
+          {
+            "begin_time": 23.5,
+            "speaker_type": "customer_contact",
+            "speaker_name": "联系人1",
+            "content": "ايوه.Restaur ants.",
+            "content_en": null
+          },
+          {
+            "begin_time": 27.65,
+            "speaker_type": "host_salesman",
+            "speaker_name": "Salman Awaysheh",
+            "content": "557236207.",
+            "content_en": null
+          },
+          {
+            "begin_time": 30.38,
+            "speaker_type": "customer_contact",
+            "speaker_name": "联系人1",
+            "content": "ايوه.",
+            "content_en": null
+          },
+          {
+            "begin_time": 32.07,
+            "speaker_type": "customer_contact",
+            "speaker_name": "联系人1",
+            "content": "نعم أيوة هو نفسه رقمي",
+            "content_en": null
+          }
+        ]
+      },
+      "asr_error": null
+    },
+    {
+      "bucket": "median",
+      "conversation_id": 397210664,
+      "origin_conversation_id": "29b9708d-401b-489a-9aae-5175119b7832",
+      "deal_id": 55436567,
+      "begin_time": "2026-02-16T21:59:24",
+      "salesman_percent": "70.61%",
+      "score": {
+        "average_score": 3.3333,
+        "score_results": [
+          {
+            "name": "首次通话（用户付费后）",
+            "score": 0,
+            "total_score": 100,
+            "qualified": 0
+          },
+          {
+            "name": "首次触达评分",
+            "score": 10,
+            "total_score": 100,
+            "qualified": 0
+          },
+          {
+            "name": "试听课回访评分",
+            "score": 0,
+            "total_score": 100,
+            "qualified": 0
+          }
+        ]
+      },
+      "score_error": null,
+      "summary": {
+        "summary_status": 2,
+        "highlights": [
+          {
+            "name": "客户档案",
+            "question_name": "客户档案",
+            "content": "**基础信息**\n客户姓名：阿卜杜拉女士\n学员姓名：未提及\n\n**客户诉求**\n解决孩子在系统中的登录问题，完成课程预约\n\n**下一步行动**\n1. 客户设置新的专属账户密码\n2. 客户确认课程已成功预约，并打开应用截屏发给销售微信\n3. 客户在课前半小时进入课堂，提前两分钟等待老师开始课程\n4. 销售后续与客户联系，确认全部细节、学习报告及相关事项",
+            "contexts": []
+          },
+          {
+            "name": "客户标签",
+            "question_name": "客户预约课程时间偏好是什么",
+            "content": "下午",
+            "contexts": [
+              {
+                "speaker_type": "user",
+                "speaker_name": "Salman Awaysheh",
+                "content": "ايوا بالزبط اليوم ان شاء اله الساعة ستة هلأ شايفة هاي الوقت اختي ام عبداله لسبعة وخمسين دقيقة"
+              },
+              {
+                "speaker_type": "customer",
+                "speaker_name": "联系人1",
+                "content": "MHM."
+              }
+            ]
+          },
+          {
+            "name": "销售SOP",
+            "question_name": "会话沟通主题是首次触达、试听课后回访还是其他",
+            "content": "其他",
+            "contexts": [
+              {
+                "speaker_type": "user",
+                "speaker_name": "Salman Awaysheh",
+                "content": "اختي ام عبداله في مشكلة واله حاليا بالكودات فأنا بعتلك ال عشان تعمل تسجيل دخول عن طريق كلمة المرور"
+              },
+              {
+                "speaker_type": "user",
+                "speaker_name": "Salman Awaysheh",
+                "content": "اه تمام ظبطك انو معكمساء الخير المصرية لسيارات"
+              },
+              {
+                "speaker_type": "user",
+                "speaker_name": "Salman Awaysheh",
+                "content": "وبعد اذنك اختي ام عبداله. لو سمحتي اتأكدي انو في حصة محجوزة وصوريلي التطبيق من جوا هلأ وأنا معك ابعتيلي واتس اب."
+              }
+            ]
+          },
+          {
+            "name": "销售SOP",
+            "question_name": "针对客户提出的影响购买决策的顾虑，销售是否有效的回应或解答",
+            "content": "否",
+            "contexts": []
+          },
+          {
+            "name": "销售SOP",
+            "question_name": "销售是否了解到课程报名的最终决策者",
+            "content": "否",
+            "contexts": []
+          },
+          {
+            "name": "销售SOP",
+            "question_name": "销售是否邀请客户介绍亲友咨询报名课程",
+            "content": "否",
+            "contexts": []
+          },
+          {
+            "name": "销售SOP",
+            "question_name": "销售是否对客户进行了学习效果或课程预期管理",
+            "content": "否",
+            "contexts": []
+          },
+          {
+            "name": "销售SOP",
+            "question_name": "销售是否主动询问家长的疑虑并针对性解答",
+            "content": "否",
+            "contexts": []
+          }
+        ]
+      },
+      "summary_error": null,
+      "asr": {
+        "conversation_type": "audio",
+        "preview": [
+          {
+            "begin_time": 0.47,
+            "speaker_type": "customer_contact",
+            "speaker_name": "联系人1",
+            "content": "الو.",
+            "content_en": null
+          },
+          {
+            "begin_time": 2.87,
+            "speaker_type": "host_salesman",
+            "speaker_name": "Salman Awaysheh",
+            "content": "السلام عليكم.",
+            "content_en": null
+          },
+          {
+            "begin_time": 3.15,
+            "speaker_type": "customer_contact",
+            "speaker_name": "联系人1",
+            "content": "Hello؟",
+            "content_en": null
+          },
+          {
+            "begin_time": 5.23,
+            "speaker_type": "host_salesman",
+            "speaker_name": "Salman Awaysheh",
+            "content": "الو. السلام عليكم.",
+            "content_en": null
+          },
+          {
+            "begin_time": 8.21,
+            "speaker_type": "host_salesman",
+            "speaker_name": "Salman Awaysheh",
+            "content": "Hello؟",
+            "content_en": null
+          },
+          {
+            "begin_time": 9.45,
+            "speaker_type": "customer_contact",
+            "speaker_name": "联系人1",
+            "content": "hello.",
+            "content_en": null
+          },
+          {
+            "begin_time": 10.22,
+            "speaker_type": "host_salesman",
+            "speaker_name": "Salman Awaysheh",
+            "content": "السلام عليكم.",
+            "content_en": null
+          },
+          {
+            "begin_time": 11.85,
+            "speaker_type": "customer_contact",
+            "speaker_name": "联系人1",
+            "content": "وعليكم السلام، أهلين.",
+            "content_en": null
+          },
+          {
+            "begin_time": 13.62,
+            "speaker_type": "host_salesman",
+            "speaker_name": "Salman Awaysheh",
+            "content": "اهلا اختي ام عبداله. كيف حالك معك استاذ سلمان من؟",
+            "content_en": null
+          },
+          {
+            "begin_time": 17.81,
+            "speaker_type": "customer_contact",
+            "speaker_name": "联系人1",
+            "content": "اهلا وسهلا فيك.",
+            "content_en": null
+          },
+          {
+            "begin_time": 19.06,
+            "speaker_type": "host_salesman",
+            "speaker_name": "Salman Awaysheh",
+            "content": "اختي ام عبداله في مشكلة واله حاليا بالكودات فأنا بعتلك ال عشان تعمل تسجيل دخول عن طريق كلمة المرور",
+            "content_en": null
+          },
+          {
+            "begin_time": 19.56,
+            "speaker_type": "customer_contact",
+            "speaker_name": "联系人1",
+            "content": "ok",
+            "content_en": null
+          }
+        ]
+      },
+      "asr_error": null
+    },
+    {
+      "bucket": "high",
+      "conversation_id": 407354486,
+      "origin_conversation_id": "e034727a-d13d-4412-a7a6-78ca8fc75717",
+      "deal_id": 56063055,
+      "begin_time": "2026-03-10T03:32:53",
+      "salesman_percent": "56.02%",
+      "score": {
+        "average_score": 31.6667,
+        "score_results": [
+          {
+            "name": "首次通话（用户付费后）",
+            "score": 0,
+            "total_score": 100,
+            "qualified": 0
+          },
+          {
+            "name": "首次触达评分",
+            "score": 40,
+            "total_score": 100,
+            "qualified": 0
+          },
+          {
+            "name": "试听课回访评分",
+            "score": 55,
+            "total_score": 100,
+            "qualified": 0
+          }
+        ]
+      },
+      "score_error": null,
+      "summary": {
+        "summary_status": 2,
+        "highlights": [
+          {
+            "name": "客户档案",
+            "question_name": "客户档案",
+            "content": "**基础信息**：\n客户姓名：安米尼亚女士\n学员姓名：莉安、穆罕默德\n学校：私立学校\n年级：莉安未提及，穆罕默德初中毕业班（15岁）\n决策人：安米尼亚女士\n\n**学习情况**：\n学科基础：莉安上课完全没听懂，基础稍弱，无法用完整句子作答；穆罕默德英语没学过，情况和莉安一样。\n\n**学习薄弱项**：\n莉安和穆罕默德英语能力较差，无法用完整句子作答，跟不上课程进度。\n\n**客户诉求**：\n先重点安排莉安学习，让莉安先上十天试试，看是否合适；之后再看穆罕默德是否适合课程体系。\n\n**客户异议**：\n目前暂时无法确定具体时间，要等过完节，准备好相关材料，月底发工资后再处理。\n\n**下一步行动**：\n销售月底发薪前后与客户联系，争取尽快推进课程事宜；销售为客户预留座位。",
+            "contexts": []
+          },
+          {
+            "name": "客户标签",
+            "question_name": "学员学校的性质是什么",
+            "content": "私立学校",
+            "contexts": [
+              {
+                "speaker_type": "user",
+                "speaker_name": "Salman Awaysheh",
+                "content": "فا خطأ خطأ كتير انها تضل بالمستوى هاد ولأمانة أنا كتير برضه مستغرب من من موضوع إنه هي أصلا في مدرسة أهلية حتى لو تأسيسها غلط أنا بعرف برضه المدرسة الأهلية شوي بتركز عالغة الإنجليزية صح"
+              }
+            ]
+          },
+          {
+            "name": "客户标签",
+            "question_name": "客户咨询的是成人还是少儿课程",
+            "content": "咨询少儿课程",
+            "contexts": [
+              {
+                "speaker_type": "user",
+                "speaker_name": "Salman Awaysheh",
+                "content": "أهلا فيك أختي طمنيني أختي أمي كيف كانت حصة ليان"
+              },
+              {
+                "speaker_type": "customer",
+                "speaker_name": "联系人1",
+                "content": "عندي محمد."
+              }
+            ]
+          },
+          {
+            "name": "客户标签",
+            "question_name": "客户是否明确同意参加试听课",
+            "content": "否",
+            "contexts": []
+          },
+          {
+            "name": "客户标签",
+            "question_name": "客户希望提升的英语板块是什么",
+            "content": "口语表达",
+            "contexts": [
+              {
+                "speaker_type": "customer",
+                "speaker_name": "联系人1",
+                "content": "there's، no.hYes."
+              },
+              {
+                "speaker_type": "user",
+                "speaker_name": "Salman Awaysheh",
+                "content": "ليان؟ راح توخد 180 حصة ذكاء اصطناعي يوميا. حيكون عندها حصة مدتها من ثمانية الى 10 دقايق مع معلمة بال هاي المعلمة ايش هدفها؟ هي؟ حص ذكاء اصطناعي مصورة يعني. لكن هدفها الاساسي اني انا اساوي المحادثة، يعني انا بدي اقوي المحادثة عند ديان. بالعكس الامريكية بالا"
+              }
+            ]
+          },
+          {
+            "name": "客户标签",
+            "question_name": "学员学习英语的痛点是什么",
+            "content": "听不懂英语",
+            "contexts": [
+              {
+                "speaker_type": "customer",
+                "speaker_name": "联系人1",
+                "content": "يا افندم. ما عليها بس انه هي مو فاهمة يعني شيء؟go ahead"
+              },
+              {
+                "speaker_type": "customer",
+                "speaker_name": "联系人1",
+                "content": "يعني مو مرة يعني ما فهمت شيء مرة يعني المعلمة كل شيء بالانجليزيyes"
+              }
+            ]
+          },
+          {
+            "name": "销售SOP",
+            "question_name": "销售是否邀请客户介绍亲友咨询报名课程",
+            "content": "否",
+            "contexts": []
+          },
+          {
+            "name": "销售SOP",
+            "question_name": "销售是否了解到课程报名的最终决策者",
+            "content": "是",
+            "contexts": [
+              {
+                "speaker_type": "customer",
+                "speaker_name": "联系人1",
+                "content": "طيب اله استاذ مين انت"
+              },
+              {
+                "speaker_type": "user",
+                "speaker_name": "Salman Awaysheh",
+                "content": "سلمان اختي. ام محمد؟"
+              },
+              {
+                "speaker_type": "customer",
+                "speaker_name": "联系人1",
+                "content": "يعني كم يكون قصف الشهري مثلا على ست شهور"
+              }
+            ]
+          }
+        ]
+      },
+      "summary_error": null,
+      "asr": {
+        "conversation_type": "audio",
+        "preview": [
+          {
+            "begin_time": 1.27,
+            "speaker_type": "customer_contact",
+            "speaker_name": "联系人1",
+            "content": "ألو",
+            "content_en": null
+          },
+          {
+            "begin_time": 2.36,
+            "speaker_type": "host_salesman",
+            "speaker_name": "Salman Awaysheh",
+            "content": "الو. السلام عليكم.",
+            "content_en": null
+          },
+          {
+            "begin_time": 5.63,
+            "speaker_type": "host_salesman",
+            "speaker_name": "Salman Awaysheh",
+            "content": "السلام عليكم.",
+            "content_en": null
+          },
+          {
+            "begin_time": 6.8,
+            "speaker_type": "customer_contact",
+            "speaker_name": "联系人1",
+            "content": "وعليكم السلام. كيف حالك؟ ألو؟",
+            "content_en": null
+          },
+          {
+            "begin_time": 8.86,
+            "speaker_type": "host_salesman",
+            "speaker_name": "Salman Awaysheh",
+            "content": "يعطيك العافية اختي امنية معك الاستاذ سلمان من",
+            "content_en": null
+          },
+          {
+            "begin_time": 11.11,
+            "speaker_type": "customer_contact",
+            "speaker_name": "联系人1",
+            "content": "yesاهلين",
+            "content_en": null
+          },
+          {
+            "begin_time": 15.28,
+            "speaker_type": "host_salesman",
+            "speaker_name": "Salman Awaysheh",
+            "content": "أهلا فيك أختي طمنيني أختي أمي كيف كانت حصة ليان",
+            "content_en": null
+          },
+          {
+            "begin_time": 15.43,
+            "speaker_type": "customer_contact",
+            "speaker_name": "联系人1",
+            "content": "Yeah.قبل",
+            "content_en": null
+          },
+          {
+            "begin_time": 20.67,
+            "speaker_type": "customer_contact",
+            "speaker_name": "联系人1",
+            "content": "يا افندم. ما عليها بس انه هي مو فاهمة يعني شيء؟go ahead",
+            "content_en": null
+          },
+          {
+            "begin_time": 26.61,
+            "speaker_type": "host_salesman",
+            "speaker_name": "Salman Awaysheh",
+            "content": "ما فهمت إشي من الحصة؟",
+            "content_en": null
+          },
+          {
+            "begin_time": 29.53,
+            "speaker_type": "customer_contact",
+            "speaker_name": "联系人1",
+            "content": "يعني مو مرة يعني ما فهمت شيء مرة يعني المعلمة كل شيء بالانجليزيyes",
+            "content_en": null
+          },
+          {
+            "begin_time": 36.68,
+            "speaker_type": "host_salesman",
+            "speaker_name": "Salman Awaysheh",
+            "content": "اه انا حكيتلك انو احنا التدريس عنا كلو لغة انجليزية.",
+            "content_en": null
+          }
+        ]
+      },
+      "asr_error": null
+    }
+  ],
+  "notes": [
+    "Database employee status: active."
+  ]
+}

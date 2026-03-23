@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>钉钉授权回调 — DinoClaw</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,600;9..40,700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:"DM Sans","Noto Sans SC",sans-serif;
+  min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px;
+  background:linear-gradient(145deg,#FAF9F6 0%,#F0F7F0 50%,#E8F0E8 100%);
+  color:#1a1a1a;-webkit-font-smoothing:antialiased;
+}
+.card{
+  text-align:center;padding:48px 40px 40px;border-radius:24px;max-width:440px;width:100%;
+  background:#fff;box-shadow:0 4px 24px rgba(44,95,47,.08),0 1px 3px rgba(0,0,0,.04);
+}
+.icon-ok,.icon-err{width:72px;height:72px;margin:0 auto 20px;border-radius:50%;display:grid;place-items:center}
+.icon-ok{background:linear-gradient(135deg,#2C5F2F,#3A7A3D)}
+.icon-err{background:linear-gradient(135deg,#DC2626,#EF4444)}
+.icon-ok svg{width:32px;height:32px;stroke:#fff;stroke-width:3;fill:none}
+.icon-err svg{width:28px;height:28px;stroke:#fff;stroke-width:3;fill:none}
+h1{font-size:22px;font-weight:700;margin:0 0 8px;letter-spacing:-.01em}
+.ok-sub{font-size:14px;color:#2C5F2F;font-weight:500;margin-bottom:6px}
+.err-title{color:#DC2626}
+p.detail{font-size:13px;color:#6B6B66;line-height:1.65;margin-top:8px}
+pre{
+  text-align:left;margin-top:16px;padding:12px 14px;border-radius:12px;
+  background:#F5F4F1;font-size:11px;overflow:auto;word-break:break-all;color:#4A4A45;
+  border:1px solid #E5E4DF;
+}
+.actions{margin-top:22px;display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+a.btn{
+  display:inline-flex;align-items:center;justify-content:center;padding:10px 20px;border-radius:12px;
+  font-size:13px;font-weight:600;text-decoration:none;
+}
+a.btn-primary{background:linear-gradient(135deg,#F0984F,#E07A2F);color:#fff;box-shadow:0 4px 14px rgba(240,152,79,.25)}
+a.btn-ghost{border:1px solid #E5E4DF;background:#F5F4F1;color:#4A4A45}
+.brand{margin-top:24px;font-size:11px;color:#9B9B96}
+</style>
+</head>
+<body>
+<div class="card" id="root"></div>
+<script>
+(function () {
+  function escapeHtml(s) {
+    return String(s).replace(/[&<>"']/g, function (c) {
+      return ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c];
+    });
+  }
+
+  var qs = new URLSearchParams(window.location.search);
+  var error = qs.get("error");
+  var authCode = qs.get("authCode") || qs.get("code");
+  var state = qs.get("state");
+  var root = document.getElementById("root");
+
+  var savedState = "";
+  try { savedState = sessionStorage.getItem("dt_oauth_state") || ""; } catch (e) {}
+
+  if (error) {
+    root.innerHTML =
+      '<div class="icon-err"><svg viewBox="0 0 24 24"><line x1="8" y1="8" x2="16" y2="16"/><line x1="16" y1="8" x2="8" y2="16"/></svg></div>' +
+      '<h1 class="err-title">授权失败</h1>' +
+      "<p class=\"detail\">OAuth 错误：<strong>" + escapeHtml(error) + "</strong></p>" +
+      '<div class="actions"><a class="btn btn-ghost" href="../login.html">返回登录</a></div>' +
+      '<div class="brand">DinoClaw</div>';
+    return;
+  }
+
+  if (!authCode) {
+    root.innerHTML =
+      '<div class="icon-err"><svg viewBox="0 0 24 24"><line x1="8" y1="8" x2="16" y2="16"/><line x1="16" y1="8" x2="8" y2="16"/></svg></div>' +
+      '<h1 class="err-title">未收到授权码</h1>' +
+      '<p class="detail">请从登录页重新发起钉钉授权。</p>' +
+      '<div class="actions"><a class="btn btn-ghost" href="../login.html">返回登录</a></div>' +
+      '<div class="brand">DinoClaw</div>';
+    return;
+  }
+
+  if (savedState && state !== savedState) {
+    root.innerHTML =
+      '<div class="icon-err"><svg viewBox="0 0 24 24"><line x1="8" y1="8" x2="16" y2="16"/><line x1="16" y1="8" x2="8" y2="16"/></svg></div>' +
+      '<h1 class="err-title">State 不匹配</h1>' +
+      '<p class="detail">可能存在 CSRF 风险，请关闭此页并重新登录。</p>' +
+      '<div class="actions"><a class="btn btn-ghost" href="../login.html">返回登录</a></div>' +
+      '<div class="brand">DinoClaw</div>';
+    return;
+  }
+
+  root.innerHTML =
+    '<div class="icon-ok"><svg viewBox="0 0 24 24"><path d="M6 12.5l4 4 8-9"/></svg></div>' +
+    "<h1>已拿到授权码</h1>" +
+    '<p class="ok-sub">下一步：由服务端换取 accessToken（与 Electron 中 dingtalk-auth.ts 相同）</p>' +
+    "<p class=\"detail\">浏览器<strong>不能</strong>安全保存 clientSecret。请将下方 <code>authCode</code> POST 到你的后端，由后端调用钉钉 <code>userAccessToken</code> 接口。</p>" +
+    "<pre id=\"payload\"></pre>" +
+    '<div class="actions">' +
+    '<a class="btn btn-primary" href="../skillhub.html">进入技能社区</a>' +
+    '<a class="btn btn-ghost" href="../login.html">返回登录</a>' +
+    "</div>" +
+    '<div class="brand">DinoClaw</div>';
+
+  document.getElementById("payload").textContent = JSON.stringify(
+    { authCode: authCode, state: state || null },
+    null,
+    2
+  );
+})();
+</script>
+</body>
+</html>

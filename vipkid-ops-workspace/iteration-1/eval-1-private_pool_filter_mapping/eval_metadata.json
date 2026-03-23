@@ -1,0 +1,12 @@
+{
+  "eval_id": 1,
+  "eval_name": "private_pool_filter_mapping",
+  "prompt": "帮我看一下沙特站私池里最近 7 天进入节点、且今天会掉库的 leads。我要按注册时间倒序看第一页，重点关注归属 GCC 是 Alaa 的家长。先别直接操作后台，告诉我你会去哪个页面、用什么筛选项、对应什么接口参数。",
+  "assertions": [
+    "回答明确提到 `/leadsGCC/list` 或 Leads 管理私池页，而不是泛泛地说后台 Leads 页面。",
+    "回答明确提到 Leads 列表与查询接口实际走 `sa-leads.lionabc.com`，而不是误写成 `sa-manager`。",
+    "回答提到私池查询接口 `POST /api/v1/leads/user/manage/getList`，并说明 `status=1`。",
+    "回答提到至少这些筛选参数中的三个：`flowNodeList`、`willFlowToday`、`staffId` 或 GCC 员工筛选、`sortByTime`。",
+    "回答提到“最近 7 天进入节点”对应节点生成时间筛选，应优先使用 `lastFlowTimeStart` / `lastFlowTimeEnd`。"
+  ]
+}

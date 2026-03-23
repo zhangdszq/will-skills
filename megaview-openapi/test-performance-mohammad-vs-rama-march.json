@@ -1,0 +1,197 @@
+{
+  "ok": true,
+  "request": {
+    "employee_names": [
+      "Mohammad Qasem",
+      "Rama Nemer"
+    ],
+    "staff_ids": [],
+    "begin_time": "2026-03-01 00:00:00",
+    "end_time": "2026-04-01 00:00:00",
+    "employees_file": "/Users/zhang/git-repos/vk-skills/megaview-openapi/data/employees.json",
+    "megaview_credentials_file": "/Users/zhang/.vk-cowork/megaview_credentials.json",
+    "starrocks_config_file": "/Users/zhang/git-repos/vk-skills/megaview-openapi/data/starrocks_config.json"
+  },
+  "megaview": {
+    "user_endpoint": "/openapi/organization/v1/origin_users/:origin_user_id",
+    "conversation_list_endpoint": "/openapi/conversation/v1/origin_conversations/list",
+    "conversation_score_endpoint": "/openapi/conversation/v1/conversations/:conversation_id/score_result",
+    "deal_score_endpoint": "/openapi/crm/v1/deals/:deal_id/score_result"
+  },
+  "starrocks": {
+    "host": "10.23.16.15",
+    "port": 9030,
+    "database": "intl_analysis",
+    "join_key": "staffName",
+    "join_field": "staff_name",
+    "driver": "pymysql",
+    "sales_sql": "SELECT staff_name AS staff_id, SUM(total_new_gmv_usd) AS sales_amount FROM vk_sr_intl_sa_cc_quality_monitor_da WHERE staff_name IN ('Mohammad Qasem', 'Rama Nemer') AND pt >= '2026-03-01 00:00:00' AND pt < '2026-04-01 00:00:00' GROUP BY staff_name ORDER BY staff_name",
+    "database_employee_table": "vk_gl_leads_staff_team_assignment_relation",
+    "database_employee_driver": "pymysql",
+    "database_employee_sql": "SELECT CAST(staff_id AS STRING) AS database_staff_id, staff_name AS database_staff_name, business_line, staff_role, CAST(hire_date AS STRING) AS hire_date, CAST(termination_date AS STRING) AS termination_date FROM vk_gl_leads_staff_team_assignment_relation WHERE (staff_name IN ('Mohammad Qasem', 'Rama Nemer')) OR (CAST(staff_id AS STRING) IN ('600000373', '600000391')) ORDER BY staff_name, termination_date",
+    "config_file": "/Users/zhang/git-repos/vk-skills/megaview-openapi/data/starrocks_config.json"
+  },
+  "employees": [
+    {
+      "staffName": "Mohammad Qasem",
+      "staffId": "600000391|45830",
+      "database_employee": {
+        "status": "active",
+        "active_first_applied": true,
+        "matched_row_count": 1,
+        "active_row_count": 1,
+        "preferred_record": {
+          "database_staff_id": "600000391",
+          "database_staff_name": "Mohammad Qasem",
+          "business_line": "sa",
+          "staff_role": "JOCC",
+          "hire_date": "2025-11-16",
+          "termination_date": null
+        }
+      },
+      "megaview_mapping": {
+        "origin_user_id": "600000391|45830",
+        "open_user_id": "czZaUzylkOWyJqid1Htaiv"
+      },
+      "megaview_user": {
+        "open_user_id": "czZaUzylkOWyJqid1Htaiv",
+        "name": "Mohammad Qasem",
+        "login_method": "off-limits",
+        "tel": "",
+        "email": "",
+        "main_department_id": 87133,
+        "status": {
+          "is_delete": false,
+          "is_active": true,
+          "is_enable": false
+        }
+      },
+      "megaview_metrics": {
+        "conversation_count": 249,
+        "average_conversation_score": 6.1917,
+        "scored_conversation_count": 200,
+        "skipped_conversation_scores": 0,
+        "unique_deal_count": 155,
+        "average_customer_score": 16.5,
+        "scored_customer_count": 150,
+        "skipped_customer_scores": 5
+      },
+      "starrocks_metrics": {
+        "sales_amount": 2754.13
+      },
+      "notes": [
+        "Database employee status: active. Default performance review keeps this employee in scope.",
+        "Conversation score fetch capped at 200 items for performance."
+      ],
+      "performance_review": {
+        "staffName": "Mohammad Qasem",
+        "staffId": "600000391|45830",
+        "priority": "low",
+        "risk_score": 0.25,
+        "recommendation": "stable",
+        "reasons": [
+          "average_customer_score is near the bottom of the selected peer group (16.5)"
+        ],
+        "guardrail": "Use for human performance review only, not automatic elimination."
+      }
+    },
+    {
+      "staffName": "Rama Nemer",
+      "staffId": "600000373|00413",
+      "database_employee": {
+        "status": "active",
+        "active_first_applied": true,
+        "matched_row_count": 1,
+        "active_row_count": 1,
+        "preferred_record": {
+          "database_staff_id": "600000373",
+          "database_staff_name": "Rama Nemer",
+          "business_line": "sa",
+          "staff_role": "JOCC",
+          "hire_date": "2025-11-16",
+          "termination_date": null
+        }
+      },
+      "megaview_mapping": {
+        "origin_user_id": "600000373|00413",
+        "open_user_id": "j3mzILyEPxuhmRsbaMR9gY"
+      },
+      "megaview_user": {
+        "open_user_id": "j3mzILyEPxuhmRsbaMR9gY",
+        "name": "Rama Nemer",
+        "login_method": "off-limits",
+        "tel": "",
+        "email": "",
+        "main_department_id": 87125,
+        "status": {
+          "is_delete": false,
+          "is_active": true,
+          "is_enable": false
+        }
+      },
+      "megaview_metrics": {
+        "conversation_count": 229,
+        "average_conversation_score": 5.2917,
+        "scored_conversation_count": 200,
+        "skipped_conversation_scores": 0,
+        "unique_deal_count": 163,
+        "average_customer_score": 18.5135,
+        "scored_customer_count": 148,
+        "skipped_customer_scores": 15
+      },
+      "starrocks_metrics": {
+        "sales_amount": 0.0
+      },
+      "notes": [
+        "Database employee status: active. Default performance review keeps this employee in scope.",
+        "Conversation score fetch capped at 200 items for performance."
+      ],
+      "performance_review": {
+        "staffName": "Rama Nemer",
+        "staffId": "600000373|00413",
+        "priority": "high",
+        "risk_score": 0.75,
+        "recommendation": "urgent_manual_review",
+        "reasons": [
+          "sales_amount is near the bottom of the selected peer group (0.0)",
+          "average_conversation_score is near the bottom of the selected peer group (5.2917)",
+          "conversation_count is near the bottom of the selected peer group (229.0)"
+        ],
+        "guardrail": "Use for human performance review only, not automatic elimination."
+      }
+    }
+  ],
+  "comparison": {
+    "notes": [
+      "Top sales_amount: Mohammad Qasem (2754.13)",
+      "Highest average_conversation_score: Mohammad Qasem (6.1917)"
+    ],
+    "review_priority_ranking": [
+      {
+        "staffName": "Rama Nemer",
+        "staffId": "600000373|00413",
+        "priority": "high",
+        "risk_score": 0.75,
+        "recommendation": "urgent_manual_review",
+        "reasons": [
+          "sales_amount is near the bottom of the selected peer group (0.0)",
+          "average_conversation_score is near the bottom of the selected peer group (5.2917)",
+          "conversation_count is near the bottom of the selected peer group (229.0)"
+        ],
+        "guardrail": "Use for human performance review only, not automatic elimination."
+      },
+      {
+        "staffName": "Mohammad Qasem",
+        "staffId": "600000391|45830",
+        "priority": "low",
+        "risk_score": 0.25,
+        "recommendation": "stable",
+        "reasons": [
+          "average_customer_score is near the bottom of the selected peer group (16.5)"
+        ],
+        "guardrail": "Use for human performance review only, not automatic elimination."
+      }
+    ],
+    "guardrail": "Use this ranking for manager review, coaching prioritization, and manual performance review only. Do not treat it as an automatic firing decision."
+  }
+}

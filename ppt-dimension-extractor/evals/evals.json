@@ -1,0 +1,28 @@
+{
+  "skill_name": "ppt-dimension-extractor",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "请读取并分析这两个文件：/Users/zhang/Downloads/L4教学内容维度.xlsx 和 /Users/zhang/Downloads/OSMC-L4-U7-LC1-1.pptx。先按 PPT skill 的处理方式把 PPT 转成逐页图片，再结合图片和文本一起判断。最后根据 Excel 中的教学内容维度和提取标准，提取 PPT 中的内容，并按维度整理成中文结果。",
+      "expected_output": "先完成 PPT 转逐页图片，再结合图片和文本证据，按 Excel 中的维度与提取标准完成结构化提取。",
+      "files": [
+        "/Users/zhang/Downloads/L4教学内容维度.xlsx",
+        "/Users/zhang/Downloads/OSMC-L4-U7-LC1-1.pptx"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "不要再让我传 Excel。以后如果我说按 L4 教学内容维度提取，就直接使用内置的 L4 维度规则。现在请读取 /Users/zhang/Downloads/OSMC-L4-U7-LC1-1.pptx，先转成逐页图片，再强制结合图片和文本一起抽取，并按内置 L4 维度输出提取结果。",
+      "expected_output": "不依赖用户再次上传 Excel，直接使用内置 L4 维度规则，并明确通过逐页图片+文本联合抽取后，按 9 个固定维度顺序输出。",
+      "files": [
+        "/Users/zhang/Downloads/OSMC-L4-U7-LC1-1.pptx"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "把按内置 L4 维度提取出来的结果整理成一个新的 Excel，列为 教学内容维度、提取标准、提取结果，未找到项直接留空，输出到下载目录。整个过程仍然要基于 PPT 逐页图片和文本联合识别的结果。",
+      "expected_output": "生成一个新的结果 Excel，使用 L4 内置维度与规则，来源基于 PPT 逐页图片+文本联合识别，未找到项为空白单元格。",
+      "files": []
+    }
+  ]
+}

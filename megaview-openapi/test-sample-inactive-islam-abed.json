@@ -1,0 +1,645 @@
+{
+  "ok": true,
+  "request": {
+    "employee_name": "Islam Abed",
+    "staff_id": "600000352|13033",
+    "begin_time": "2026-02-01 00:00:00",
+    "end_time": "2026-03-01 00:00:00",
+    "score_scan_limit": 120,
+    "asr_preview_lines": 12,
+    "employees_file": "/Users/zhang/git-repos/vk-skills/megaview-openapi/data/employees.json",
+    "megaview_credentials_file": "/Users/zhang/.vk-cowork/megaview_credentials.json",
+    "starrocks_config_file": "/Users/zhang/git-repos/vk-skills/megaview-openapi/data/starrocks_config.json"
+  },
+  "employee": {
+    "staffName": "Islam Abed",
+    "staffId": "600000352|13033",
+    "origin_user_id": "600000352|13033",
+    "open_user_id": "xvQcQILnGw7aeQUGg0nbLi",
+    "database_employee": {
+      "status": "inactive",
+      "active_first_applied": true,
+      "matched_row_count": 1,
+      "active_row_count": 0,
+      "preferred_record": {
+        "database_staff_id": "600000352",
+        "database_staff_name": "Islam Abed",
+        "business_line": "sa",
+        "staff_role": "JOCC",
+        "hire_date": "2025-11-16",
+        "termination_date": "2026-03-01"
+      }
+    }
+  },
+  "starrocks": {
+    "database": "intl_analysis",
+    "database_employee_table": "vk_gl_leads_staff_team_assignment_relation",
+    "database_employee_driver": "pymysql",
+    "database_employee_sql": "SELECT CAST(staff_id AS STRING) AS database_staff_id, staff_name AS database_staff_name, business_line, staff_role, CAST(hire_date AS STRING) AS hire_date, CAST(termination_date AS STRING) AS termination_date FROM vk_gl_leads_staff_team_assignment_relation WHERE (staff_name IN ('Islam Abed')) OR (CAST(staff_id AS STRING) IN ('600000352')) ORDER BY staff_name, termination_date",
+    "config_file": "/Users/zhang/git-repos/vk-skills/megaview-openapi/data/starrocks_config.json"
+  },
+  "selection": {
+    "conversation_count": 556,
+    "score_candidate_count": 120,
+    "scored_candidate_count": 120
+  },
+  "samples": [
+    {
+      "bucket": "low",
+      "conversation_id": 388378859,
+      "origin_conversation_id": "295988f8-c032-4396-90ed-15ddd71cd9bb",
+      "deal_id": 54957042,
+      "begin_time": "2026-02-01T00:32:01",
+      "salesman_percent": "54.64%",
+      "score": {
+        "average_score": 0,
+        "score_results": [
+          {
+            "name": "首次通话（用户付费后）",
+            "score": 0,
+            "total_score": 100,
+            "qualified": 0
+          },
+          {
+            "name": "首次触达评分",
+            "score": 0,
+            "total_score": 100,
+            "qualified": 0
+          },
+          {
+            "name": "试听课回访评分",
+            "score": 0,
+            "total_score": 100,
+            "qualified": 0
+          }
+        ]
+      },
+      "score_error": null,
+      "summary": {
+        "summary_status": 2,
+        "highlights": [
+          {
+            "name": "客户档案",
+            "question_name": "客户档案",
+            "content": "**基础信息**\n姓名：Abu Asil\n**下一步行动**\n客户在9:00 AM 有预约的课程，需在设备上找到名为 'Nour' 等的文件，在屏幕底部日程列表中点击 'Join Session' 进入课程",
+            "contexts": []
+          },
+          {
+            "name": "销售SOP",
+            "question_name": "会话沟通主题是首次触达、试听课后回访还是其他",
+            "content": "其他",
+            "contexts": [
+              {
+                "speaker_type": "user",
+                "speaker_name": "Islam Abed",
+                "content": "اله يحفظك يا رب هلأ عندي عال سيستيم ما ظهر إني إنك محمل التطبيق ومسجلين دخول في رقم جوالك فمكن تسجلوا الدخول في رقم جوالك أحد الأشخاص عندك من المنزل"
+              },
+              {
+                "speaker_type": "user",
+                "speaker_name": "Islam Abed",
+                "content": "مظبوط، الأن ظهر عندي مزبوط 100%، خلص تمام التمام إن شاء اله موعد الحص عالساعة."
+              },
+              {
+                "speaker_type": "user",
+                "speaker_name": "Islam Abed",
+                "content": "طيب هلاء الآن ظهر عندك ملفين، صحيح؟ ملف وملف بإسم نور، هلأ إذا بنروح على قائمة الجدول أسفل الشاشة من تحت بنلاقي الحصتين موجودات بنقر على الدخول على الحصة مباشرة بدخل على الحصة،"
+              }
+            ]
+          },
+          {
+            "name": "销售SOP",
+            "question_name": "销售是否对客户进行了学习效果或课程预期管理",
+            "content": "否",
+            "contexts": []
+          },
+          {
+            "name": "销售SOP",
+            "question_name": "销售是否邀请客户介绍亲友咨询报名课程",
+            "content": "否",
+            "contexts": []
+          },
+          {
+            "name": "销售SOP",
+            "question_name": "销售是否回顾了客户对英语学习的期望和需求",
+            "content": "否",
+            "contexts": []
+          },
+          {
+            "name": "销售SOP",
+            "question_name": "销售是否向客户介绍了课程的预约和取消规则",
+            "content": "否",
+            "contexts": []
+          },
+          {
+            "name": "销售SOP",
+            "question_name": "销售是否主动询问家长的疑虑并针对性解答",
+            "content": "否",
+            "contexts": []
+          },
+          {
+            "name": "销售SOP",
+            "question_name": "销售是否了解到课程报名的最终决策者",
+            "content": "否",
+            "contexts": []
+          }
+        ]
+      },
+      "summary_error": null,
+      "asr": {
+        "conversation_type": "audio",
+        "preview": [
+          {
+            "begin_time": 1.93,
+            "speaker_type": "customer_contact",
+            "speaker_name": "联系人1",
+            "content": "Hello؟",
+            "content_en": "Hello?"
+          },
+          {
+            "begin_time": 2.89,
+            "speaker_type": "host_salesman",
+            "speaker_name": "Islam Abed",
+            "content": "السلام عليكم.",
+            "content_en": "Peace be upon you."
+          },
+          {
+            "begin_time": 5.19,
+            "speaker_type": "customer_contact",
+            "speaker_name": "联系人1",
+            "content": "yeah",
+            "content_en": "Yeah."
+          },
+          {
+            "begin_time": 5.78,
+            "speaker_type": "host_salesman",
+            "speaker_name": "Islam Abed",
+            "content": "يعطيك العافية أبو أصيل ما كنت.",
+            "content_en": "May God bless you, Abu Asil — welcome back."
+          },
+          {
+            "begin_time": 8.1,
+            "speaker_type": "customer_contact",
+            "speaker_name": "联系人1",
+            "content": "Back st ips.",
+            "content_en": "Backsteps."
+          },
+          {
+            "begin_time": 10.35,
+            "speaker_type": "customer_contact",
+            "speaker_name": "联系人1",
+            "content": "And then.",
+            "content_en": "And then..."
+          },
+          {
+            "begin_time": 11.26,
+            "speaker_type": "host_salesman",
+            "speaker_name": "Islam Abed",
+            "content": "اله يحفظك يا رب هلأ عندي عال سيستيم ما ظهر إني إنك محمل التطبيق ومسجلين دخول في رقم جوالك فمكن تسجلوا الدخول في رقم جوالك أحد الأشخاص عندك من المنزل",
+            "content_en": "God protect you! Right now, the system shows that the app is installed on your device and you’re logged in with your mobile number. Please confirm that someone at home has successfully logged in using your phone number."
+          },
+          {
+            "begin_time": 12.11,
+            "speaker_type": "customer_contact",
+            "speaker_name": "联系人1",
+            "content": "I.'m.knock",
+            "content_en": "I’m knocking."
+          },
+          {
+            "begin_time": 24.92,
+            "speaker_type": "host_salesman",
+            "speaker_name": "Islam Abed",
+            "content": "طيب لحظات.",
+            "content_en": "Okay, just a moment."
+          },
+          {
+            "begin_time": 29.84,
+            "speaker_type": "host_salesman",
+            "speaker_name": "Islam Abed",
+            "content": "مظبوط، الأن ظهر عندي مزبوط 100%، خلص تمام التمام إن شاء اله موعد الحص عالساعة.",
+            "content_en": "Correct — it now shows 100% verified on my end. Everything is fully set; the session is scheduled for the appointed time, God willing."
+          },
+          {
+            "begin_time": 37.23,
+            "speaker_type": "host_salesman",
+            "speaker_name": "Islam Abed",
+            "content": "طيب هلاء الآن ظهر عندك ملفين، صحيح؟ ملف وملف بإسم نور، هلأ إذا بنروح على قائمة الجدول أسفل الشاشة من تحت بنلاقي الحصتين موجودات بنقر على الدخول على الحصة مباشرة بدخل على الحصة،",
+            "content_en": "Alright, you should now see two files displayed: one named 'Nour' and another. If we go to the schedule list at the bottom of the screen, you’ll find both sessions listed — simply tap 'Join Session' to enter directly."
+          },
+          {
+            "begin_time": 37.57,
+            "speaker_type": "customer_contact",
+            "speaker_name": "联系人1",
+            "content": "الحجوزات.Bye؟didn'tايوا.yessay it",
+            "content_en": "Bookings? Bye? Didn’t— wait. Say it again, please."
+          }
+        ]
+      },
+      "asr_error": null
+    },
+    {
+      "bucket": "median",
+      "conversation_id": 388735956,
+      "origin_conversation_id": "42040165-43b4-40f7-b9a9-3fcc89e8a9b4",
+      "deal_id": 54765635,
+      "begin_time": "2026-02-01T17:54:24",
+      "salesman_percent": "31.83%",
+      "score": {
+        "average_score": 3.3333,
+        "score_results": [
+          {
+            "name": "首次通话（用户付费后）",
+            "score": 0,
+            "total_score": 100,
+            "qualified": 0
+          },
+          {
+            "name": "首次触达评分",
+            "score": 10,
+            "total_score": 100,
+            "qualified": 0
+          },
+          {
+            "name": "试听课回访评分",
+            "score": 0,
+            "total_score": 100,
+            "qualified": 0
+          }
+        ]
+      },
+      "score_error": null,
+      "summary": {
+        "summary_status": 2,
+        "highlights": [
+          {
+            "name": "客户档案",
+            "question_name": "客户档案",
+            "content": "**客户诉求**：有一些问题",
+            "contexts": []
+          },
+          {
+            "name": "客户标签",
+            "question_name": "客户首次触达时是否有咨询英语课程的意愿",
+            "content": "有咨询意愿",
+            "contexts": [
+              {
+                "speaker_type": "user",
+                "speaker_name": "Islam Abed",
+                "content": "يعطيك العافية أخوي الكريم، بتواصل معك الأستاذ إسلام منصة الغة الإنكليزية."
+              },
+              {
+                "speaker_type": "customer",
+                "speaker_name": "联系人1",
+                "content": "fأقوال فيها"
+              }
+            ]
+          },
+          {
+            "name": "销售SOP",
+            "question_name": "会话沟通主题是首次触达、试听课后回访还是其他",
+            "content": "首次触达",
+            "contexts": [
+              {
+                "speaker_type": "user",
+                "speaker_name": "Islam Abed",
+                "content": "يعطيك العافية أخوي الكريم، بتواصل معك الأستاذ إسلام منصة الغة الإنكليزية."
+              }
+            ]
+          },
+          {
+            "name": "销售SOP",
+            "question_name": "销售是否回顾了客户对英语学习的期望和需求",
+            "content": "否",
+            "contexts": []
+          },
+          {
+            "name": "销售SOP",
+            "question_name": "销售是否向反馈了学员的课堂表现",
+            "content": "否",
+            "contexts": []
+          },
+          {
+            "name": "销售SOP",
+            "question_name": "销售是否对客户进行了学习效果或课程预期管理",
+            "content": "否",
+            "contexts": []
+          },
+          {
+            "name": "销售SOP",
+            "question_name": "销售是否了解到课程报名的最终决策者",
+            "content": "否",
+            "contexts": []
+          },
+          {
+            "name": "销售SOP",
+            "question_name": "销售是否询问了客户对教师类型的偏好",
+            "content": "否",
+            "contexts": []
+          }
+        ]
+      },
+      "summary_error": null,
+      "asr": {
+        "conversation_type": "audio",
+        "preview": [
+          {
+            "begin_time": 2.64,
+            "speaker_type": "host_salesman",
+            "speaker_name": "Islam Abed",
+            "content": "am i",
+            "content_en": "Am I...?"
+          },
+          {
+            "begin_time": 4.67,
+            "speaker_type": "customer_contact",
+            "speaker_name": "联系人1",
+            "content": "ألو. عليكم السلام.",
+            "content_en": "Hello. Peace be upon you."
+          },
+          {
+            "begin_time": 8.18,
+            "speaker_type": "host_salesman",
+            "speaker_name": "Islam Abed",
+            "content": "يعطيك العافية أخوي الكريم، بتواصل معك الأستاذ إسلام منصة الغة الإنكليزية.",
+            "content_en": "May God bless you, dear brother. This is Professor Islam from the English Language Platform."
+          },
+          {
+            "begin_time": 17.6,
+            "speaker_type": "host_salesman",
+            "speaker_name": "Islam Abed",
+            "content": "ألو.",
+            "content_en": "Hello."
+          },
+          {
+            "begin_time": 19.16,
+            "speaker_type": "customer_contact",
+            "speaker_name": "联系人1",
+            "content": "fأقوال فيها",
+            "content_en": "I have some questions."
+          },
+          {
+            "begin_time": 27.81,
+            "speaker_type": "host_salesman",
+            "speaker_name": "Islam Abed",
+            "content": "الو.",
+            "content_en": "Hello."
+          }
+        ]
+      },
+      "asr_error": null
+    },
+    {
+      "bucket": "high",
+      "conversation_id": 391207852,
+      "origin_conversation_id": "f0389ec5-f1d3-48e3-a4e8-8e5d997c4fad",
+      "deal_id": 55203724,
+      "begin_time": "2026-02-05T16:59:58",
+      "salesman_percent": "53.42%",
+      "score": {
+        "average_score": 38.3333,
+        "score_results": [
+          {
+            "name": "首次通话（用户付费后）",
+            "score": 0,
+            "total_score": 100,
+            "qualified": 0
+          },
+          {
+            "name": "首次触达评分",
+            "score": 55,
+            "total_score": 100,
+            "qualified": 0
+          },
+          {
+            "name": "试听课回访评分",
+            "score": 60,
+            "total_score": 100,
+            "qualified": 0
+          }
+        ]
+      },
+      "score_error": null,
+      "summary": {
+        "summary_status": 2,
+        "highlights": [
+          {
+            "name": "客户档案",
+            "question_name": "客户档案",
+            "content": "**基础信息**\n学员姓名：玛赫拉\n学员学校：未提及\n学员年级：幼儿园\n决策人：客户及其丈夫\n预算：未提及\n\n**学习情况**\n学科基础：孩子目前英语基础薄弱，才上幼儿园，连基础都还没完全建立起来，理解能力尚弱，第一次系统学习英语\n学习习惯：未提及\n\n**学习薄弱项**\n英语基础薄弱，理解能力弱，无法从当前课程中获得有效提升\n\n**补习经历**\n过往补习经历：未提及\n过往辅导班名称：未提及\n过往补习反馈：未提及\n\n**客户诉求**\n希望课程价格再优惠一点，或者保持原价但增加些服务；了解三个月课程包的具体情况（总共几节课、每节课多长时间）\n\n**客户异议**\n觉得课程价格稍高；孩子目前掌握有限，从当前课程中没学到什么\n\n**下一步行动**\n销售联系财务部门获取授权，为客户开通三个月课程包",
+            "contexts": []
+          },
+          {
+            "name": "客户标签",
+            "question_name": "客户咨询的是成人还是少儿课程",
+            "content": "咨询少儿课程",
+            "contexts": [
+              {
+                "speaker_type": "customer",
+                "speaker_name": "联系人1",
+                "content": "لا واله ما واجهتيه بس شوي السير كان شوية غالي والبنت يعني حسيت إنها شوية يعني باقي ما استوعبت إخوانها إنها حتى روضة باقي ما تخلع فهمت علي يعني هي توه ما دخلت"
+              },
+              {
+                "speaker_type": "customer",
+                "speaker_name": "联系人1",
+                "content": "آخر باقة أختي يعني أنا ما أقدر تقريبا بس آخر باقة حتى قلتلهم انتظروا شوي وريتوا ابوها قال انتظر علينا شوية فانا ما اذكرها بصراحة لان ابوها السعر"
+              },
+              {
+                "speaker_type": "user",
+                "speaker_name": "Islam Abed",
+                "content": "ومع إمكانية التقسيط على تابع أو تمارة، هلأ في نقطة معينة؟ أم هرة؟ إنت حكيتيلي ياها؟ إنه إنت حسيتي مهرة، ما إستفادت إشي من هاي الحصة، صحيح؟ معك حق البنت ما رح تستفيد إشي من هاي الحصة، شو السب؟ شو السب؟ يا أم هرى؟"
+              }
+            ]
+          },
+          {
+            "name": "客户标签",
+            "question_name": "客户首次触达时是否有咨询英语课程的意愿",
+            "content": "有咨询意愿",
+            "contexts": [
+              {
+                "speaker_type": "user",
+                "speaker_name": "Islam Abed",
+                "content": "يعطيك العافية، اختي بتواصل معك الاستاذ اسلام منصة تعليم الغة الانكليزية من قسم التسجيل."
+              },
+              {
+                "speaker_type": "user",
+                "speaker_name": "Islam Abed",
+                "content": "اله يسعدك يا رب حضرتكم كنتوا مهتمين بتعليم المهرة الغة الإنكليزية وزودناكم في الباقات والتفاصيل الكاملة والخطة التعليمية هل واجهتوا مشاكل معينة من ناحية التسجيل أو الأمور هذه"
+              },
+              {
+                "speaker_type": "customer",
+                "speaker_name": "联系人1",
+                "content": "th ickلالا واش تاعو نحكي بشهيوة même prix؟"
+              }
+            ]
+          },
+          {
+            "name": "客户标签",
+            "question_name": "学员学习英语的痛点是什么",
+            "content": "需要系统启蒙",
+            "contexts": [
+              {
+                "speaker_type": "user",
+                "speaker_name": "Islam Abed",
+                "content": "ومع إمكانية التقسيط على تابع أو تمارة، هلأ في نقطة معينة؟ أم هرة؟ إنت حكيتيلي ياها؟ إنه إنت حسيتي مهرة، ما إستفادت إشي من هاي الحصة، صحيح؟ معك حق البنت ما رح تستفيد إشي من هاي الحصة، شو السب؟ شو السب؟ يا أم هرى؟"
+              },
+              {
+                "speaker_type": "customer",
+                "speaker_name": "联系人1",
+                "content": "Thanks.متاز."
+              },
+              {
+                "speaker_type": "customer",
+                "speaker_name": "联系人1",
+                "content": "لأ، نفس نوع بس."
+              }
+            ]
+          },
+          {
+            "name": "客户标签",
+            "question_name": "客户的国家或地区是哪里",
+            "content": "中东",
+            "contexts": [
+              {
+                "speaker_type": "user",
+                "speaker_name": "Islam Abed",
+                "content": "بالظبط؟ هلئ أنت عارفة أنه الملكة العربية السعودية لوين إتجاها بالغة الإنجليزية؟ بالإضافة إنه كان بالبداية إنه الغة الإنجليزية ما يعطوها في الفصول الأولى الي هو الأول والثاني والثالث لحد الصف الرابع، بعد هيك بتنزل عندهم الغة الإنجليزية، حاليا صارت الغة الإن"
+              },
+              {
+                "speaker_type": "user",
+                "speaker_name": "Islam Abed",
+                "content": "جليزية من الروضة يعطوها ياها، دا أهمية الغة الإنجليزية، بالإضافة لشغلة معينة يا أم مهرة إنه محمد بن سلمان يعني فرض علينا إحنا كمنصة إنه ندخل الملكة العربية السعودية ويتم تدريس من منصتنا في الملكة العربية السعودية لجودة تدريسنا."
+              }
+            ]
+          },
+          {
+            "name": "销售SOP",
+            "question_name": "针对客户提出的影响购买决策的顾虑，销售是否有效的回应或解答",
+            "content": "是",
+            "contexts": [
+              {
+                "speaker_type": "customer",
+                "speaker_name": "联系人1",
+                "content": "لا واله ما واجهتيه بس شوي السير كان شوية غالي والبنت يعني حسيت إنها شوية يعني باقي ما استوعبت إخوانها إنها حتى روضة باقي ما تخلع فهمت علي يعني هي توه ما دخلت"
+              },
+              {
+                "speaker_type": "user",
+                "speaker_name": "Islam Abed",
+                "content": "السب انو الطالب لسا ضعيف بالغة الإنكليزية تمام وهاي شغلة تانية انها اول مرة تمام هلأ احنا لما نبدأ معها كورس ما رح ابدأ معها في هذا الشي اكيد رح ابدأ معها في التأسيس رح أس الطالب في الحروف الفردية في الحروف المركبة رح أعطي الجرامر رح أعطي مصطلحات أدوات ربط"
+              },
+              {
+                "speaker_type": "user",
+                "speaker_name": "Islam Abed",
+                "content": " قواعد لغوية بحيث اني اعمل عند الطالب هيكلة من الغة الانجليزية بحيث انو يقدر يستفيد من الغة الانجليزية اما اجي ادخل مع الطالب على موضوع المحادثة مباشرة بقولك لا واله ما تسلموه عندي"
+              }
+            ]
+          },
+          {
+            "name": "销售SOP",
+            "question_name": "销售是否向反馈了学员的课堂表现",
+            "content": "否",
+            "contexts": []
+          },
+          {
+            "name": "销售SOP",
+            "question_name": "销售是否回顾了客户对英语学习的期望和需求",
+            "content": "否",
+            "contexts": []
+          }
+        ]
+      },
+      "summary_error": null,
+      "asr": {
+        "conversation_type": "audio",
+        "preview": [
+          {
+            "begin_time": 0,
+            "speaker_type": "host_salesman",
+            "speaker_name": "Islam Abed",
+            "content": "تفضل",
+            "content_en": null
+          },
+          {
+            "begin_time": 2.01,
+            "speaker_type": "customer_contact",
+            "speaker_name": "联系人1",
+            "content": "الو.",
+            "content_en": null
+          },
+          {
+            "begin_time": 3.05,
+            "speaker_type": "host_salesman",
+            "speaker_name": "Islam Abed",
+            "content": "السلام عليكم.",
+            "content_en": null
+          },
+          {
+            "begin_time": 3.63,
+            "speaker_type": "customer_contact",
+            "speaker_name": "联系人1",
+            "content": "الو وعليكم السلام. هلا واله.",
+            "content_en": null
+          },
+          {
+            "begin_time": 6.91,
+            "speaker_type": "host_salesman",
+            "speaker_name": "Islam Abed",
+            "content": "يعطيك العافية، اختي بتواصل معك الاستاذ اسلام منصة تعليم الغة الانكليزية من قسم التسجيل.",
+            "content_en": null
+          },
+          {
+            "begin_time": 12.79,
+            "speaker_type": "customer_contact",
+            "speaker_name": "联系人1",
+            "content": "اله يسعدك",
+            "content_en": null
+          },
+          {
+            "begin_time": 14.85,
+            "speaker_type": "host_salesman",
+            "speaker_name": "Islam Abed",
+            "content": "اله يحفظك يا رب. ما نكون أزعجناكي.",
+            "content_en": null
+          },
+          {
+            "begin_time": 17.75,
+            "speaker_type": "customer_contact",
+            "speaker_name": "联系人1",
+            "content": "لا، لا، عادي الشعرة.",
+            "content_en": null
+          },
+          {
+            "begin_time": 19.17,
+            "speaker_type": "host_salesman",
+            "speaker_name": "Islam Abed",
+            "content": "اله يسعدك يا رب حضرتكم كنتوا مهتمين بتعليم المهرة الغة الإنكليزية وزودناكم في الباقات والتفاصيل الكاملة والخطة التعليمية هل واجهتوا مشاكل معينة من ناحية التسجيل أو الأمور هذه",
+            "content_en": null
+          },
+          {
+            "begin_time": 21.78,
+            "speaker_type": "customer_contact",
+            "speaker_name": "联系人1",
+            "content": "Are you.",
+            "content_en": null
+          },
+          {
+            "begin_time": 31.05,
+            "speaker_type": "customer_contact",
+            "speaker_name": "联系人1",
+            "content": "لا واله ما واجهتيه بس شوي السير كان شوية غالي والبنت يعني حسيت إنها شوية يعني باقي ما استوعبت إخوانها إنها حتى روضة باقي ما تخلع فهمت علي يعني هي توه ما دخلت",
+            "content_en": null
+          },
+          {
+            "begin_time": 39.57,
+            "speaker_type": "host_salesman",
+            "speaker_name": "Islam Abed",
+            "content": "h mm؟",
+            "content_en": null
+          }
+        ]
+      },
+      "asr_error": null
+    }
+  ],
+  "notes": [
+    "Database employee status: inactive. Keep this coaching pack as historical review because the employee was explicitly requested."
+  ]
+}

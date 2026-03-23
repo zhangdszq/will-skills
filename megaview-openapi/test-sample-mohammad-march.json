@@ -1,0 +1,546 @@
+{
+  "ok": true,
+  "request": {
+    "employee_name": "Mohammad Qasem",
+    "staff_id": "600000391|45830",
+    "begin_time": "2026-03-01 00:00:00",
+    "end_time": "2026-04-01 00:00:00",
+    "score_scan_limit": 120,
+    "asr_preview_lines": 12,
+    "employees_file": "/Users/zhang/git-repos/vk-skills/megaview-openapi/data/employees.json",
+    "megaview_credentials_file": "/Users/zhang/.vk-cowork/megaview_credentials.json",
+    "starrocks_config_file": "/Users/zhang/git-repos/vk-skills/megaview-openapi/data/starrocks_config.json"
+  },
+  "employee": {
+    "staffName": "Mohammad Qasem",
+    "staffId": "600000391|45830",
+    "origin_user_id": "600000391|45830",
+    "open_user_id": "czZaUzylkOWyJqid1Htaiv",
+    "database_employee": {
+      "status": "active",
+      "active_first_applied": true,
+      "matched_row_count": 1,
+      "active_row_count": 1,
+      "preferred_record": {
+        "database_staff_id": "600000391",
+        "database_staff_name": "Mohammad Qasem",
+        "business_line": "sa",
+        "staff_role": "JOCC",
+        "hire_date": "2025-11-16",
+        "termination_date": null
+      }
+    }
+  },
+  "starrocks": {
+    "database": "intl_analysis",
+    "database_employee_table": "vk_gl_leads_staff_team_assignment_relation",
+    "database_employee_driver": "pymysql",
+    "database_employee_sql": "SELECT CAST(staff_id AS STRING) AS database_staff_id, staff_name AS database_staff_name, business_line, staff_role, CAST(hire_date AS STRING) AS hire_date, CAST(termination_date AS STRING) AS termination_date FROM vk_gl_leads_staff_team_assignment_relation WHERE (staff_name IN ('Mohammad Qasem')) OR (CAST(staff_id AS STRING) IN ('600000391')) ORDER BY staff_name, termination_date",
+    "config_file": "/Users/zhang/git-repos/vk-skills/megaview-openapi/data/starrocks_config.json"
+  },
+  "selection": {
+    "conversation_count": 249,
+    "score_candidate_count": 120,
+    "scored_candidate_count": 120
+  },
+  "samples": [
+    {
+      "bucket": "low",
+      "conversation_id": 401999317,
+      "origin_conversation_id": "97f303b9-4a8e-488a-b81e-3eae812c914d",
+      "deal_id": 55708142,
+      "begin_time": "2026-03-01T02:53:50",
+      "salesman_percent": "100.00%",
+      "score": {
+        "average_score": 0,
+        "score_results": [
+          {
+            "name": "首次通话（用户付费后）",
+            "score": 0,
+            "total_score": 100,
+            "qualified": 0
+          },
+          {
+            "name": "首次触达评分",
+            "score": 0,
+            "total_score": 100,
+            "qualified": 0
+          },
+          {
+            "name": "试听课回访评分",
+            "score": 0,
+            "total_score": 100,
+            "qualified": 0
+          }
+        ]
+      },
+      "score_error": null,
+      "summary": {
+        "summary_status": 2,
+        "highlights": []
+      },
+      "summary_error": null,
+      "asr": {
+        "conversation_type": "audio",
+        "preview": [
+          {
+            "begin_time": 0.47,
+            "speaker_type": "host_salesman",
+            "speaker_name": "Mohammad Qasem",
+            "content": "اهلا بك في خدمة البريد الصوتي.",
+            "content_en": null
+          }
+        ]
+      },
+      "asr_error": null
+    },
+    {
+      "bucket": "median",
+      "conversation_id": 402019305,
+      "origin_conversation_id": "a481152b-f91f-4dbd-8faa-733293ff2a86",
+      "deal_id": 55744963,
+      "begin_time": "2026-03-01T04:21:16",
+      "salesman_percent": "57.28%",
+      "score": {
+        "average_score": 3.3333,
+        "score_results": [
+          {
+            "name": "首次通话（用户付费后）",
+            "score": 0,
+            "total_score": 100,
+            "qualified": 0
+          },
+          {
+            "name": "首次触达评分",
+            "score": 10,
+            "total_score": 100,
+            "qualified": 0
+          },
+          {
+            "name": "试听课回访评分",
+            "score": 0,
+            "total_score": 100,
+            "qualified": 0
+          }
+        ]
+      },
+      "score_error": null,
+      "summary": {
+        "summary_status": 2,
+        "highlights": [
+          {
+            "name": "客户档案",
+            "question_name": "客户档案",
+            "content": "**客户诉求**：取消订阅\n**下一步行动**：客户自行操作取消订阅，销售方为客户办理退款；若有优惠活动，销售方通过WhatsApp发给客户",
+            "contexts": []
+          },
+          {
+            "name": "销售SOP",
+            "question_name": "针对客户提出的影响购买决策的顾虑，销售是否有效的回应或解答",
+            "content": "否",
+            "contexts": []
+          },
+          {
+            "name": "销售SOP",
+            "question_name": "销售是否询问了客户对教师类型的偏好",
+            "content": "否",
+            "contexts": []
+          },
+          {
+            "name": "销售SOP",
+            "question_name": "销售是否主动询问家长的疑虑并针对性解答",
+            "content": "否",
+            "contexts": []
+          },
+          {
+            "name": "销售SOP",
+            "question_name": "销售是否向客户介绍了课程的预约和取消规则",
+            "content": "是",
+            "contexts": [
+              {
+                "speaker_type": "customer",
+                "speaker_name": "联系人1",
+                "content": "طيب كيف نلغي الإشتراك الحين؟"
+              },
+              {
+                "speaker_type": "user",
+                "speaker_name": "Mohammad Qasem",
+                "content": "إذا حبت تلغي الإشتراك بلغيلك إياه، أنا."
+              }
+            ]
+          },
+          {
+            "name": "销售SOP",
+            "question_name": "销售是否进行了自我介绍",
+            "content": "否",
+            "contexts": []
+          },
+          {
+            "name": "销售SOP",
+            "question_name": "销售是否给客户强制预约试听课",
+            "content": "否",
+            "contexts": []
+          },
+          {
+            "name": "销售SOP",
+            "question_name": "会话沟通主题是首次触达、试听课后回访还是其他",
+            "content": "其他",
+            "contexts": [
+              {
+                "speaker_type": "customer",
+                "speaker_name": "联系人1",
+                "content": "ايوه عندك بيني وبينك."
+              },
+              {
+                "speaker_type": "user",
+                "speaker_name": "Mohammad Qasem",
+                "content": "أكيد بقولك هاي أختي مبدئيا ستة شهور بتكون ب2565 ريال."
+              },
+              {
+                "speaker_type": "customer",
+                "speaker_name": "联系人1",
+                "content": "طيب كيف نلغي الإشتراك الحين؟"
+              }
+            ]
+          }
+        ]
+      },
+      "summary_error": null,
+      "asr": {
+        "conversation_type": "audio",
+        "preview": [
+          {
+            "begin_time": 1.42,
+            "speaker_type": "customer_contact",
+            "speaker_name": "联系人1",
+            "content": "ايوه عندك بيني وبينك.",
+            "content_en": null
+          },
+          {
+            "begin_time": 2.52,
+            "speaker_type": "host_salesman",
+            "speaker_name": "Mohammad Qasem",
+            "content": "أخبر.",
+            "content_en": null
+          },
+          {
+            "begin_time": 4.86,
+            "speaker_type": "host_salesman",
+            "speaker_name": "Mohammad Qasem",
+            "content": "أكيد بقولك هاي أختي مبدئيا ستة شهور بتكون ب2565 ريال.",
+            "content_en": null
+          },
+          {
+            "begin_time": 4.92,
+            "speaker_type": "customer_contact",
+            "speaker_name": "联系人1",
+            "content": "no",
+            "content_en": null
+          },
+          {
+            "begin_time": 13.5,
+            "speaker_type": "customer_contact",
+            "speaker_name": "联系人1",
+            "content": "طيب كيف نلغي الإشتراك الحين؟",
+            "content_en": null
+          },
+          {
+            "begin_time": 16.66,
+            "speaker_type": "host_salesman",
+            "speaker_name": "Mohammad Qasem",
+            "content": "إذا حبت تلغي الإشتراك بلغيلك إياه، أنا.",
+            "content_en": null
+          },
+          {
+            "begin_time": 19.65,
+            "speaker_type": "customer_contact",
+            "speaker_name": "联系人1",
+            "content": "ايوا الغلي اله يعافيك واذا صار في تخفيضات او شي تقدر ترسلولي على",
+            "content_en": null
+          },
+          {
+            "begin_time": 22.22,
+            "speaker_type": "host_salesman",
+            "speaker_name": "Mohammad Qasem",
+            "content": "Look it up.",
+            "content_en": null
+          },
+          {
+            "begin_time": 26.86,
+            "speaker_type": "host_salesman",
+            "speaker_name": "Mohammad Qasem",
+            "content": "ان شاء اله. بس اختي يعني انا الي بدي اوصلك اياها بتعرفي انه يعني احنا عندنا تقسيط تابعي او تمارة؟",
+            "content_en": null
+          },
+          {
+            "begin_time": 34.5,
+            "speaker_type": "customer_contact",
+            "speaker_name": "联系人1",
+            "content": "اله يا شهر هذا مضغوطات.",
+            "content_en": null
+          },
+          {
+            "begin_time": 34.86,
+            "speaker_type": "host_salesman",
+            "speaker_name": "Mohammad Qasem",
+            "content": "يعني انتي؟",
+            "content_en": null
+          },
+          {
+            "begin_time": 37.15,
+            "speaker_type": "host_salesman",
+            "speaker_name": "Mohammad Qasem",
+            "content": "ما في أي مشكلة ما؟",
+            "content_en": null
+          }
+        ]
+      },
+      "asr_error": null
+    },
+    {
+      "bucket": "high",
+      "conversation_id": 407323912,
+      "origin_conversation_id": "e0983a31-2b0a-4734-8a4c-4549350a68d6",
+      "deal_id": 56066543,
+      "begin_time": "2026-03-10T02:31:26",
+      "salesman_percent": "61.88%",
+      "score": {
+        "average_score": 46.6667,
+        "score_results": [
+          {
+            "name": "首次通话（用户付费后）",
+            "score": 0,
+            "total_score": 100,
+            "qualified": 0
+          },
+          {
+            "name": "首次触达评分",
+            "score": 50,
+            "total_score": 100,
+            "qualified": 0
+          },
+          {
+            "name": "试听课回访评分",
+            "score": 90,
+            "total_score": 100,
+            "qualified": 0
+          }
+        ]
+      },
+      "score_error": null,
+      "summary": {
+        "summary_status": 2,
+        "highlights": [
+          {
+            "name": "客户档案",
+            "question_name": "客户档案",
+            "content": "**基础信息**\n学员姓名：卡迪、穆罕默德\n学校：未提及\n年级：卡迪明年上国际一年级；穆罕默德今年四岁半\n决策人：卡迪妈妈\n预算：四个月套餐费用2851里亚尔\n**学习情况**\n学科基础：学生已掌握全部字母、字母表，能用所学字母拼出单词，顺利完成英语字母、星期和月份的记忆学习，能将单词组合起来造句，能听懂日常英语，至少能用英语做自我介绍，也能与他人进行基础对话交流\n学习习惯：未提及\n**学习薄弱项**\n未提及\n**补习经历**\n过往补习经历：未提及\n过往辅导班名称：未提及\n过往补习反馈：未提及\n**客户诉求**\n孩子能进行日常口语交流；解决孩子阅读能力薄弱问题\n**客户异议**\n担心孩子们会很快失去兴趣，干脆就不来上课\n**下一步行动**\n客户通过平台App的‘泰玛拉’进行分期付款，支付四个月课程套餐费用；销售后续根据实际情况为客户延长服务期",
+            "contexts": []
+          },
+          {
+            "name": "客户标签",
+            "question_name": "学员学习英语的目的是什么",
+            "content": "课外拓展提升",
+            "contexts": [
+              {
+                "speaker_type": "customer",
+                "speaker_name": "联系人1",
+                "content": "يعني يكفي تحدث"
+              },
+              {
+                "speaker_type": "user",
+                "speaker_name": "Mohammad Qasem",
+                "content": "حفظنا الأكبر قدر من المصطلحات حفظين الايام الاشهر، الاسابيع قادرين انهم يكونوا جمل قادرين انهم يفهموا الغة الانكليزية، قادرين اقل ما فيها يعرفوا عن نفسهم بالغة الانكليزية، قادرين اي شخص يتحاور معهم انهم يدوله الاساسيات تمام؟"
+              },
+              {
+                "speaker_type": "user",
+                "speaker_name": "Mohammad Qasem",
+                "content": "طيب هسه بإذن اله تعالى هاي محمد صار عندك على سيستيم بإذن اله. شوفي يا ام تعدي هسا، بالإضافة أيضا رح إن إحنا نأسلك الطالبات، التأسيس الكامل، يعني بإختصار يوم كادي الطالبة راح تأس في جميع محاور الغة الإنكليزية، من ناحية لفظ الكلمات، الكتابة، القراءة، المحادث"
+              }
+            ]
+          },
+          {
+            "name": "客户标签",
+            "question_name": "客户首次触达时是否有咨询英语课程的意愿",
+            "content": "有咨询意愿",
+            "contexts": [
+              {
+                "speaker_type": "customer",
+                "speaker_name": "联系人1",
+                "content": "طيب نشكركم معكم كم اخذوا يستغرقوا من الوقت عشان يتقنونها كم شهر"
+              },
+              {
+                "speaker_type": "customer",
+                "speaker_name": "联系人1",
+                "content": "تمامno i'm sorryok"
+              },
+              {
+                "speaker_type": "customer",
+                "speaker_name": "联系人1",
+                "content": "لا لا خطة اربع شهور ابغاهابس."
+              }
+            ]
+          },
+          {
+            "name": "客户标签",
+            "question_name": "学员学校的性质是什么",
+            "content": "国际学校",
+            "contexts": [
+              {
+                "speaker_type": "customer",
+                "speaker_name": "联系人1",
+                "content": "السنة الجاية هو تدرس أولى عالمية، فأبي تساعدها شوي."
+              }
+            ]
+          },
+          {
+            "name": "客户标签",
+            "question_name": "客户希望提升的英语板块是什么",
+            "content": "口语表达",
+            "contexts": [
+              {
+                "speaker_type": "customer",
+                "speaker_name": "联系人1",
+                "content": "يعني يكفي تحدث"
+              }
+            ]
+          },
+          {
+            "name": "客户标签",
+            "question_name": "客户是否明确同意参加试听课",
+            "content": "否",
+            "contexts": []
+          },
+          {
+            "name": "客户标签",
+            "question_name": "客户咨询的是成人还是少儿课程",
+            "content": "咨询少儿课程",
+            "contexts": [
+              {
+                "speaker_type": "user",
+                "speaker_name": "Mohammad Qasem",
+                "content": "بالنسبة لطلاب الي عندك حاب قبل ما احكيلك الباقات والاسعار حاب اعطيكي لمحة بسيطة."
+              },
+              {
+                "speaker_type": "user",
+                "speaker_name": "Mohammad Qasem",
+                "content": "ان شاء اله يا ام القعدة باذن اله تعالى اول شيء رح نعلملك الطالبة الكادي جميع اساسيات الغة الانجليزية سواء كانت من الكتابة، من القراءة، من المحادثة، من مهارة الاستماع، القواعد، راح نحفظ الطالبة اكبر قدر من المصطلحات الي هي مكن تستخدمها في حياتها اليومية. ال"
+              },
+              {
+                "speaker_type": "customer",
+                "speaker_name": "联系人1",
+                "content": "vi j ay ana not guess i'm your dad dy"
+              }
+            ]
+          },
+          {
+            "name": "客户标签",
+            "question_name": "学员学习英语的痛点是什么",
+            "content": "孩子没有兴趣学英语",
+            "contexts": [
+              {
+                "speaker_type": "customer",
+                "speaker_name": "联系人1",
+                "content": "ما في ما في بصور اصلا شهرين مثلا يعني اخاف انهم يسرون يطفشون ما يدخلون زي كده"
+              }
+            ]
+          }
+        ]
+      },
+      "summary_error": null,
+      "asr": {
+        "conversation_type": "audio",
+        "preview": [
+          {
+            "begin_time": 0.91,
+            "speaker_type": "customer_contact",
+            "speaker_name": "联系人1",
+            "content": "ايوه. الو.",
+            "content_en": null
+          },
+          {
+            "begin_time": 2.27,
+            "speaker_type": "host_salesman",
+            "speaker_name": "Mohammad Qasem",
+            "content": "السلام عليكم.",
+            "content_en": null
+          },
+          {
+            "begin_time": 3.87,
+            "speaker_type": "customer_contact",
+            "speaker_name": "联系人1",
+            "content": "عليكم السلام يا هلا.",
+            "content_en": null
+          },
+          {
+            "begin_time": 5.79,
+            "speaker_type": "host_salesman",
+            "speaker_name": "Mohammad Qasem",
+            "content": "اعمالك هيك الصوت احسن ان شاء اله",
+            "content_en": null
+          },
+          {
+            "begin_time": 8.86,
+            "speaker_type": "customer_contact",
+            "speaker_name": "联系人1",
+            "content": "ايه كذا احسن؟",
+            "content_en": null
+          },
+          {
+            "begin_time": 11.57,
+            "speaker_type": "host_salesman",
+            "speaker_name": "Mohammad Qasem",
+            "content": "ان شاء اله. طيب ام الكادي بالنسبة لمستوى الطالب الثاني الي عند حضرتك هل هو نفس المستوى؟",
+            "content_en": null
+          },
+          {
+            "begin_time": 18.49,
+            "speaker_type": "customer_contact",
+            "speaker_name": "联系人1",
+            "content": "ايه نفس الكادي يعني كله من",
+            "content_en": null
+          },
+          {
+            "begin_time": 20.8,
+            "speaker_type": "host_salesman",
+            "speaker_name": "Mohammad Qasem",
+            "content": "yeah؟",
+            "content_en": null
+          },
+          {
+            "begin_time": 22.79,
+            "speaker_type": "host_salesman",
+            "speaker_name": "Mohammad Qasem",
+            "content": "طيب صلي على النبي يا ام الكادي.",
+            "content_en": null
+          },
+          {
+            "begin_time": 23.34,
+            "speaker_type": "customer_contact",
+            "speaker_name": "联系人1",
+            "content": "عمارة يا فندم؟o",
+            "content_en": null
+          },
+          {
+            "begin_time": 25.64,
+            "speaker_type": "host_salesman",
+            "speaker_name": "Mohammad Qasem",
+            "content": "نعمهسه باذن اله تعالى.",
+            "content_en": null
+          },
+          {
+            "begin_time": 29.99,
+            "speaker_type": "host_salesman",
+            "speaker_name": "Mohammad Qasem",
+            "content": "بالنسبة لطلاب الي عندك حاب قبل ما احكيلك الباقات والاسعار حاب اعطيكي لمحة بسيطة.",
+            "content_en": null
+          }
+        ]
+      },
+      "asr_error": null
+    }
+  ],
+  "notes": [
+    "Database employee status: active."
+  ]
+}

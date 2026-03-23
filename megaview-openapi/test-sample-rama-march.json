@@ -1,0 +1,671 @@
+{
+  "ok": true,
+  "request": {
+    "employee_name": "Rama Nemer",
+    "staff_id": "600000373|00413",
+    "begin_time": "2026-03-01 00:00:00",
+    "end_time": "2026-04-01 00:00:00",
+    "score_scan_limit": 120,
+    "asr_preview_lines": 12,
+    "employees_file": "/Users/zhang/git-repos/vk-skills/megaview-openapi/data/employees.json",
+    "megaview_credentials_file": "/Users/zhang/.vk-cowork/megaview_credentials.json",
+    "starrocks_config_file": "/Users/zhang/git-repos/vk-skills/megaview-openapi/data/starrocks_config.json"
+  },
+  "employee": {
+    "staffName": "Rama Nemer",
+    "staffId": "600000373|00413",
+    "origin_user_id": "600000373|00413",
+    "open_user_id": "j3mzILyEPxuhmRsbaMR9gY",
+    "database_employee": {
+      "status": "active",
+      "active_first_applied": true,
+      "matched_row_count": 1,
+      "active_row_count": 1,
+      "preferred_record": {
+        "database_staff_id": "600000373",
+        "database_staff_name": "Rama Nemer",
+        "business_line": "sa",
+        "staff_role": "JOCC",
+        "hire_date": "2025-11-16",
+        "termination_date": null
+      }
+    }
+  },
+  "starrocks": {
+    "database": "intl_analysis",
+    "database_employee_table": "vk_gl_leads_staff_team_assignment_relation",
+    "database_employee_driver": "pymysql",
+    "database_employee_sql": "SELECT CAST(staff_id AS STRING) AS database_staff_id, staff_name AS database_staff_name, business_line, staff_role, CAST(hire_date AS STRING) AS hire_date, CAST(termination_date AS STRING) AS termination_date FROM vk_gl_leads_staff_team_assignment_relation WHERE (staff_name IN ('Rama Nemer')) OR (CAST(staff_id AS STRING) IN ('600000373')) ORDER BY staff_name, termination_date",
+    "config_file": "/Users/zhang/git-repos/vk-skills/megaview-openapi/data/starrocks_config.json"
+  },
+  "selection": {
+    "conversation_count": 229,
+    "score_candidate_count": 120,
+    "scored_candidate_count": 120
+  },
+  "samples": [
+    {
+      "bucket": "low",
+      "conversation_id": 402012420,
+      "origin_conversation_id": "c5a71064-4e66-4155-ae1c-dae820ff8dad",
+      "deal_id": 55025217,
+      "begin_time": "2026-03-01T03:46:13",
+      "salesman_percent": "41.51%",
+      "score": {
+        "average_score": 0,
+        "score_results": [
+          {
+            "name": "首次通话（用户付费后）",
+            "score": 0,
+            "total_score": 100,
+            "qualified": 0
+          },
+          {
+            "name": "首次触达评分",
+            "score": 0,
+            "total_score": 100,
+            "qualified": 0
+          },
+          {
+            "name": "试听课回访评分",
+            "score": 0,
+            "total_score": 100,
+            "qualified": 0
+          }
+        ]
+      },
+      "score_error": null,
+      "summary": {
+        "summary_status": 2,
+        "highlights": [
+          {
+            "name": "客户档案",
+            "question_name": "客户档案",
+            "content": "**客户异议**：一直没能顺利联系上授课老师，建群沟通始终没成功，只能靠私信联系；和授课老师在几个具体问题上意见不一致",
+            "contexts": []
+          },
+          {
+            "name": "销售SOP",
+            "question_name": "销售是否向客户介绍了课程的预约和取消规则",
+            "content": "否",
+            "contexts": []
+          },
+          {
+            "name": "销售SOP",
+            "question_name": "会话沟通主题是首次触达、试听课后回访还是其他",
+            "content": "其他",
+            "contexts": [
+              {
+                "speaker_type": "user",
+                "speaker_name": "Rama Nemer",
+                "content": "اله يسعدك يا رب. لو سمحت معك المستشارة راما من منصة عم بتواصل معك حتى نأكد حابين تموا الاشتراك."
+              },
+              {
+                "speaker_type": "customer",
+                "speaker_name": "联系人1",
+                "content": "لا ما اعتذرتش لاستاذ الي هو معاه، كان مش عارف استاذ عبد اله فيه او عبد الفتاح مش متذكر واله."
+              },
+              {
+                "speaker_type": "customer",
+                "speaker_name": "联系人1",
+                "content": "ما عرفنا نتواصل اه ما عرفنا نتوفق في جروب وكله كان لازم برايفت وكده والكلام ده وكان في كم نقطه كده اختلفنا عليها انا كنت قايل له على الواتس واعتذرت له واله يا استاذه رامي ربنا يوفقكم ويحفظكم يا رب"
+              }
+            ]
+          },
+          {
+            "name": "销售SOP",
+            "question_name": "销售是否邀请客户介绍亲友咨询报名课程",
+            "content": "否",
+            "contexts": []
+          },
+          {
+            "name": "销售SOP",
+            "question_name": "针对客户提出的影响购买决策的顾虑，销售是否有效的回应或解答",
+            "content": "否",
+            "contexts": []
+          },
+          {
+            "name": "销售SOP",
+            "question_name": "销售是否询问了客户对教师类型的偏好",
+            "content": "否",
+            "contexts": []
+          },
+          {
+            "name": "销售SOP",
+            "question_name": "销售是否向反馈了学员的课堂表现",
+            "content": "否",
+            "contexts": []
+          },
+          {
+            "name": "销售SOP",
+            "question_name": "销售是否主动询问家长的疑虑并针对性解答",
+            "content": "否",
+            "contexts": []
+          }
+        ]
+      },
+      "summary_error": null,
+      "asr": {
+        "conversation_type": "audio",
+        "preview": [
+          {
+            "begin_time": 0.82,
+            "speaker_type": "customer_contact",
+            "speaker_name": "联系人1",
+            "content": "Son ic.",
+            "content_en": null
+          },
+          {
+            "begin_time": 2.21,
+            "speaker_type": "host_salesman",
+            "speaker_name": "Rama Nemer",
+            "content": "وعليكم السلام ورحمة اله وبركاته، يعطيك العافية.",
+            "content_en": null
+          },
+          {
+            "begin_time": 5.85,
+            "speaker_type": "customer_contact",
+            "speaker_name": "联系人1",
+            "content": "اهلا بيك، تفضلي.",
+            "content_en": null
+          },
+          {
+            "begin_time": 7.71,
+            "speaker_type": "host_salesman",
+            "speaker_name": "Rama Nemer",
+            "content": "أهلا فيك رمضان كل شهر خير وبركة",
+            "content_en": null
+          },
+          {
+            "begin_time": 11.65,
+            "speaker_type": "customer_contact",
+            "speaker_name": "联系人1",
+            "content": "وإياكم يا رب وعنا وعليكم. تفضل تحت أمرك.hey",
+            "content_en": null
+          },
+          {
+            "begin_time": 15.91,
+            "speaker_type": "host_salesman",
+            "speaker_name": "Rama Nemer",
+            "content": "اله يسعدك يا رب. لو سمحت معك المستشارة راما من منصة عم بتواصل معك حتى نأكد حابين تموا الاشتراك.",
+            "content_en": null
+          },
+          {
+            "begin_time": 26.06,
+            "speaker_type": "customer_contact",
+            "speaker_name": "联系人1",
+            "content": "لا ما اعتذرتش لاستاذ الي هو معاه، كان مش عارف استاذ عبد اله فيه او عبد الفتاح مش متذكر واله.",
+            "content_en": null
+          },
+          {
+            "begin_time": 32.26,
+            "speaker_type": "host_salesman",
+            "speaker_name": "Rama Nemer",
+            "content": "الاستاذ عبد الطيف ايوا.",
+            "content_en": null
+          },
+          {
+            "begin_time": 32.88,
+            "speaker_type": "customer_contact",
+            "speaker_name": "联系人1",
+            "content": "ما عرفنا نتواصل اه ما عرفنا نتوفق في جروب وكله كان لازم برايفت وكده والكلام ده وكان في كم نقطه كده اختلفنا عليها انا كنت قايل له على الواتس واعتذرت له واله يا استاذه رامي ربنا يوفقكم ويحفظكم يا رب",
+            "content_en": null
+          },
+          {
+            "begin_time": 47.17,
+            "speaker_type": "host_salesman",
+            "speaker_name": "Rama Nemer",
+            "content": "تسلم ما في أي مشكلة. اله يوفقكم يا رب. في أمان اله.",
+            "content_en": null
+          },
+          {
+            "begin_time": 49.54,
+            "speaker_type": "customer_contact",
+            "speaker_name": "联系人1",
+            "content": "شرفت جدا",
+            "content_en": null
+          },
+          {
+            "begin_time": 51.95,
+            "speaker_type": "host_salesman",
+            "speaker_name": "Rama Nemer",
+            "content": "لا خلاص. مع السلامة.",
+            "content_en": null
+          }
+        ]
+      },
+      "asr_error": null
+    },
+    {
+      "bucket": "median",
+      "conversation_id": 402019192,
+      "origin_conversation_id": "6ed7ce80-565c-407f-b38e-9006bfaa5e52",
+      "deal_id": 55744964,
+      "begin_time": "2026-03-01T04:20:51",
+      "salesman_percent": "48.14%",
+      "score": {
+        "average_score": 3.3333,
+        "score_results": [
+          {
+            "name": "首次通话（用户付费后）",
+            "score": 0,
+            "total_score": 100,
+            "qualified": 0
+          },
+          {
+            "name": "首次触达评分",
+            "score": 10,
+            "total_score": 100,
+            "qualified": 0
+          },
+          {
+            "name": "试听课回访评分",
+            "score": 0,
+            "total_score": 100,
+            "qualified": 0
+          }
+        ]
+      },
+      "score_error": null,
+      "summary": {
+        "summary_status": 2,
+        "highlights": [
+          {
+            "name": "客户档案",
+            "question_name": "客户档案",
+            "content": "**基础信息**\n姓名：穆罕默德妈妈\n\n**客户诉求**\n学习英语\n\n**客户异议**\n时间比较紧\n\n**下一步行动**\n安排在下午或晚上进行英语教学相关咨询",
+            "contexts": []
+          },
+          {
+            "name": "客户标签",
+            "question_name": "客户是否明确同意参加试听课",
+            "content": "否",
+            "contexts": []
+          },
+          {
+            "name": "客户标签",
+            "question_name": "客户预约课程时间偏好是什么",
+            "content": "下午",
+            "contexts": [
+              {
+                "speaker_type": "customer",
+                "speaker_name": "联系人1",
+                "content": "واله حاليا يعني الأفضل زي المغرب والعشاء."
+              }
+            ]
+          },
+          {
+            "name": "客户标签",
+            "question_name": "客户首次触达时是否有咨询英语课程的意愿",
+            "content": "有咨询意愿",
+            "contexts": [
+              {
+                "speaker_type": "customer",
+                "speaker_name": "联系人1",
+                "content": "واله حاليا يعني الأفضل زي المغرب والعشاء."
+              }
+            ]
+          },
+          {
+            "name": "销售SOP",
+            "question_name": "销售是否主动询问家长的疑虑并针对性解答",
+            "content": "否",
+            "contexts": []
+          },
+          {
+            "name": "销售SOP",
+            "question_name": "会话沟通主题是首次触达、试听课后回访还是其他",
+            "content": "首次触达",
+            "contexts": [
+              {
+                "speaker_type": "user",
+                "speaker_name": "Rama Nemer",
+                "content": "يعطيك ألف عافية يا أم محمد. أمرك طيبة.ميراما من بس آي بي كلو هالإنجليزية"
+              },
+              {
+                "speaker_type": "user",
+                "speaker_name": "Rama Nemer",
+                "content": "تمام معك المستشارة التعليمية راما من منصة لتعليم الغة الإنكليزية"
+              }
+            ]
+          },
+          {
+            "name": "销售SOP",
+            "question_name": "销售是否向反馈了学员的课堂表现",
+            "content": "否",
+            "contexts": []
+          },
+          {
+            "name": "销售SOP",
+            "question_name": "销售是否给客户强制预约试听课",
+            "content": "否",
+            "contexts": []
+          }
+        ]
+      },
+      "summary_error": null,
+      "asr": {
+        "conversation_type": "audio",
+        "preview": [
+          {
+            "begin_time": 0,
+            "speaker_type": "host_salesman",
+            "speaker_name": "Rama Nemer",
+            "content": "hello",
+            "content_en": null
+          },
+          {
+            "begin_time": 1.1,
+            "speaker_type": "customer_contact",
+            "speaker_name": "联系人1",
+            "content": "الو.",
+            "content_en": null
+          },
+          {
+            "begin_time": 4.28,
+            "speaker_type": "customer_contact",
+            "speaker_name": "联系人1",
+            "content": "وعليكم السلام ورحمة اله.",
+            "content_en": null
+          },
+          {
+            "begin_time": 6.82,
+            "speaker_type": "host_salesman",
+            "speaker_name": "Rama Nemer",
+            "content": "يعطيك ألف عافية يا أم محمد. أمرك طيبة.ميراما من بس آي بي كلو هالإنجليزية",
+            "content_en": null
+          },
+          {
+            "begin_time": 10.15,
+            "speaker_type": "customer_contact",
+            "speaker_name": "联系人1",
+            "content": "مرحبتين، أهلا وسهلا.upمعلش إيش؟يا",
+            "content_en": null
+          },
+          {
+            "begin_time": 21.63,
+            "speaker_type": "host_salesman",
+            "speaker_name": "Rama Nemer",
+            "content": "تمام معك المستشارة التعليمية راما من منصة لتعليم الغة الإنكليزية",
+            "content_en": null
+          },
+          {
+            "begin_time": 28.62,
+            "speaker_type": "customer_contact",
+            "speaker_name": "联系人1",
+            "content": "اهلا و سهلا معلش الوقت انا عندي جدا.",
+            "content_en": null
+          },
+          {
+            "begin_time": 34.47,
+            "speaker_type": "host_salesman",
+            "speaker_name": "Rama Nemer",
+            "content": "متى يناسبك؟",
+            "content_en": null
+          },
+          {
+            "begin_time": 36.98,
+            "speaker_type": "customer_contact",
+            "speaker_name": "联系人1",
+            "content": "واله حاليا يعني الأفضل زي المغرب والعشاء.",
+            "content_en": null
+          },
+          {
+            "begin_time": 41.81,
+            "speaker_type": "host_salesman",
+            "speaker_name": "Rama Nemer",
+            "content": "خلص ما في مشكلة عزيزتي إن شاء اله بإذن اله، العفو، في أمان اله.",
+            "content_en": null
+          },
+          {
+            "begin_time": 43.78,
+            "speaker_type": "customer_contact",
+            "speaker_name": "联系人1",
+            "content": "يعطيك العافية.ok",
+            "content_en": null
+          }
+        ]
+      },
+      "asr_error": null
+    },
+    {
+      "bucket": "high",
+      "conversation_id": 407325979,
+      "origin_conversation_id": "157448cd-b109-485f-bc94-80aff1a1ddbb",
+      "deal_id": 55981860,
+      "begin_time": "2026-03-10T02:30:15",
+      "salesman_percent": "53.58%",
+      "score": {
+        "average_score": 35,
+        "score_results": [
+          {
+            "name": "首次通话（用户付费后）",
+            "score": 0,
+            "total_score": 100,
+            "qualified": 0
+          },
+          {
+            "name": "首次触达评分",
+            "score": 35,
+            "total_score": 100,
+            "qualified": 0
+          },
+          {
+            "name": "试听课回访评分",
+            "score": 70,
+            "total_score": 100,
+            "qualified": 0
+          }
+        ]
+      },
+      "score_error": null,
+      "summary": {
+        "summary_status": 2,
+        "highlights": [
+          {
+            "name": "客户档案",
+            "question_name": "客户档案",
+            "content": "**基础信息**\n姓名：阿卜杜拉赫\n国籍：南非\n职业：政治学专业学生\n\n**学习情况**\n学科基础：当前处于第八级，听力、阅读能力出色，美式发音地道，但有些单词发音存在偏差，时态运用存在混淆\n学习习惯：未提及\n\n**学习薄弱项**\n时态运用混淆，部分单词发音存在偏差\n\n**补习经历**\n过往补习经历：未提及\n过往辅导班名称：未提及\n过往补习反馈：未提及\n\n**客户诉求**\n提升政治学领域英语能力，参加本地阅读能力测评考试，通过雅思考试取得7分，获取沙特教育部认证证书\n\n**客户异议**\n录播课和教材在课后24小时左右消失，认为教育费用贵\n\n**下一步行动**\n财务部门联系客户告知详细报价，销售根据客户学术目标和经济情况推荐合适课程方案",
+            "contexts": []
+          },
+          {
+            "name": "客户标签",
+            "question_name": "学员学习英语的目的是什么",
+            "content": "为出国留学做准备",
+            "contexts": [
+              {
+                "speaker_type": "customer",
+                "speaker_name": "联系人1",
+                "content": "يعني حتى 6000 حتى 6.1/2 ما فيها مجاملة، كان في. كان في جامعات ايه؟ كان في جامعتي من الابتعاث، كانت زي جامعة استرانيا، جامعة اسكوتلاند، هذي هذي تجامل تجامل على 6.1/2 اذا الطالب نتكلم معاه، لكن الباقيات."
+              },
+              {
+                "speaker_type": "user",
+                "speaker_name": "Rama Nemer",
+                "content": "ايوه وطالبين منك انك تاخد سبع نقاط في ال. صحيح؟"
+              },
+              {
+                "speaker_type": "customer",
+                "speaker_name": "联系人1",
+                "content": "بالضبط، بالضبط سبعة؟i"
+              }
+            ]
+          },
+          {
+            "name": "客户标签",
+            "question_name": "客户是否明确同意参加试听课",
+            "content": "否",
+            "contexts": []
+          },
+          {
+            "name": "销售SOP",
+            "question_name": "销售是否询问了客户对教师类型的偏好",
+            "content": "是",
+            "contexts": [
+              {
+                "speaker_type": "user",
+                "speaker_name": "Rama Nemer",
+                "content": "من وين؟ من جنوب أفريقيا أنت تبغى؟"
+              },
+              {
+                "speaker_type": "customer",
+                "speaker_name": "联系人1",
+                "content": "yeah do let's mar gin fre ak y"
+              }
+            ]
+          },
+          {
+            "name": "销售SOP",
+            "question_name": "销售是否回顾了客户对英语学习的期望和需求",
+            "content": "是",
+            "contexts": [
+              {
+                "speaker_type": "user",
+                "speaker_name": "Rama Nemer",
+                "content": "ايوه وطالبين منك انك تاخد سبع نقاط في ال. صحيح؟"
+              },
+              {
+                "speaker_type": "customer",
+                "speaker_name": "联系人1",
+                "content": "بالضبط، بالضبط سبعة؟i"
+              }
+            ]
+          },
+          {
+            "name": "销售SOP",
+            "question_name": "销售是否进行了自我介绍",
+            "content": "否",
+            "contexts": []
+          },
+          {
+            "name": "销售SOP",
+            "question_name": "销售进行公司课程介绍时，介绍了哪些内容",
+            "content": "公司背景",
+            "contexts": [
+              {
+                "speaker_type": "user",
+                "speaker_name": "Rama Nemer",
+                "content": "كلهم؟ لا لا كلهم 100% معهم بكالوريوس لغة انجليزية بالاضافة 77% معهم شهادات ماستر ودكتوراة."
+              }
+            ]
+          },
+          {
+            "name": "销售SOP",
+            "question_name": "针对客户提出的影响购买决策的顾虑，销售是否有效的回应或解答",
+            "content": "是",
+            "contexts": [
+              {
+                "speaker_type": "customer",
+                "speaker_name": "联系人1",
+                "content": "no no i saw المشكلة ان الحصة اذا كانت مسجلة او الكتاب عندي اوكي كم ساعة بعدين يختفي نهائيا الحصة المسجلة والكتابة.and"
+              },
+              {
+                "speaker_type": "user",
+                "speaker_name": "Rama Nemer",
+                "content": "هلأ كحصة رح تكون مسجلة رح تظلها عندك متواجدة على التطبيق نص ساعة بس هي مسجلة فقط عندك يعني بس انت الي تقدر تحضرها احتراما لخصوصية بعد تلاتين يوم رح تنلغى تلقائيا اما الكتاب ان انت قصدك بالكتاب كمنهاج"
+              },
+              {
+                "speaker_type": "customer",
+                "speaker_name": "联系人1",
+                "content": "هو هو تطبيق لقيتها وكل شي وتمام. بس بعدها اليوم الي بعده ما عاد حصلت هذا الكتاب ولا التسجيل عارف؟"
+              }
+            ]
+          }
+        ]
+      },
+      "summary_error": null,
+      "asr": {
+        "conversation_type": "audio",
+        "preview": [
+          {
+            "begin_time": 0.75,
+            "speaker_type": "customer_contact",
+            "speaker_name": "联系人1",
+            "content": "i don't",
+            "content_en": null
+          },
+          {
+            "begin_time": 2.11,
+            "speaker_type": "host_salesman",
+            "speaker_name": "Rama Nemer",
+            "content": "الو. السلام عليكم.",
+            "content_en": null
+          },
+          {
+            "begin_time": 3.87,
+            "speaker_type": "customer_contact",
+            "speaker_name": "联系人1",
+            "content": "وعليكم السلام.",
+            "content_en": null
+          },
+          {
+            "begin_time": 5.82,
+            "speaker_type": "host_salesman",
+            "speaker_name": "Rama Nemer",
+            "content": "يعطيك ألف عافية يا عبداله. ان شاء اله امورك طيبة.",
+            "content_en": null
+          },
+          {
+            "begin_time": 9.39,
+            "speaker_type": "customer_contact",
+            "speaker_name": "联系人1",
+            "content": "اله يعافيك نحمد اله ونشكره.",
+            "content_en": null
+          },
+          {
+            "begin_time": 12.18,
+            "speaker_type": "host_salesman",
+            "speaker_name": "Rama Nemer",
+            "content": "الحمدله دائما وأبدا.",
+            "content_en": null
+          },
+          {
+            "begin_time": 15.32,
+            "speaker_type": "host_salesman",
+            "speaker_name": "Rama Nemer",
+            "content": "ذكرني عبداله معك المستشارة راما.",
+            "content_en": null
+          },
+          {
+            "begin_time": 19.56,
+            "speaker_type": "customer_contact",
+            "speaker_name": "联系人1",
+            "content": "ايوا حقة الشسمو في اي. بي.",
+            "content_en": null
+          },
+          {
+            "begin_time": 24.58,
+            "speaker_type": "host_salesman",
+            "speaker_name": "Rama Nemer",
+            "content": "ايوه صحيح.",
+            "content_en": null
+          },
+          {
+            "begin_time": 26,
+            "speaker_type": "customer_contact",
+            "speaker_name": "联系人1",
+            "content": "أيوة، هو كم الإشتراك؟",
+            "content_en": null
+          },
+          {
+            "begin_time": 29.22,
+            "speaker_type": "host_salesman",
+            "speaker_name": "Rama Nemer",
+            "content": "الأن صراحة حكلمك. بس كبداية أنا حاب أعرف كيف كانت الحصة؟ إن شاء اله عجبتك؟",
+            "content_en": null
+          },
+          {
+            "begin_time": 29.4,
+            "speaker_type": "customer_contact",
+            "speaker_name": "联系人1",
+            "content": "sلا، لا، متازة.",
+            "content_en": null
+          }
+        ]
+      },
+      "asr_error": null
+    }
+  ],
+  "notes": [
+    "Database employee status: active."
+  ]
+}
