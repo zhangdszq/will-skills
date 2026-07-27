@@ -8,7 +8,6 @@ Agent Skills 技能库。
 |------|------|
 | [vipkid-ops](vipkid-ops/) | VIPKID 国际化运营后台助理，支持商品包查询/新建/修改、库存、优惠券、赠送权限配置 |
 | [dingtalk-task-stats](dingtalk-task-stats/) | 钉钉 AI 表格任务统计与需求看板分析，全量拉取记录后按字段过滤、聚合统计 |
-| [a-share-volume-ignition](a-share-volume-ignition/) | A股分时量速点火分析，识别突破、回踩、二次点火、涨停回封、板块共振及失败信号 |
 
 ## 安装
 
